@@ -9,7 +9,7 @@ include_once "partials/header.php";
 </div>
 
 <div id="cta">
-    <img id="logo" src="../public/assets/img/logo_header_white.png">
+    <img class="logo" src="../public/assets/img/logo_header_white.png" alt="Motivatation Logo">
 
     <h2>Motivate yourself with an immersive RPG experience!</h2>
     <h3>
@@ -17,7 +17,7 @@ include_once "partials/header.php";
         <br>
         Join over 4 million people and improve your life one task at a time.
     </h3>
-    <img id="cta-icon" src="../public/assets/img/cta-icon.png">
+    <img id="cta-icon" src="../public/assets/img/cta-icon.png" alt="Motivatation CTA Icon">
 
     <a href="#signup"><p id="signup" >Sign Up</p></a>
 </div>
