@@ -8,6 +8,20 @@ body {
     background-color: #333333;
 }
 
+::selection {
+    color: white;
+    background: #ff9933;
+}
+
+::-webkit-scrollbar {
+    width: 9px;
+    height: 9px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #ff9933;
+}
+
 a {
     text-decoration: none;
     color: #0d87e5;
