@@ -1,0 +1,58 @@
+#logo {
+    width: 256px;
+}
+
+#nav {
+    list-style-type: none;
+    margin: 0 5%;
+    padding: 0;
+    overflow: hidden;
+
+    font-size: 1.2em;
+}
+
+#nav li:first-of-type {
+    margin-right: 2%;
+    padding-top: 0;
+    border-radius: 1%;
+}
+
+#nav li {
+    float: left;
+    padding-top: 0.4%;
+}
+
+#nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+
+#nav li a:hover {
+    color: #9f9f9f;
+    border-radius: 2%;
+}
+
+#nav #login {
+    float: right;
+}
+
+#nav #login a {
+    background-color: #ff9933;
+    border-radius: 5%;
+    font-weight: bold;
+    margin-top: 15%;
+    padding-top: 6%;
+    padding-bottom: 6%;
+}
+
+#nav #login a:hover {
+    background-color: #cf7e2a;
+    border-radius: 5%;
+
+    transition: 0.3s;
+}

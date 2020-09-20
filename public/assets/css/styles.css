@@ -2,4 +2,21 @@
 
 body {
     font-family: 'Roboto', sans-serif;
+    color: white;
+    margin: 0;
+
+    background-color: #333333;
+}
+
+#cta {
+    margin-top: 10%;
+
+    text-align: center;
+}
+
+#signup {
+    background-color: #ff9933;
+    margin: 2% 40% 0 40%;
+    padding: 0.5%;
+    border-radius: 5%;
 }

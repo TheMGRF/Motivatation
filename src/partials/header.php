@@ -9,8 +9,12 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="../../public/assets/css/styles.css">
+    <link rel="stylesheet" href="../../public/assets/css/nav.css">
 
     <title>Motivatation</title>
 </head>
 
 <body>
+<?php
+include_once "nav.php";
+?>
