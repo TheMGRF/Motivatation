@@ -39,11 +39,16 @@ a:hover {
     text-align: center;
 }
 
+#cta-icon {
+    max-height: 256px;
+    max-width: 100%;
+}
+
 #signup {
     background-color: #ff9933;
     margin: 2% 40% 0 40%;
-    padding: 0.5%;
-    border-radius: 5px;
+    padding: 1%;
+    border-radius: 2px;
 
     color: white;
     transition: color, background-color 0.5s;
@@ -53,6 +58,32 @@ a:hover {
     background-color: #cf7e2a;
 
     transition: background-color 0.5s;
+}
+
+@media only screen and (max-width: 767px) {
+    #signup {
+        min-width: 20%;
+        padding: 2%;
+        margin: 2% 20% 0 20%;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    #signup {
+        min-width: 30%;
+        margin: 2% 20% 0 20%;
+    }
+}
+
+#particles-js canvas {
+    display: block;
+    vertical-align: bottom;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+    -webkit-transition: opacity .8s ease, -webkit-transform 1.4s ease;
+    transition: opacity .8s ease, transform 1.4s ease
 }
 
 #particles-js {

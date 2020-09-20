@@ -4,6 +4,10 @@ include_once "partials/header.php";
 
 <div id="particles-js"></div>
 
+<div class="mobile-seperator">
+    <hr>
+</div>
+
 <div id="cta">
     <img id="logo" src="../public/assets/img/logo_header_white.png">
 
@@ -13,15 +17,15 @@ include_once "partials/header.php";
         <br>
         Join over 4 million people and improve your life one task at a time.
     </h3>
-    <img height="256px" src="https://habitica.com/static/img/home-main@3x.23eeafe4.png">
+    <img id="cta-icon" src="../public/assets/img/cta-icon.png">
 
-    <a href="#"><p id="signup" >Sign Up</p></a>
+    <a href="#signup"><p id="signup" >Sign Up</p></a>
 </div>
 
 <script src="../public/assets/js/particles.js"></script>
 <script>
     particlesJS.load('particles-js', '../public/assets/js/particles.json', function() {
-        console.log('callback - particles.js config loaded');
+        console.log('[INFO] Particles loaded successfully!');
     });
 </script>
 

@@ -37,6 +37,14 @@
     border-radius: 2px;
 }
 
+#nav .nav-mobile-content {
+    display: none;
+}
+
+.mobile-seperator {
+    display: none;
+}
+
 #nav #login {
     float: right;
 }
@@ -45,7 +53,7 @@
     background-color: #ff9933;
     border-radius: 2px;
     font-weight: bold;
-    margin-top: 15%;
+    margin-top: 10%;
     padding-top: 8%;
     padding-bottom: 8%;
 
@@ -57,4 +65,20 @@
     background-color: #cf7e2a;
 
     transition: color, background-color 0.5s;
+}
+
+@media only screen and (max-width: 767px) {
+    .nav-content {
+        display: none;
+    }
+
+    #nav .nav-mobile-content {
+        display: inline;
+    }
+
+    .mobile-seperator {
+        display: block;
+        width: 80%;
+        margin: auto;
+    }
 }

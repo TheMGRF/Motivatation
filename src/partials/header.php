@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="../../public/assets/css/styles.css">
     <link rel="stylesheet" href="../../public/assets/css/nav.css">
 
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+
     <title>Motivatation</title>
 </head>
 
