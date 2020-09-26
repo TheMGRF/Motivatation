@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="icon" type="image/png" href="assets/img/favicon.ico">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/nav.css">
+
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+
+    <title>Motivatation</title>
+</head>
+
+<body>
+    <div>
+        <ul id="nav">
+            <li><a href="#home"><img class="logo" src="assets/img/logo_header_white.png" alt="Motivatation Logo"></a></li>
+            <li class="nav-content"><a href="#news">News</a></li>
+            <li class="nav-content"><a href="#about">About</a></li>
+            <li class="nav-content"><a href="#contact">Contact</a></li>
+
+            <li class="nav-mobile-content"><a href="#menu">Menu <i class="fas fa-caret-down"></i></a></li>
+
+            <li th:if="${loggedIn}" id="continue" class="nav-action"><a href="#continue">Continue</a></li>
+            <li th:if="${not loggedIn}" id="login" class="nav-action"><a href="#login">Login</a></li>
+        </ul>
+    </div>
+
+    <div id="particles-js"></div>
+
+    <div class="mobile-seperator">
+        <hr>
+    </div>
+
+    <div id="cta">
+        <h1>Welcome to <span th:text="${appName}">Our App</span></h1>
+        <img class="logo" src="assets/img/logo_header_white.png" alt="Motivatation Logo">
+
+        <h2>Motivate yourself with an immersive RPG experience!</h2>
+        <h3>
+            It's time to have fun when you get things done!
+            <br>
+            Join over 4 million people and improve your life one task at a time.
+        </h3>
+        <img id="cta-icon" src="assets/img/cta-icon.png" alt="Motivatation CTA Icon">
+
+        <a href="#signup"><p id="signup" >Sign Up</p></a>
+    </div>
+
+    <script src="assets/js/particles.js"></script>
+    <script>
+        particlesJS.load('particles-js', 'assets/js/particles.json', function() {
+            console.log('[INFO] Particles loaded successfully!');
+        });
+    </script>
+</body>
+
+</html>

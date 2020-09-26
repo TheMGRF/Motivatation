@@ -1,4 +1,4 @@
-#logo {
+.logo {
     width: 256px;
 }
 
@@ -45,12 +45,11 @@
     display: none;
 }
 
-#nav #login {
+#nav .nav-action {
     float: right;
 }
 
-#nav #login a {
-    background-color: #ff9933;
+#nav .nav-action a {
     border-radius: 2px;
     font-weight: bold;
     margin-top: 10%;
@@ -60,9 +59,24 @@
     transition: color, background-color 0.5s;
 }
 
+#nav #login a {
+    background-color: #ff9933;
+}
+
 #nav #login a:hover {
     color: white;
     background-color: #cf7e2a;
+
+    transition: color, background-color 0.5s;
+}
+
+#nav #continue a {
+    background-color: #33cfff;
+}
+
+#nav #continue a:hover {
+    color: white;
+    background-color: #207f9b;
 
     transition: color, background-color 0.5s;
 }
