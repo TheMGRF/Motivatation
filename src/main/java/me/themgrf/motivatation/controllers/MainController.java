@@ -13,7 +13,7 @@ public class MainController {
     @RequestMapping("/")
     public String main(Model model) {
         model.addAttribute("appName", AppInfo.SITE_NAME);
-        model.addAttribute("loggedIn", false);
+        model.addAttribute("loggedIn", loggedIn);
 
         return loggedIn ? "home" : "landing";
     }

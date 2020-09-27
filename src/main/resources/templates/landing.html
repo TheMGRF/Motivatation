@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="icon" type="image/png" href="assets/img/favicon.ico">
+    <link rel="icon" type="image/png" th:href="@{img/favicon.ico}">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/nav.css">
+    <link rel="stylesheet" type="text/css" th:href="@{css/nav.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{css/styles.css}">
 
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
 
@@ -18,7 +18,7 @@
 <body>
     <div>
         <ul id="nav">
-            <li><a href="#home"><img class="logo" src="assets/img/logo_header_white.png" alt="Motivatation Logo"></a></li>
+            <li><a href="#home"><img class="logo" th:src="@{img/logo_header_white.png}" alt="Motivatation Logo"></a></li>
             <li class="nav-content"><a href="#news">News</a></li>
             <li class="nav-content"><a href="#about">About</a></li>
             <li class="nav-content"><a href="#contact">Contact</a></li>
@@ -38,7 +38,7 @@
 
     <div id="cta">
         <h1>Welcome to <span th:text="${appName}"></span></h1>
-        <img class="logo" src="assets/img/logo_header_white.png" alt="Motivatation Logo">
+        <img class="logo" th:src="@{img/logo_header_white.png}" alt="Motivatation Logo">
 
         <h2>Motivate yourself with an immersive RPG experience!</h2>
         <h3>
@@ -46,14 +46,14 @@
             <br>
             Join over 4 million people and improve your life one task at a time.
         </h3>
-        <img id="cta-icon" src="assets/img/cta-icon.png" alt="Motivatation CTA Icon">
+        <img id="cta-icon" th:src="@{img/cta-icon.png}" alt="Motivatation CTA Icon">
 
         <a href="#signup"><p id="signup" >Sign Up</p></a>
     </div>
 
-    <script src="assets/js/particles.js"></script>
+    <script th:src="@{js/particles.js}"></script>
     <script>
-        particlesJS.load('particles-js', 'assets/js/particles.json', function() {
+        particlesJS.load('particles-js', '/js/particles.json', function() {
             console.log('[INFO] Particles loaded successfully!');
         });
     </script>

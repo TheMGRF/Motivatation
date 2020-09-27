@@ -6,13 +6,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class LandingController {
+public class HomeController {
 
-    @GetMapping("/welcome")
+    @GetMapping("/home")
     public String landing(Model model) {
         model.addAttribute("appName", AppInfo.SITE_NAME);
         model.addAttribute("loggedIn", false);
-        return "landing";
+        return "home";
     }
 
 }
