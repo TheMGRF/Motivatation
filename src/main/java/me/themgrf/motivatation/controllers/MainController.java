@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class MainController {
 
-    private static final String PAGE_NAME = "Home";
+    private static final String PAGE_NAME = "Motivatation | Home";
 
     private boolean loggedIn = false;
 
