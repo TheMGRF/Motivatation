@@ -9,6 +9,8 @@
     <!-- Styles -->
     <link rel="stylesheet" type="text/css" th:href="@{css/nav.css}">
     <link rel="stylesheet" type="text/css" th:href="@{css/styles.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{css/landing.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{css/footer.css}">
 
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
 
@@ -25,19 +27,58 @@
     </div>
 
     <div id="cta">
-        <h1>Welcome to <span th:text="${appName}"></span></h1>
         <img class="logo" th:src="@{img/logo_header_white.png}" alt="Motivatation Logo">
 
-        <h2>Motivate yourself with an immersive RPG experience!</h2>
+        <h2>Modern problems require modern solutions!</h2>
         <h3>
-            It's time to have fun when you get things done!
+            It's time to have fun when you get things done with RPG style leveling!
             <br>
             Join over 4 million people and improve your life one task at a time.
         </h3>
         <img id="cta-icon" th:src="@{img/cta-icon.png}" alt="Motivatation CTA Icon">
 
-        <a href="#signup"><p id="signup" >Sign Up</p></a>
+        <a href="#signup"><p class="signup">Sign Up</p></a>
     </div>
+
+    <div id="about" class="slant">
+        <h2>How <span th:text="${appName}"></span> Works</h2>
+
+        <div id="about-icons">
+            <div class="column">
+                <img th:src="@{img/feature1.png}" alt="Motivatation Logo">
+                <h3 class="about-title">Feature 1</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <div class="column">
+                <img th:src="@{img/feature2.png}" alt="Motivatation Logo">
+                <h3 class="about-title">Feature 2</h3>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+            <div class="column">
+                <img th:src="@{img/feature3.png}" alt="Motivatation Logo">
+                <h3 class="about-title">Feature 3</h3>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Test filler space!</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="join">
+        <h2>Looking to get involved?</h2>
+        <h3>Join 4 million other people who love <span th:text="${appName}"></span>!</h3>
+
+        <a href="#signup"><p class="signup">Sign Up</p></a>
+    </div>
+
+    <div id="padding"></div>
+    <script>
+        // temp padding bodge
+        const spaces = 10;
+        for (let i = 0; i < spaces; i++) {
+            document.getElementById("padding").innerHTML += "<br>";
+        }
+    </script>
+
+    <div th:replace="fragments/footer :: footer"></div>
 
     <script th:src="@{js/particles.js}"></script>
     <script>
