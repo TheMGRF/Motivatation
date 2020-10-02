@@ -1,0 +1,48 @@
+#about {
+    margin-top: 10%;
+    background-color: #262626;
+}
+
+.slant {
+    z-index: 10;
+
+    text-align: center;
+    padding: 0 0 6% 0;
+
+    transform: skewY(2deg);
+    -ms-transform: skewY(2deg);
+    -webkit-transform: skewY(2deg);
+    transform-origin: 100%;
+}
+
+.slant * {
+    transform: skewY(-2deg);
+    -ms-transform: skewY(-2deg);
+    -webkit-transform: skewY(-2deg);
+    transform-origin: 100%;
+}
+
+#about-icons * {
+    transform: skewY(0deg);
+    -ms-transform: skewY(0deg);
+    -webkit-transform: skewY(0deg);
+    transform-origin: 100%;
+}
+
+#about-icons p {
+    font-size: 1em;
+}
+
+#about-icons .column {
+    display: inline-block;
+    margin-left: 20px;
+    max-width: 256px;
+}
+
+#about-icons img {
+    max-width: 128px;
+}
+
+#join {
+    text-align: center;
+}

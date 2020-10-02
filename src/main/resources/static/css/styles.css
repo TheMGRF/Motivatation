@@ -22,11 +22,22 @@ body::-webkit-scrollbar-thumb {
     background-color: #ff9933;
 }
 
+h1 {
+    font-size: 3em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+h3 {
+    font-size: 1.5em;
+}
+
 a {
     text-decoration: none;
     color: #0d87e5;
     font-weight: bold;
-    font-size: 1.2em;
 }
 
 a:hover {
@@ -39,12 +50,16 @@ a:hover {
     text-align: center;
 }
 
+#cta a {
+    font-size: 1.2em;
+}
+
 #cta-icon {
     max-height: 256px;
     max-width: 100%;
 }
 
-#signup {
+.signup {
     background-color: #ff9933;
     margin: 2% 40% 0 40%;
     padding: 1%;
@@ -54,14 +69,14 @@ a:hover {
     transition: color, background-color 0.5s;
 }
 
-#signup:hover {
+.signup:hover {
     background-color: #cf7e2a;
 
     transition: background-color 0.5s;
 }
 
 @media only screen and (max-width: 767px) {
-    #signup {
+    .signup {
         min-width: 20%;
         padding: 2%;
         margin: 2% 20% 0 20%;
@@ -69,7 +84,7 @@ a:hover {
 }
 
 @media only screen and (max-width: 320px) {
-    #signup {
+    .signup {
         min-width: 30%;
         margin: 2% 20% 0 20%;
     }
