@@ -22,7 +22,7 @@ case "$1" in
     (
         info "Running application..."
 
-		java -jar target/Motivatation.jar
+		sudo java -jar target/Motivatation.jar
 
         success "Succesfully exited application!"
     )
@@ -36,5 +36,6 @@ case "$1" in
         echo " Available commands:"
         echo "  * compile | Compile the project with Java 8."
         echo "  * run | Run the complete and compiled project."
+		echo ""
     ;;
 esac
