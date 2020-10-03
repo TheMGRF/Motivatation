@@ -15,7 +15,7 @@
             <li class="nav-mobile-content"><a href="#menu">Menu <i class="fas fa-caret-down"></i></a></li>
 
             <li th:if="${loggedIn}" id="continue" class="nav-action"><a href="#continue">Continue</a></li>
-            <li th:if="${not loggedIn}" id="login" class="nav-action"><a href="#login">Login</a></li>
+            <li th:if="${not loggedIn}" id="login" class="nav-action"><a href="/login">Login</a></li>
         </ul>
     </div>
 

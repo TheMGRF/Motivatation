@@ -1,0 +1,56 @@
+#logo-container {
+    text-align: center;
+    margin-top: 2%;
+}
+
+#login-section {
+    text-align: center;
+    max-width: 25%;
+    margin: 2% 37.5% 8% 37.5%;
+    padding: 2% 4% 1% 4%;
+    background-color: white;
+    border-radius: 2px;
+
+    color: black;
+}
+
+.text-input {
+    background-color: white;
+    border: none;
+    padding: 2%;
+    min-width: 60%;
+
+    border-bottom: 1px solid black;
+    border-radius: 1px;
+}
+
+.wide {
+    max-width: 80%;
+}
+
+#submit {
+    background-color: #0d87e5;
+    border: none;
+    border-radius: 2px;
+    color: white;
+    margin-top: 8%;
+    padding: 4% 8% 4% 8%;
+    width: 80%;
+
+    transition: background-color 0.5s;
+}
+
+#submit:hover {
+    background-color: #095fa2;
+    cursor: pointer;
+
+    transition: background-color 0.5s;
+}
+
+#remember-me {
+    margin-top: 2%;
+}
+
+#signup-reminder {
+    margin-top: 12%;
+}
