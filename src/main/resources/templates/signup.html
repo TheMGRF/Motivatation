@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Thomas Griffiths">
+    <meta name="description" content="Motivatation | Modern problems require modern solutions">
+    <meta name="keywords" content="Motivatation,RPG">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta property="og:title" content="Motivatation | Signup">
+    <meta property="og:description" content="Modern problems require modern solutions">
+    <meta property="og:image" content="https://motivatation.com/img/logo.png">
+    <meta property="og:url" content="https://motivatation.com/">
+
+    <link rel="icon" type="image/png" th:href="@{img/favicon.ico}">
+
+    <!-- Styles -->
+    <link rel="stylesheet" type="text/css" th:href="@{css/nav.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{css/styles.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{css/login.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{css/signup.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{css/footer.css}">
+
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+
+    <title th:text="${pageName}"></title>
+</head>
+<body>
+    <div th:replace="fragments/nav :: nav"></div>
+
+    <div id="particles-js"></div>
+
+    <div class="mobile-seperator">
+        <hr>
+    </div>
+
+    <div id="logo-container">
+        <img class="logo" th:src="@{img/logo_header_white.png}" alt="Motivatation Logo">
+    </div>
+
+    <div id="login-section">
+        <h2>User Signup</h2>
+
+        <hr>
+        <br>
+
+        <form method="post">
+            <div>
+                <label for="username">User Name</label>
+                <br>
+                <input id="username" class="text-input" type="text" name="username">
+            </div>
+
+            <div>
+                <label for="email">Email</label>
+                <br>
+                <input id="email" class="text-input" type="email" name="email">
+            </div>
+
+            <div>
+                <label for="password">Password</label>
+                <br>
+                <input id="password" class="text-input" type="password" name="password">
+            </div>
+
+            <div>
+                <label for="confirm-password">Confirm Password</label>
+                <br>
+                <input id="confirm-password" class="text-input" type="password" name="password">
+            </div>
+
+            <div>
+                <label for="remember-me">
+                    <small>
+                        By registering with us you confirm that you have read and agree to our
+                        <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>!
+                    </small>
+                </label>
+                <input id="remember-me" type="checkbox" name="remember-me" value="remember-me">
+            </div>
+
+            <div>
+                <input id="submit" type="submit" value="Sign Up">
+            </div>
+        </form>
+
+        <p id="signup-reminder">Already a member? <a href="/login">Login here!</a></p>
+    </div>
+
+    <div th:replace="fragments/footer :: footer"></div>
+
+    <script th:src="@{js/particles.js}"></script>
+    <script>
+        particlesJS.load('particles-js', '/js/particles.json', function() {
+            console.log('[INFO] Particles loaded successfully!');
+        });
+    </script>
+</body>
+</html>

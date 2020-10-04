@@ -1,0 +1,26 @@
+#error-box {
+    text-align: center;
+    max-width: 25%;
+    margin: 8% 37.5% 12% 37.5%;
+    padding: 2% 4% 1% 4%;
+    background-color: white;
+    border-radius: 2px;
+
+    color: black;
+}
+
+#safety {
+    background-color: #dd2e66;
+    padding: 5% 0 5% 0;
+    border-radius: 2px;
+    min-width: 50%;
+
+    color: white;
+    transition: color, background-color 0.5s;
+}
+
+#safety:hover {
+    background-color: #b1135d;
+
+    transition: background-color 0.5s;
+}

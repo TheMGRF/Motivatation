@@ -7,14 +7,14 @@
 
     <div th:fragment="nav">
         <ul id="nav">
-            <li><a href="#home"><img class="logo" th:src="@{img/logo_header_white.png}" alt="Motivatation Logo"></a></li>
-            <li class="nav-content"><a href="#news">News</a></li>
-            <li class="nav-content"><a href="#about">About</a></li>
-            <li class="nav-content"><a href="#contact">Contact</a></li>
+            <li><a href="/"><img class="logo" th:src="@{img/logo_header_white.png}" alt="Motivatation Logo"></a></li>
+            <li class="nav-content"><a href="/news">News</a></li>
+            <li class="nav-content"><a href="/#about">About</a></li>
+            <li class="nav-content"><a href="/contact">Contact</a></li>
 
             <li class="nav-mobile-content"><a href="#menu">Menu <i class="fas fa-caret-down"></i></a></li>
 
-            <li th:if="${loggedIn}" id="continue" class="nav-action"><a href="#continue">Continue</a></li>
+            <li th:if="${loggedIn}" id="continue" class="nav-action"><a href="/home">Continue</a></li>
             <li th:if="${not loggedIn}" id="login" class="nav-action"><a href="/login">Login</a></li>
         </ul>
     </div>

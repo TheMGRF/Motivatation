@@ -1,0 +1,12 @@
+form label {
+    text-align: left;
+    float: left;
+}
+
+form div {
+    margin-top: 5%;
+}
+
+.text-input {
+    min-width: 100%;
+}

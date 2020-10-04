@@ -7,16 +7,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class LoginController {
+public class SignupController {
 
-    private static final String PAGE_NAME = "Motivatation | Login";
+    private static final String PAGE_NAME = "Motivatation | Signup";
 
-    @GetMapping("/login")
-    public String login(Model model) {
+    @GetMapping("/signup")
+    public String signup(Model model) {
         model.addAttribute("appName", AppInfo.SITE_NAME);
         model.addAttribute("pageName", PAGE_NAME);
         model.addAttribute("loggedIn", Auth.isLoggedIn());
-        return "login";
+        return "signup";
     }
 
 }
