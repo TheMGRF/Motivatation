@@ -22,7 +22,7 @@
     padding-top: 0.4%;
 }
 
-#nav li a {
+.nav-link {
     display: block;
     color: white;
     text-align: center;
@@ -33,7 +33,7 @@
     transition: color 0.3s;
 }
 
-#nav li a:hover {
+.nav-link:hover {
     color: #9f9f9f;
     border-radius: 2px;
 }
@@ -50,12 +50,10 @@
     float: right;
 }
 
-#nav .nav-action a {
+.nav-action {
     border-radius: 2px;
     font-weight: bold;
-    margin-top: 10%;
-    padding-top: 8%;
-    padding-bottom: 8%;
+    margin-top: 0.8%;
 
     transition: color, background-color 0.5s;
 }
@@ -80,6 +78,50 @@
     background-color: #207f9b;
 
     transition: color, background-color 0.5s;
+}
+
+#currencies {
+    float: right;
+
+    font-size: 1.2em;
+    font-weight: bold;
+
+    padding-top: 0.8%;
+}
+
+#currencies li {
+    float: right;
+    display: inline;
+}
+
+#profile-container {
+    float: right;
+}
+
+#profile-info {
+    margin-top: 8%;
+}
+
+#profile-container li {
+    float: right;
+    display: inline-block;
+    max-width: 50%;
+}
+
+#profile-container li * {
+    float: right;
+    display: inline-block;
+}
+
+#profile-icon {
+    padding-right: 4px;
+}
+
+#profile-img {
+    margin-top: 14%;
+
+    width: 48px;
+    border-radius: 50px;
 }
 
 @media only screen and (max-width: 767px) {

@@ -1,0 +1,67 @@
+#nav-container {
+    background-color: #262626;
+}
+
+#sidebar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 10%;
+    background-color: #262626;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+}
+
+#sidebar a {
+    color: white;
+    font-size: 1.2em;
+
+    transition: color 0.5s;
+}
+
+#sidebar a:hover {
+    color: #a4a4a4;
+
+    transition: color 0.5s;
+}
+
+.active {
+    background-color: #cf7e2a;
+    border-radius: 2px;
+    box-shadow: 1px 2px 15px black;
+}
+
+#sidebar li a {
+    text-align: center;
+    padding: 10%;
+
+    display: block;
+}
+
+#sidebar li a i {
+    color: #727272;
+    margin-right: 2%;
+}
+
+.active i {
+    color: white !important;
+}
+
+.active:hover {
+    color: white !important;
+}
+
+#content {
+    margin: -28px 0 0 10%;
+    height: 100%;
+}
+
+#content-bg {
+    background-image: url("https://static.wikia.nocookie.net/club-penguin-rewritten/images/9/96/Town_Ice_Rink.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    height: 100%;
+}

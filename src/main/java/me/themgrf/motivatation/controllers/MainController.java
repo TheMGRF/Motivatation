@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class MainController {
 
-    private static final String PAGE_NAME = "Motivatation | Home";
+    private static final String PAGE_NAME = "Motivatation";
 
     @RequestMapping("/")
     public String main(Model model) {
