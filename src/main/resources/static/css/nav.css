@@ -80,20 +80,6 @@
     transition: color, background-color 0.5s;
 }
 
-#currencies {
-    float: right;
-
-    font-size: 1.2em;
-    font-weight: bold;
-
-    padding-top: 0.8%;
-}
-
-#currencies li {
-    float: right;
-    display: inline;
-}
-
 #profile-container {
     float: right;
 }

@@ -53,15 +53,28 @@
 }
 
 #content {
-    margin: -28px 0 0 10%;
+    margin: 0 0 0 10%;
     height: 100%;
 }
 
-#content-bg {
-    background-image: url("https://static.wikia.nocookie.net/club-penguin-rewritten/images/9/96/Town_Ice_Rink.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+#currencies {
+    float: right;
+    margin-top: 5px;
 
-    height: 100%;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.currency {
+    float: right;
+    display: inline;
+}
+
+#coins {
+    color: gold;
+}
+
+#gems {
+    color: aqua;
+    margin: 0 20px 0 15px;
 }
