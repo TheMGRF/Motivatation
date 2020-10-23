@@ -44,11 +44,11 @@
         <br>
 
         <div th:if="${param.error}">
-            Invalid username and password.
+            <p class="error">Invalid username or password.</p>
         </div>
 
         <div th:if="${param.logout}">
-            You have been logged out.
+            <p>You have been logged out.</p>
         </div>
 
         <form th:action="@{/login}" method="post">
@@ -81,10 +81,6 @@
     <div th:replace="fragments/footer :: footer"></div>
 
     <script th:src="@{js/particles.js}"></script>
-    <script>
-        particlesJS.load('particles-js', '/js/particles.json', function() {
-            console.log('[INFO] Particles loaded successfully!');
-        });
-    </script>
+    <script th:src="@{js/loadParticles.js}"></script>
 </body>
 </html>

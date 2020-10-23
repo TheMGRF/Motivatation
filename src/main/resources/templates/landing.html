@@ -89,11 +89,7 @@
     <div th:replace="fragments/footer :: footer"></div>
 
     <script th:src="@{js/particles.js}"></script>
-    <script>
-        particlesJS.load('particles-js', '/js/particles.json', function() {
-            console.log('[INFO] Particles loaded successfully!');
-        });
-    </script>
+    <script th:src="@{js/loadParticles.js}"></script>
 </body>
 
 </html>
