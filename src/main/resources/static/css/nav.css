@@ -60,6 +60,8 @@
 
 #nav #login a {
     background-color: #ff9933;
+
+    transition: color, background-color 0.5s;
 }
 
 #nav #login a:hover {
@@ -71,6 +73,8 @@
 
 #nav #continue a {
     background-color: #33cfff;
+
+    transition: color, background-color 0.5s;
 }
 
 #nav #continue a:hover {

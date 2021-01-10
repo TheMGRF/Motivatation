@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Thomas Griffiths">
+    <meta name="description" content="Motivatation | Modern problems require modern solutions">
+    <meta name="keywords" content="Motivatation,RPG">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta property="og:title" content="Motivatation | Signup">
+    <meta property="og:description" content="Modern problems require modern solutions">
+    <meta property="og:image" content="https://motivatation.com/img/logo.png">
+    <meta property="og:url" content="https://motivatation.com/">
+
+    <link rel="icon" type="image/png" th:href="@{img/favicon.ico}">
+
+    <!-- Styles -->
+    <link rel="stylesheet" type="text/css" th:href="@{css/nav.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{css/styles.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{css/login.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{css/signup.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{css/footer.css}">
+
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+
+    <title th:text="${pageName}"></title>
+</head>
+<body>
+<div th:replace="fragments/nav :: nav"></div>
+
+<div id="particles-js"></div>
+
+<div class="mobile-seperator">
+    <hr>
+</div>
+
+<div id="logo-container">
+    <img class="logo" th:src="@{img/logo_header_white.png}" alt="Motivatation Logo">
+</div>
+
+<div id="login-section">
+    <h2 th:text="'Welcome ' + ${username}"></h2>
+    <hr>
+    <p>Thanks for joining!</p>
+    <p>Your account has now been created - please log in to continue!</p>
+    <br>
+    <a href="/login">
+        <button>Login</button>
+    </a>
+</div>
+
+<div th:replace="fragments/footer :: footer"></div>
+
+<script th:src="@{js/particles.js}"></script>
+<script th:src="@{js/loadParticles.js}"></script>
+</body>
+</html>

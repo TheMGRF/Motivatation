@@ -7,13 +7,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class LandingController {
+public class WelcomeController {
 
-    @GetMapping("/")
-    public String landing(Model model) {
+    private static final String PAGE_NAME = "Motivatation | Welcome";
+
+    @GetMapping("/welcome")
+    public String signup(Model model) {
         model.addAttribute("appName", AppInfo.SITE_NAME);
+        model.addAttribute("pageName", PAGE_NAME);
         model.addAttribute("loggedIn", Auth.isLoggedIn());
-        return "landing";
+        return "welcome";
     }
 
 }
