@@ -19,12 +19,12 @@ public class MainController {
     @RequestMapping("/")
     public String main(Model model) {
         model.addAttribute("appName", AppInfo.SITE_NAME);
-        //model.addAttribute("pageName", PAGE_NAME);
+        model.addAttribute("pageName", PAGE_NAME);
         //model.addAttribute("pageName", db.query("SELECT * FROM TEST LIMIT 1;", (rs, i) -> rs.getString("name")));
-        model.addAttribute("pageName", db.queryForObject("SELECT name FROM TEST WHERE id = 2 LIMIT 1;", String.class));
+        //model.addAttribute("pageName", db.queryForObject("SELECT name FROM TEST WHERE id = 2 LIMIT 1;", String.class));
         model.addAttribute("loggedIn", Auth.isLoggedIn());
 
-        db.update("INSERT INTO test (name) VALUES ('Tom');");
+        //db.update("INSERT INTO test (name) VALUES ('Tom');");
 
         return "landing";
     }

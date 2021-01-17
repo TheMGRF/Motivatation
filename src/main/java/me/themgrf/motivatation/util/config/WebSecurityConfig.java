@@ -42,17 +42,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll();
     }
 
-    /*@Override
+    @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        *//*auth.jdbcAuthentication()
+        /*auth.jdbcAuthentication()
                 .dataSource(dataSource)
-                .withDefaultSchema()
-                .withUser(User.withUsername("user")
-                .password(passwordEncoder().encode("password"))
-                .roles("USER"));*//*
-        auth.inMemoryAuthentication()
-                .withUser("user").password(passwordEncoder().encode("password")).roles("USER");
-    }*/
+                .usersByUsernameQuery("SELECT username, password FROM users WHERE username = ?")
+                .authoritiesByUsernameQuery("SELECT username, role from user_roles WHERE username = ?")
+                .withUser(
+                        User.withUsername("user")
+                                .password(passwordEncoder().encode("password"))
+                                .roles("USER")
+                );*/
+        /*auth.inMemoryAuthentication()
+                .withUser("user").password(passwordEncoder().encode("password")).roles("USER");*/
+    }
 
     @Override
     public void configure(WebSecurity web) {
