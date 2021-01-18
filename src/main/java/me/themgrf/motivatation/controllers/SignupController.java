@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.UUID;
 
-@Controller
+//@Controller
 public class SignupController {
 
-    private static final String PAGE_NAME = "Motivatation | Signup";
+    /*private static final String PAGE_NAME = "Motivatation | Signup";
 
     @Autowired
     private JdbcTemplate db;
@@ -62,7 +62,7 @@ public class SignupController {
         );
 
         return "welcome";
-    }
+    }*/
 
 
 

@@ -1,7 +1,6 @@
 package me.themgrf.motivatation.entities;
 
 import javax.persistence.*;
-import java.util.UUID;
 
 @Entity
 @Table(name = "users")
@@ -9,18 +8,18 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private UUID uuid;
+    private Long id;
 
-    private String username, password;
+    private String username, password, confirmedPassword;
     @Column(unique = true)
     private String email;
 
-    public UUID getUuid() {
-        return uuid;
+    public Long getId() {
+        return id;
     }
 
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getUsername() {
@@ -37,6 +36,15 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Transient
+    public String getConfirmedPassword() {
+        return confirmedPassword;
+    }
+
+    public void setConfirmedPassword(String passwordConfirm) {
+        this.confirmedPassword = passwordConfirm;
     }
 
     public String getEmail() {

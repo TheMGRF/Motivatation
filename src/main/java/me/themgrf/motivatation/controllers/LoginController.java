@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-@Controller
+//@Controller
 public class LoginController {
 
-    private static final String PAGE_NAME = "Motivatation | Login";
+    /*private static final String PAGE_NAME = "Motivatation | Login";
 
     // TODO: https://medium.com/@kamer.dev/spring-boot-user-registration-and-login-43a33ea19745
     // TODO: https://www.baeldung.com/registration-with-spring-mvc-and-spring-security
@@ -41,6 +41,6 @@ public class LoginController {
         System.out.println("Status: " + correct);
 
         return correct ? "welcome" : "login?error=true";
-    }
+    }*/
 
 }

@@ -44,7 +44,7 @@
         <hr>
         <br>
 
-        <form action="#" th:action="@{/signupuser}" th:object="${signup}" method="post">
+        <form action="#" th:action="@{/signup}" th:object="${signup}" method="post">
             <div>
                 <label for="username">User Name</label>
                 <br>
@@ -60,13 +60,13 @@
             <div>
                 <label for="password">Password</label>
                 <br>
-                <input id="password" class="text-input" type="password">
+                <input id="password" class="text-input" type="password" th:field="*{password}">
             </div>
 
             <div>
                 <label for="confirm-password">Confirm Password</label>
                 <br>
-                <input id="confirm-password" class="text-input" type="password" name="password" th:field="*{password}">
+                <input id="confirm-password" class="text-input" type="password" name="confirmedPassword" th:field="*{confirmedPassword}">
             </div>
 
             <div>
