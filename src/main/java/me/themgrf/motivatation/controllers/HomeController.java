@@ -16,7 +16,7 @@ public class HomeController {
         model.addAttribute("appName", AppInfo.SITE_NAME);
         model.addAttribute("pageName", PAGE_NAME);
         model.addAttribute("loggedIn", Auth.isLoggedIn());
-        return "/home/home";
+        return "home/home";
     }
 
 }
