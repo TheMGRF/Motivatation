@@ -51,7 +51,7 @@
             <p>You have been logged out.</p>
         </div>
 
-        <form th:action="@{/login}" method="post">
+        <form th:action="@{/login}" method="POST">
             <div>
                 <label>
                     User Name
@@ -69,7 +69,7 @@
             </div>
             <br>
             <div>
-                <input id="submit" type="submit" value="Sign In">
+                <input id="submit" type="submit" value="Sign In" name="submit">
             </div>
             <input id="remember-me" type="checkbox" name="remember-me" value="remember-me">
             <label for="remember-me"> Remember Me!</label>
