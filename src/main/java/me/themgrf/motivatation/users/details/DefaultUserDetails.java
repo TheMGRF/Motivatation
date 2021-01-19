@@ -1,4 +1,4 @@
-package me.themgrf.motivatation.users;
+package me.themgrf.motivatation.users.details;
 
 import me.themgrf.motivatation.entities.User;
 import org.springframework.security.core.GrantedAuthority;
@@ -18,6 +18,10 @@ public class DefaultUserDetails implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return new ArrayList<>();
+    }
+
+    public User getUser() {
+        return user;
     }
 
     @Override

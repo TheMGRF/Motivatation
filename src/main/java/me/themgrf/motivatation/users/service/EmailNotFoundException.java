@@ -1,4 +1,4 @@
-package me.themgrf.motivatation.users;
+package me.themgrf.motivatation.users.service;
 
 
 import org.springframework.security.core.AuthenticationException;

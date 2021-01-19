@@ -1,69 +1,59 @@
 package me.themgrf.motivatation.controllers;
 
-import me.themgrf.motivatation.Motivatation;
-import me.themgrf.motivatation.users.SignupDetails;
+import me.themgrf.motivatation.entities.User;
+import me.themgrf.motivatation.users.service.UserService;
+import me.themgrf.motivatation.users.UserValidator;
 import me.themgrf.motivatation.util.AppInfo;
 import me.themgrf.motivatation.util.Auth;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.UUID;
-
-//@Controller
+@Controller
 public class SignupController {
 
-    /*private static final String PAGE_NAME = "Motivatation | Signup";
+    private static final String PAGE_NAME = "Motivatation | Signup";
 
     @Autowired
-    private JdbcTemplate db;
+    private UserService userService;
+
+    @Autowired
+    private UserValidator userValidator;
 
     @GetMapping("/signup")
     public String signup(Model model) {
-        boolean loggedIn = Auth.isLoggedIn();
-
+        model.addAttribute("signup", new User());
         model.addAttribute("appName", AppInfo.SITE_NAME);
         model.addAttribute("pageName", PAGE_NAME);
-        model.addAttribute("loggedIn", loggedIn);
+        model.addAttribute("loggedIn", Auth.isLoggedIn());
 
-        if (loggedIn) {
-            return "landing";
-        }
-
-
-        model.addAttribute("signup", new SignupDetails());
         return "signup";
     }
 
-    @PostMapping("/signupuser")
-    public String signupSubmit(@ModelAttribute SignupDetails signupDetails, Model model) {
-        boolean loggedIn = Auth.isLoggedIn();
+    @PostMapping("/signup")
+    public String signup(@ModelAttribute("signup") User userData, BindingResult bindingResult, Model model) {
+        userValidator.validate(userData, bindingResult);
 
         model.addAttribute("appName", AppInfo.SITE_NAME);
         model.addAttribute("pageName", PAGE_NAME);
-        model.addAttribute("loggedIn", loggedIn);
+        model.addAttribute("loggedIn", Auth.isLoggedIn());
 
-        if (loggedIn) {
-            return "landing";
+        if (bindingResult.hasErrors()) {
+            System.out.println("ERROR: " + bindingResult.getErrorCount());
+            bindingResult.getModel().forEach((s, o) -> {
+                System.out.println(s + ": " + o);
+            });
+            return "signup";
         }
 
-        model.addAttribute("username", signupDetails.getUsername());
+        userService.save(userData);
 
-        //db.update("INSERT INTO users (uuid, username, email, password) VALUES (?, ?, ?, ?) WHERE NOT EXISTS(SELECT email FROM users WHERE ? = email);",
-        db.update("INSERT IGNORE INTO users (uuid, username, email, password) VALUES (?, ?, ?, ?);",
-                UUID.randomUUID().toString(),
-                signupDetails.getUsername(),
-                signupDetails.getEmail(),
-                Motivatation.getInstance().passwordEncoder().encode(signupDetails.getPassword())
-        );
-
-        return "welcome";
-    }*/
-
+        return "redirect:/welcome";
+    }
 
 
 }

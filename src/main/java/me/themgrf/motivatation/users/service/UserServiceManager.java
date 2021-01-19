@@ -1,7 +1,8 @@
-package me.themgrf.motivatation.users;
+package me.themgrf.motivatation.users.service;
 
 import me.themgrf.motivatation.Motivatation;
 import me.themgrf.motivatation.entities.User;
+import me.themgrf.motivatation.users.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

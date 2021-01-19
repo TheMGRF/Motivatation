@@ -1,6 +1,6 @@
 package me.themgrf.motivatation.database;
 
-import me.themgrf.motivatation.users.LoginDetails;
+import me.themgrf.motivatation.users.details.LoginDetails;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;

@@ -15,6 +15,17 @@ public class User {
     @Column(unique = true)
     private String email;
 
+    public User() {
+    }
+
+    public User(Long id, String username, String password, String confirmedPassword, String email) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.confirmedPassword = confirmedPassword;
+        this.email = email;
+    }
+
     public Long getId() {
         return id;
     }

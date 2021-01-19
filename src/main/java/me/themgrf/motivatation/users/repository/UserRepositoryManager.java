@@ -1,9 +1,6 @@
-package me.themgrf.motivatation.users;
+package me.themgrf.motivatation.users.repository;
 
 import me.themgrf.motivatation.database.UserInfoMapper;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 

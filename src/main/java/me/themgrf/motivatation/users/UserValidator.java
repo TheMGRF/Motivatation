@@ -1,6 +1,7 @@
 package me.themgrf.motivatation.users;
 
 import me.themgrf.motivatation.entities.User;
+import me.themgrf.motivatation.users.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;

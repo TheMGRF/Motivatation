@@ -1,7 +1,11 @@
 package me.themgrf.motivatation.util;
 
+import me.themgrf.motivatation.entities.User;
+import me.themgrf.motivatation.users.details.DefaultUserDetails;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 
 public class Auth {
 
@@ -17,4 +21,18 @@ public class Auth {
                         instanceof AnonymousAuthenticationToken);
     }
 
+    /**
+     * Get the User object of the logged in user
+     *
+     * @return The User object of the logged in user
+     */
+    public static User getUser() {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        Object principal = auth.getPrincipal();
+        if (principal instanceof DefaultUserDetails) {
+            return ((DefaultUserDetails) principal).getUser();
+        }
+
+        return null;
+    }
 }

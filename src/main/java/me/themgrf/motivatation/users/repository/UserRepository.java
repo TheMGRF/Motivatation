@@ -1,4 +1,4 @@
-package me.themgrf.motivatation.users;
+package me.themgrf.motivatation.users.repository;
 
 import me.themgrf.motivatation.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
