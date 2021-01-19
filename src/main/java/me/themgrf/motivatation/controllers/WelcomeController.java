@@ -12,10 +12,11 @@ public class WelcomeController {
     private static final String PAGE_NAME = "Motivatation | Welcome";
 
     @GetMapping("/welcome")
-    public String signup(Model model) {
+    public String welcome(Model model) {
         model.addAttribute("appName", AppInfo.SITE_NAME);
         model.addAttribute("pageName", PAGE_NAME);
         model.addAttribute("loggedIn", Auth.isLoggedIn());
+        model.addAttribute("user", Auth.getUser());
         return "welcome";
     }
 

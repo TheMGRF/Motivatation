@@ -1,8 +1,13 @@
-package me.themgrf.motivatation.users;
+package me.themgrf.motivatation.users.details;
 
-public class SignupDetails {
+public class LoginDetails {
 
-    private String username, email, password;
+    private String username, password;
+
+    public LoginDetails(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
 
     public String getUsername() {
         return username;
@@ -10,14 +15,6 @@ public class SignupDetails {
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getPassword() {
