@@ -18,7 +18,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private static final String[] ALLOWED_PAGES = {"/", "/news", "/contact", "/signup", "/signupuser", "/loginuser"};
+    private static final String[] ALLOWED_PAGES = {"/", "/news", "/contact", "/signup"};
 
     //@Qualifier("userService")
     @Autowired
