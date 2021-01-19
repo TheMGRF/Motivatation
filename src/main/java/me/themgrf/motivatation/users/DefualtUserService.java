@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service("userService")
@@ -21,6 +20,7 @@ public class DefualtUserService implements UserDetailsService {
             throw new UsernameNotFoundException(username);
         }
 
+        System.out.println("Logging in: " + username);
         return new DefaultUserDetails(user);
     }
 

@@ -1,6 +1,7 @@
 package me.themgrf.motivatation.util.config;
 
 import me.themgrf.motivatation.Motivatation;
+import me.themgrf.motivatation.users.DefualtUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
@@ -27,9 +28,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private static final String[] ALLOWED_PAGES = {"/", "/news", "/contact", "/signup", "/signupuser", "/loginuser"};
 
-    @Qualifier("userService")
+    //@Qualifier("userService")
     @Autowired
-    private UserDetailsService userDetailsService;
+    private DefualtUserService userDetailsService;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -49,7 +50,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) {
-        web.ignoring().antMatchers("/css/**", "/img/**", "/js/**");
+        web.ignoring().antMatchers("/favicon.ico", "/static/**", "/resources/**", "/css/**", "/img/**", "/js/**");
     }
 
     @Bean
@@ -73,11 +74,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService).passwordEncoder(Motivatation.getInstance().passwordEncoder());
+        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
     }
 
     @Override
-    protected void configure(AuthenticationManagerBuilder auth) {
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.authenticationProvider(authenticationProvider());
     }
 
