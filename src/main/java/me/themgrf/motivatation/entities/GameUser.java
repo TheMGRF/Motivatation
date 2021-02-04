@@ -6,6 +6,10 @@ public class GameUser {
     private double experience;
     private User user;
 
+    public GameUser(User user) {
+        this(0, 0, 0, 0, 0, user);
+    }
+
     public GameUser(int level, int tasks, int coins, int gems, double experience, User user) {
         this.level = level;
         this.tasks = tasks;

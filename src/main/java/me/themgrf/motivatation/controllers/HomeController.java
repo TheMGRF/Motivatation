@@ -1,5 +1,7 @@
 package me.themgrf.motivatation.controllers;
 
+import me.themgrf.motivatation.database.PlayerManager;
+import me.themgrf.motivatation.entities.Player;
 import me.themgrf.motivatation.entities.User;
 import me.themgrf.motivatation.util.AppInfo;
 import me.themgrf.motivatation.util.Auth;
@@ -19,7 +21,11 @@ public class HomeController {
         model.addAttribute("loggedIn", Auth.isLoggedIn());
 
         User user = Auth.getUser();
-        if (user != null) model.addAttribute("username", user.getUsername());
+        if (user != null) {
+            model.addAttribute("username", user.getUsername());
+            Player player = PlayerManager.getPlayer(user);
+            model.addAttribute("player", player);
+        }
 
         return "home/home";
     }
