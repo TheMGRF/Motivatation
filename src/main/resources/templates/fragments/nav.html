@@ -21,18 +21,14 @@
             <span th:if="${pageName} == 'Motivatation | Home'">
                 <div id="profile-container">
                     <li id="profile-info">
-                        <small>
-                            <b>TheMGRF</b>
-                            <br>
-                            <small>
+                        <span>
+                            <b th:text="${username}">TheMGRF</b>
+                            <small id="levels-tasks">
                                 Level: 10
                                 <br>
                                 Tasks: 4
                             </small>
-                        </small>
-                    </li>
-                    <li id="profile-icon">
-                        <img id="profile-img" src="https://avatars2.githubusercontent.com/u/16401884">
+                        </span>
                     </li>
                 </div>
             </span>

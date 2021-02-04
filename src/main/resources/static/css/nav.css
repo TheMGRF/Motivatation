@@ -89,18 +89,20 @@
 }
 
 #profile-info {
-    margin-top: 8%;
+    margin-top: 6%;
+}
+
+#levels-tasks {
+    padding-left: 8%;
 }
 
 #profile-container li {
-    float: right;
-    display: inline-block;
-    max-width: 50%;
+    float: left;
+    max-width: 100%;
 }
 
 #profile-container li * {
-    float: right;
-    display: inline-block;
+    float: left;
 }
 
 #profile-icon {

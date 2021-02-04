@@ -1,5 +1,6 @@
 package me.themgrf.motivatation.controllers;
 
+import me.themgrf.motivatation.entities.User;
 import me.themgrf.motivatation.util.AppInfo;
 import me.themgrf.motivatation.util.Auth;
 import org.springframework.stereotype.Controller;
@@ -16,6 +17,10 @@ public class HomeController {
         model.addAttribute("appName", AppInfo.SITE_NAME);
         model.addAttribute("pageName", PAGE_NAME);
         model.addAttribute("loggedIn", Auth.isLoggedIn());
+
+        User user = Auth.getUser();
+        if (user != null) model.addAttribute("username", user.getUsername());
+
         return "home/home";
     }
 
