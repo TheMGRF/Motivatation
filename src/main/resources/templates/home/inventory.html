@@ -55,7 +55,7 @@
             <div class="item">
                 <img class="item-img" th:src="${item.getTexture().getPath()}" width="64px" height="64px">
                 <div class="tooltip">
-                    <p th:style="'color: ' + ${item.getRarity().getColorAsHex()}" th:text="${item.getName()}"></p>
+                    <p th:style="'color: ' + ${item.getRarity().getColour()}" th:text="${item.getName()}"></p>
 
                     <div th:each="description: ${item.getDescription()}">
                         <p th:text="${description}"></p>
@@ -67,7 +67,7 @@
                         Speed: <span style="color: aqua">+300</span>
                     </p>
 
-                    <p th:style="'color: ' + ${item.getRarity().getColorAsHex()}" th:text="${item.getRarity().getName().toUpperCase()}"></p>
+                    <p th:style="'color: ' + ${item.getRarity().getColour()}" th:text="${item.getRarity().getName().toUpperCase()}"></p>
                 </div>
             </div>
         </tr>

@@ -1,34 +1,30 @@
 package me.themgrf.motivatation.inventories.items;
 
+import me.themgrf.motivatation.util.Colour;
 import org.thymeleaf.util.StringUtils;
 
 import java.awt.*;
 
 public enum ItemRarity {
 
-    COMMON(Color.WHITE),
-    UNCOMMON(Color.GRAY),
-    RARE(Color.BLUE),
-    EPIC(Color.MAGENTA),
-    LEGENDARY(Color.ORANGE),
-    MYTHIC(Color.CYAN),
-    SUPREME(Color.GREEN),
-    SPECIAL(Color.YELLOW),
-    VERY_SPECIAL(Color.RED);
+    COMMON(Colour.WHITE),
+    UNCOMMON(Colour.GREY),
+    RARE(Colour.BLUE),
+    EPIC(Colour.PURPLE),
+    LEGENDARY(Colour.ORANGE),
+    MYTHIC(Colour.CYAN),
+    SUPREME(Colour.GREEN),
+    SPECIAL(Colour.YELLOW),
+    VERY_SPECIAL(Colour.RED);
 
-    private final Color color;
+    private final String colour;
 
-    ItemRarity(Color color) {
-        this.color = color;
+    ItemRarity(String color) {
+        this.colour = color;
     }
 
-    public Color getColor() {
-        return color;
-    }
-
-    public String getColorAsHex() {
-        // TODO: add a 0 to fix V
-        return "#" + Integer.toHexString(color.getRed()) + Integer.toHexString(color.getGreen()) + Integer.toHexString(color.getBlue());
+    public String getColour() {
+        return colour;
     }
 
     public String getName() {
