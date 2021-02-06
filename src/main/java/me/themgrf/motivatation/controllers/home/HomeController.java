@@ -1,4 +1,4 @@
-package me.themgrf.motivatation.controllers;
+package me.themgrf.motivatation.controllers.home;
 
 import me.themgrf.motivatation.database.PlayerManager;
 import me.themgrf.motivatation.entities.GameUser;

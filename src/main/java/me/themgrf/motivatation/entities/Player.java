@@ -1,11 +1,13 @@
 package me.themgrf.motivatation.entities;
 
 import me.themgrf.motivatation.inventories.Inventory;
+import me.themgrf.motivatation.inventories.items.ItemRarity;
 import me.themgrf.motivatation.inventories.items.Texture;
 import me.themgrf.motivatation.util.inventory.InventoryCreator;
 import me.themgrf.motivatation.util.inventory.ItemBuilder;
 import me.themgrf.motivatation.util.inventory.Size;
 
+import java.util.Arrays;
 import java.util.Collections;
 
 public class Player extends LivingEntity {
@@ -37,11 +39,30 @@ public class Player extends LivingEntity {
         return InventoryCreator.create(
                 "Player Inventory",
                 Size.TEN,
-                Collections.singletonList(
-                        new ItemBuilder("test")
-                                .name("Test Item")
-                                .description(Collections.singletonList("Test description!"))
-                                .texture(Texture.TEST)
+                Arrays.asList(
+                        new ItemBuilder("test_1")
+                                .name("Training Sword")
+                                .description(Collections.singletonList("Used for simple and efficient training!"))
+                                .texture(Texture.SLIM_IRON_SWORD)
+                                .rarity(ItemRarity.COMMON)
+                                .get(),
+                        new ItemBuilder("test_2")
+                                .name("Decorative Blade")
+                                .description(Collections.singletonList("Some damage, mostly decorative!"))
+                                .texture(Texture.JEWELED_IRON_SWORD)
+                                .rarity(ItemRarity.UNCOMMON)
+                                .get(),
+                        new ItemBuilder("test_3")
+                                .name("Great Iron Sword")
+                                .description(Collections.singletonList("A two-handed great sword!"))
+                                .texture(Texture.GREAT_IRON_SWORD)
+                                .rarity(ItemRarity.RARE)
+                                .get(),
+                        new ItemBuilder("test_4")
+                                .name("Greater Iron Sword")
+                                .description(Collections.singletonList("An even greater two-handed great sword!"))
+                                .texture(Texture.GREATER_IRON_SWORD)
+                                .rarity(ItemRarity.EPIC)
                                 .get()
                 )
         );

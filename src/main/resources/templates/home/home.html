@@ -31,9 +31,9 @@
     </div>
 
     <ul id="sidebar">
-        <li><a class="active" href="#home"><i class="fas fa-home"></i> Home</a></li>
+        <li><a class="active" href="/home"><i class="fas fa-home"></i> Home</a></li>
         <li><a href="#tasks"><i class="fas fa-thumbtack"></i> Tasks</a></li>
-        <li><a href="#inventory"><i class="fas fa-archive"></i> Inventory</a></li>
+        <li><a href="/home/inventory"><i class="fas fa-archive"></i> Inventory</a></li>
         <li><a href="#town"><i class="fas fa-store"></i> Town Square</a></li>
         <li><a href="#guild"><i class="fas fa-university"></i> Guild</a></li>
         <li><a href="#achievements"><i class="fas fa-trophy"></i> Achievements</a></li>
@@ -45,11 +45,6 @@
             <div id="gems" class="currency"><i class="far fa-gem"></i> 420</div>
             <div id="coins" class="currency"><i class="fas fa-coins"></i> 1337</div>
         </div>
-
-        <tr th:each="item: ${player.getInventory().getItems()}">
-            <td th:text="${item.getName()}" />
-            <td th:text="${item.getTexture().getPath()}" />
-        </tr>
     </div>
 </body>
 </html>

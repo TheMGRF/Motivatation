@@ -1,6 +1,7 @@
 package me.themgrf.motivatation.util.inventory;
 
 import me.themgrf.motivatation.inventories.items.Item;
+import me.themgrf.motivatation.inventories.items.ItemRarity;
 import me.themgrf.motivatation.inventories.items.Texture;
 import me.themgrf.motivatation.inventories.items.attributes.ItemAttribute;
 
@@ -36,6 +37,11 @@ public class ItemBuilder {
 
     public ItemBuilder addItemAttribute(ItemAttribute itemAttribute) {
         item.addItemAttribute(itemAttribute);
+        return this;
+    }
+
+    public ItemBuilder rarity(ItemRarity rarity) {
+        item.setRarity(rarity);
         return this;
     }
 

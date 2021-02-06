@@ -12,18 +12,20 @@ public class Item {
     private String name;
     private Texture texture;
     private List<String> description;
+    private ItemRarity rarity;
     private List<ItemAttribute> itemAttributes;
 
     public Item(String id) {
-        this(id, "", Texture.TEST, new ArrayList<>(), new ArrayList<>());
+        this(id, "", Texture.SLIM_IRON_SWORD, new ArrayList<>(), new ArrayList<>(), ItemRarity.COMMON);
     }
 
-    public Item(String id, String name, Texture texture, List<String> description, List<ItemAttribute> itemAttributes) {
+    public Item(String id, String name, Texture texture, List<String> description, List<ItemAttribute> itemAttributes, ItemRarity rarity) {
         this.id = id;
         this.name = name;
         this.texture = texture;
         this.description = description;
         this.itemAttributes = itemAttributes;
+        this.rarity = rarity;
     }
 
     public String getId() {
@@ -64,5 +66,13 @@ public class Item {
 
     public void addItemAttribute(ItemAttribute itemAttribute) {
         itemAttributes.add(itemAttribute);
+    }
+
+    public ItemRarity getRarity() {
+        return rarity;
+    }
+
+    public void setRarity(ItemRarity rarity) {
+        this.rarity = rarity;
     }
 }

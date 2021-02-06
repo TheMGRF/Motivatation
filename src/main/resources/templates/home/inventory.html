@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Thomas Griffiths">
+    <meta name="description" content="Motivatation | Modern problems require modern solutions">
+    <meta name="keywords" content="Motivatation,RPG">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta property="og:title" content="Motivatation | 404 - Page Not Found">
+    <meta property="og:description" content="Modern problems require modern solutions">
+    <meta property="og:image" content="https://motivatation.com/img/logo.png">
+    <meta property="og:url" content="https://motivatation.com/">
+    <base href="/">
+
+    <link rel="icon" type="image/png" th:href="@{img/favicon.ico}">
+
+    <!-- Styles -->
+    <link rel="stylesheet" type="text/css" th:href="@{css/nav.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{css/styles.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{css/home.css}">
+
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+
+    <title th:text="${pageName}"></title>
+</head>
+<body>
+<div th:replace="fragments/nav :: nav"></div>
+
+<div class="mobile-seperator">
+    <hr>
+</div>
+
+<ul id="sidebar">
+    <li><a href="/home"><i class="fas fa-home"></i> Home</a></li>
+    <li><a href="#tasks"><i class="fas fa-thumbtack"></i> Tasks</a></li>
+    <li><a class="active" href="/home/inventory"><i class="fas fa-archive"></i> Inventory</a></li>
+    <li><a href="#town"><i class="fas fa-store"></i> Town Square</a></li>
+    <li><a href="#guild"><i class="fas fa-university"></i> Guild</a></li>
+    <li><a href="#achievements"><i class="fas fa-trophy"></i> Achievements</a></li>
+    <li><a href="#help"><i class="far fa-question-circle"></i> Help</a></li>
+</ul>
+
+<div id="content">
+    <div id="currencies">
+        <div id="gems" class="currency"><i class="far fa-gem"></i> 420</div>
+        <div id="coins" class="currency"><i class="fas fa-coins"></i> 1337</div>
+    </div>
+
+    <br>
+
+    <div class="inventory-container">
+        <h3>Your Inventory</h3>
+        <tr class="inventory" th:each="item: ${player.getInventory().getItems()}">
+            <div class="item">
+                <img class="item-img" th:src="${item.getTexture().getPath()}" width="64px" height="64px">
+                <div class="tooltip">
+                    <p th:style="'color: ' + ${item.getRarity().getColorAsHex()}" th:text="${item.getName()}"></p>
+
+                    <div th:each="description: ${item.getDescription()}">
+                        <p th:text="${description}"></p>
+                    </div>
+
+                    <p>
+                        Damage: <span style="color: darkred">+9,000</span>
+                        <br>
+                        Speed: <span style="color: aqua">+300</span>
+                    </p>
+
+                    <p th:style="'color: ' + ${item.getRarity().getColorAsHex()}" th:text="${item.getRarity().getName().toUpperCase()}"></p>
+                </div>
+            </div>
+        </tr>
+    </div>
+</div>
+</body>
+</html>

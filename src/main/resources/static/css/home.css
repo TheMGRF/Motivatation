@@ -78,3 +78,66 @@
     color: aqua;
     margin: 0 20px 0 15px;
 }
+
+.inventory-container {
+    margin: 2%;
+
+    background-color: #9f9f9f;
+    width: 80%;
+
+    border-radius: 5px;
+}
+
+.inventory-container h3 {
+    color: #ffffff;
+    background-color: #707070;
+
+    padding: 1%;
+}
+
+.item-img {
+    image-rendering: pixelated;
+    width: 64px;
+    height: 64px;
+
+    background-color: rgba(38, 38, 38, 0.8);
+    margin-left: 5px;
+    padding: 4px;
+    border-radius: 2px;
+}
+
+.item-img:hover {
+    cursor: pointer;
+    filter: brightness(120%);
+}
+
+.item {
+    position: relative;
+    display: inline-block;
+}
+
+.item .tooltip {
+    visibility: hidden;
+    width: 240px;
+    background-color: rgba(16, 3, 45, 0.9);
+    border: 2px solid rgba(42, 7, 122, 0.9);
+    border-radius: 4px;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0 10px 0 10px;
+    font-family: Minecraft;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    left: 105%;
+}
+
+.item:hover .tooltip {
+    visibility: visible;
+}
+
+.item .tooltip:hover {
+    visibility: hidden;
+}
