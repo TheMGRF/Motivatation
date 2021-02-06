@@ -10,16 +10,18 @@ public class Item {
     private final String id;
 
     private String name;
+    private Texture texture;
     private List<String> description;
     private List<ItemAttribute> itemAttributes;
 
     public Item(String id) {
-        this(id, "", new ArrayList<>(), new ArrayList<>());
+        this(id, "", Texture.TEST, new ArrayList<>(), new ArrayList<>());
     }
 
-    public Item(String id, String name, List<String> description, List<ItemAttribute> itemAttributes) {
+    public Item(String id, String name, Texture texture, List<String> description, List<ItemAttribute> itemAttributes) {
         this.id = id;
         this.name = name;
+        this.texture = texture;
         this.description = description;
         this.itemAttributes = itemAttributes;
     }
@@ -34,6 +36,14 @@ public class Item {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Texture getTexture() {
+        return texture;
+    }
+
+    public void setTexture(Texture texture) {
+        this.texture = texture;
     }
 
     public List<String> getDescription() {

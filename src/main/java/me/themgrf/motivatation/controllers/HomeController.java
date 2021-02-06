@@ -1,6 +1,7 @@
 package me.themgrf.motivatation.controllers;
 
 import me.themgrf.motivatation.database.PlayerManager;
+import me.themgrf.motivatation.entities.GameUser;
 import me.themgrf.motivatation.entities.Player;
 import me.themgrf.motivatation.entities.User;
 import me.themgrf.motivatation.util.AppInfo;

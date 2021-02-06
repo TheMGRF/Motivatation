@@ -1,6 +1,7 @@
 package me.themgrf.motivatation.util.inventory;
 
 import me.themgrf.motivatation.inventories.items.Item;
+import me.themgrf.motivatation.inventories.items.Texture;
 import me.themgrf.motivatation.inventories.items.attributes.ItemAttribute;
 
 import java.util.List;
@@ -13,12 +14,17 @@ public class ItemBuilder {
         this.item = new Item(id);
     }
 
-    public ItemBuilder setName(String name) {
+    public ItemBuilder name(String name) {
         item.setName(name);
         return this;
     }
 
-    public ItemBuilder setDescription(List<String> description) {
+    public ItemBuilder texture(Texture texture) {
+        item.setTexture(texture);
+        return this;
+    }
+
+    public ItemBuilder description(List<String> description) {
         item.setDescription(description);
         return this;
     }

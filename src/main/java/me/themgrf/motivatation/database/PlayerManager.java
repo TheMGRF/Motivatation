@@ -6,6 +6,7 @@ import me.themgrf.motivatation.entities.User;
 import me.themgrf.motivatation.util.Auth;
 
 import java.util.HashMap;
+import java.util.Optional;
 
 public class PlayerManager {
 
@@ -16,7 +17,8 @@ public class PlayerManager {
     }
 
     public static Player getPlayer(User user) {
-        return new Player(new GameUser(user));
+        Player player = PLAYERS.get(user);
+        return Optional.ofNullable(player).orElse(new Player(new GameUser(user)));
     }
 
     public static void savePlayer(Player player) {

@@ -45,6 +45,11 @@
             <div id="gems" class="currency"><i class="far fa-gem"></i> 420</div>
             <div id="coins" class="currency"><i class="fas fa-coins"></i> 1337</div>
         </div>
+
+        <tr th:each="item: ${player.getInventory().getItems()}">
+            <td th:text="${item.getName()}" />
+            <td th:text="${item.getTexture().getPath()}" />
+        </tr>
     </div>
 </body>
 </html>
