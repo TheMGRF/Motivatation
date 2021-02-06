@@ -3,8 +3,6 @@ package me.themgrf.motivatation.inventories.items;
 import me.themgrf.motivatation.util.Colour;
 import org.thymeleaf.util.StringUtils;
 
-import java.awt.*;
-
 public enum ItemRarity {
 
     COMMON(Colour.WHITE),

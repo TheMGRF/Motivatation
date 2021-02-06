@@ -3,6 +3,7 @@ package me.themgrf.motivatation.inventories.items;
 import me.themgrf.motivatation.inventories.items.attributes.ItemAttribute;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Item {
@@ -62,6 +63,10 @@ public class Item {
 
     public void setItemAttributes(List<ItemAttribute> itemAttributes) {
         this.itemAttributes = itemAttributes;
+    }
+
+    public void addItemAttributes(ItemAttribute... itemAttributes) {
+        this.itemAttributes.addAll(Arrays.asList(itemAttributes));
     }
 
     public void addItemAttribute(ItemAttribute itemAttribute) {

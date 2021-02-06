@@ -35,6 +35,11 @@ public class ItemBuilder {
         return this;
     }
 
+    public ItemBuilder addItemAttributes(ItemAttribute... itemAttributes) {
+        item.addItemAttributes(itemAttributes);
+        return this;
+    }
+
     public ItemBuilder addItemAttribute(ItemAttribute itemAttribute) {
         item.addItemAttribute(itemAttribute);
         return this;

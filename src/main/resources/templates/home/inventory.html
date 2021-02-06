@@ -61,11 +61,10 @@
                         <p th:text="${description}"></p>
                     </div>
 
-                    <p>
-                        Damage: <span style="color: darkred">+9,000</span>
+                    <span th:each="attribute: ${item.getItemAttributes()}">
+                        <span th:text="${attribute.getName()} + ': '"></span><span th:style="'color: ' + ${attribute.getColour()}" th:text="${attribute.getDescription()}"></span>
                         <br>
-                        Speed: <span style="color: aqua">+300</span>
-                    </p>
+                    </span>
 
                     <p th:style="'color: ' + ${item.getRarity().getColour()}" th:text="${item.getRarity().getName().toUpperCase()}"></p>
                 </div>

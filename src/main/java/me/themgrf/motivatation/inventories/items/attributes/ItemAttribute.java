@@ -5,18 +5,19 @@ import me.themgrf.motivatation.inventories.items.ItemStat;
 
 public abstract class ItemAttribute {
 
-    private final String id, name;
+    private final String id, name, colour;
     private final ItemStat stat;
     private final int amount;
     private final boolean positive;
 
-    public ItemAttribute(String id, String name, ItemStat stat, int amount) {
-        this(id, name, stat, amount, true);
+    public ItemAttribute(String id, String name, String colour, ItemStat stat, int amount) {
+        this(id, name, colour, stat, amount, true);
     }
 
-    public ItemAttribute(String id, String name, ItemStat stat, int amount, boolean positive) {
+    public ItemAttribute(String id, String name, String colour, ItemStat stat, int amount, boolean positive) {
         this.id = id;
         this.name = name;
+        this.colour = colour;
         this.stat = stat;
         this.amount = amount;
         this.positive = positive;
@@ -30,8 +31,12 @@ public abstract class ItemAttribute {
         return name;
     }
 
+    public String getColour() {
+        return colour;
+    }
+
     public String getDescription() {
-        return getNegativePositive() + getAmount() + " " + getName();
+        return getNegativePositive() + getAmount();
     }
 
     public ItemStat getStat() {

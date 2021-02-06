@@ -3,6 +3,9 @@ package me.themgrf.motivatation.entities;
 import me.themgrf.motivatation.inventories.Inventory;
 import me.themgrf.motivatation.inventories.items.ItemRarity;
 import me.themgrf.motivatation.inventories.items.Texture;
+import me.themgrf.motivatation.inventories.items.attributes.DefenceAttribute;
+import me.themgrf.motivatation.inventories.items.attributes.HealthAttribute;
+import me.themgrf.motivatation.inventories.items.attributes.SpeedAttribute;
 import me.themgrf.motivatation.util.inventory.InventoryCreator;
 import me.themgrf.motivatation.util.inventory.ItemBuilder;
 import me.themgrf.motivatation.util.inventory.Size;
@@ -50,18 +53,21 @@ public class Player extends LivingEntity {
                                 .name("Decorative Blade")
                                 .description(Collections.singletonList("Some damage, mostly decorative!"))
                                 .texture(Texture.JEWELED_IRON_SWORD)
+                                .addItemAttribute(new HealthAttribute(5))
                                 .rarity(ItemRarity.UNCOMMON)
                                 .get(),
                         new ItemBuilder("test_3")
                                 .name("Great Iron Sword")
                                 .description(Collections.singletonList("A two-handed great sword!"))
                                 .texture(Texture.GREAT_IRON_SWORD)
+                                .addItemAttributes(new HealthAttribute(6), new DefenceAttribute(3))
                                 .rarity(ItemRarity.RARE)
                                 .get(),
                         new ItemBuilder("test_4")
                                 .name("Greater Iron Sword")
                                 .description(Collections.singletonList("An even greater two-handed great sword!"))
                                 .texture(Texture.GREATER_IRON_SWORD)
+                                .addItemAttributes(new HealthAttribute(8), new DefenceAttribute(4), new SpeedAttribute(12))
                                 .rarity(ItemRarity.EPIC)
                                 .get()
                 )
