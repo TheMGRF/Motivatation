@@ -130,3 +130,7 @@ button:hover {
     position: fixed;
     z-index: -10;
 }
+
+.bold {
+    font-weight: bold;
+}

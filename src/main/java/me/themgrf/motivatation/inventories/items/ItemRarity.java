@@ -6,14 +6,12 @@ import org.thymeleaf.util.StringUtils;
 public enum ItemRarity {
 
     COMMON(Colour.WHITE),
-    UNCOMMON(Colour.GREY),
+    UNCOMMON(Colour.GREEN),
     RARE(Colour.BLUE),
     EPIC(Colour.PURPLE),
     LEGENDARY(Colour.ORANGE),
     MYTHIC(Colour.CYAN),
-    SUPREME(Colour.GREEN),
-    SPECIAL(Colour.YELLOW),
-    VERY_SPECIAL(Colour.RED);
+    SPECIAL(Colour.RED);
 
     private final String colour;
 

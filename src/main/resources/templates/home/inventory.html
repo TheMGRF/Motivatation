@@ -58,15 +58,15 @@
                     <p th:style="'color: ' + ${item.getRarity().getColour()}" th:text="${item.getName()}"></p>
 
                     <div th:each="description: ${item.getDescription()}">
-                        <p th:text="${description}"></p>
+                        <p style="color: #CCCCCC;" th:text="${description}"></p>
                     </div>
 
                     <span th:each="attribute: ${item.getItemAttributes()}">
-                        <span th:text="${attribute.getName()} + ': '"></span><span th:style="'color: ' + ${attribute.getColour()}" th:text="${attribute.getDescription()}"></span>
+                        <span style="color: #CCCCCC;" th:text="${attribute.getName()} + ': '"></span><span th:style="'color: ' + ${attribute.getColour()}" th:text="${attribute.getDescription()}"></span>
                         <br>
                     </span>
 
-                    <p th:style="'color: ' + ${item.getRarity().getColour()}" th:text="${item.getRarity().getName().toUpperCase()}"></p>
+                    <p class="bold" th:style="'color: ' + ${item.getRarity().getColour()}" th:text="${item.getRarity().getName().toUpperCase()}"></p>
                 </div>
             </div>
         </tr>
