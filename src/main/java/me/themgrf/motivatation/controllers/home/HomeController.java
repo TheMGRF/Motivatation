@@ -1,5 +1,6 @@
 package me.themgrf.motivatation.controllers.home;
 
+import me.themgrf.motivatation.controllers.ControllerBase;
 import me.themgrf.motivatation.database.PlayerManager;
 import me.themgrf.motivatation.entities.GameUser;
 import me.themgrf.motivatation.entities.Player;
@@ -11,15 +12,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class HomeController {
-
-    private static final String PAGE_NAME = "Motivatation | Home";
+public class HomeController extends ControllerBase {
 
     @GetMapping("/home")
     public String home(Model model) {
-        model.addAttribute("appName", AppInfo.SITE_NAME);
-        model.addAttribute("pageName", PAGE_NAME);
-        model.addAttribute("loggedIn", Auth.isLoggedIn());
+        model = super.setup(model);
 
         User user = Auth.getUser();
         if (user != null) {
@@ -31,4 +28,8 @@ public class HomeController {
         return "home/home";
     }
 
+    @Override
+    public String getPageName() {
+        return "Motivatation | Home";
+    }
 }

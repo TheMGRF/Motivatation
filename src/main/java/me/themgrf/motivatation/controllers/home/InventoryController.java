@@ -1,5 +1,6 @@
 package me.themgrf.motivatation.controllers.home;
 
+import me.themgrf.motivatation.controllers.ControllerBase;
 import me.themgrf.motivatation.database.PlayerManager;
 import me.themgrf.motivatation.entities.Player;
 import me.themgrf.motivatation.entities.User;
@@ -10,15 +11,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class InventoryController {
-
-    private static final String PAGE_NAME = "Motivatation | Inventory";
+public class InventoryController extends ControllerBase {
 
     @GetMapping("/home/inventory")
     public String inventory(Model model) {
-        model.addAttribute("appName", AppInfo.SITE_NAME);
-        model.addAttribute("pageName", PAGE_NAME);
-        model.addAttribute("loggedIn", Auth.isLoggedIn());
+        model = super.setup(model);
 
         User user = Auth.getUser();
         if (user != null) {
@@ -30,4 +27,8 @@ public class InventoryController {
         return "home/inventory";
     }
 
+    @Override
+    public String getPageName() {
+        return "Motivatation | Inventory";
+    }
 }
