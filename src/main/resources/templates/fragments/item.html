@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    ...
+</head>
+<body>
+
+<div class="item" th:fragment="item">
+    <img class="item-img" th:src="${item.getTexture().getPath()}" width="64px" height="64px">
+    <div class="tooltip">
+        <p th:style="'color: ' + ${item.getRarity().getColour()}" th:text="${item.getName()}"></p>
+
+        <div th:each="description: ${item.getDescription()}">
+            <p style="color: #CCCCCC;" th:text="${description}"></p>
+        </div>
+
+        <span th:each="attribute: ${item.getItemAttributes()}">
+                        <span style="color: #CCCCCC;" th:text="${attribute.getName()} + ': '"></span><span th:style="'color: ' + ${attribute.getColour()}" th:text="${attribute.getDescription()}"></span>
+                        <br>
+                    </span>
+
+        <p class="bold" th:style="'color: ' + ${item.getRarity().getColour()}" th:text="${item.getRarity().getName().toUpperCase()}"></p>
+    </div>
+</div>
+
+</body>
+</html>

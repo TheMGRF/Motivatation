@@ -10,7 +10,14 @@ public enum Texture {
     JEWELED_PINCER_SWORD("/items/swords/jeweled_pincer_sword.png"),
     CURVED_SWORD("/items/swords/curved_sword.png"),
     GREAT_IRON_SWORD("/items/swords/great_iron_sword.png"),
-    GREATER_IRON_SWORD("/items/swords/greater_iron_sword.png");
+    GREATER_IRON_SWORD("/items/swords/greater_iron_sword.png"),
+
+    // Bows
+    OAK_BOW("/items/bows/oak_bow.png"),
+    JEWELED_OAK_BOW("/items/bows/jeweled_oak_bow.png"),
+    CURVED_BOW("/items/bows/curved_bow.png"),
+    SPIKED_BOW("/items/bows/spiked_bow.png"),
+    ;
 
     private final String path;
 

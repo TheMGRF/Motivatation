@@ -69,6 +69,19 @@ public class Player extends LivingEntity {
                                 .texture(Texture.GREATER_IRON_SWORD)
                                 .addItemAttributes(new HealthAttribute(8), new DefenceAttribute(4), new SpeedAttribute(12))
                                 .rarity(ItemRarity.EPIC)
+                                .get(),
+                        new ItemBuilder("test_5")
+                                .name("Oak Bow")
+                                .description(Collections.singletonList("A basic oak bow!"))
+                                .texture(Texture.OAK_BOW)
+                                .rarity(ItemRarity.COMMON)
+                                .get(),
+                        new ItemBuilder("test_6")
+                                .name("Curved Bow")
+                                .description(Collections.singletonList("A strong curved bow for even further accuracy!"))
+                                .texture(Texture.CURVED_BOW)
+                                .addItemAttributes(new HealthAttribute(4), new SpeedAttribute(2))
+                                .rarity(ItemRarity.RARE)
                                 .get()
                 )
         );

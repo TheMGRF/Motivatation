@@ -33,12 +33,12 @@
 
 <ul id="sidebar">
     <li><a href="/home"><i class="fas fa-home"></i> Home</a></li>
-    <li><a href="#tasks"><i class="fas fa-thumbtack"></i> Tasks</a></li>
+    <li><a href="/home/tasks"><i class="fas fa-thumbtack"></i> Tasks</a></li>
     <li><a class="active" href="/home/inventory"><i class="fas fa-archive"></i> Inventory</a></li>
-    <li><a href="#town"><i class="fas fa-store"></i> Town Square</a></li>
-    <li><a href="#guild"><i class="fas fa-university"></i> Guild</a></li>
-    <li><a href="#achievements"><i class="fas fa-trophy"></i> Achievements</a></li>
-    <li><a href="#help"><i class="far fa-question-circle"></i> Help</a></li>
+    <li><a href="/home/town"><i class="fas fa-store"></i> Town Square</a></li>
+    <li><a href="/home/guild"><i class="fas fa-university"></i> Guild</a></li>
+    <li><a href="/home/achievements"><i class="fas fa-trophy"></i> Achievements</a></li>
+    <li><a href="/home/help"><i class="far fa-question-circle"></i> Help</a></li>
 </ul>
 
 <div id="content">
@@ -52,23 +52,7 @@
     <div class="inventory-container">
         <h3>Your Inventory</h3>
         <tr class="inventory" th:each="item: ${player.getInventory().getItems()}">
-            <div class="item">
-                <img class="item-img" th:src="${item.getTexture().getPath()}" width="64px" height="64px">
-                <div class="tooltip">
-                    <p th:style="'color: ' + ${item.getRarity().getColour()}" th:text="${item.getName()}"></p>
-
-                    <div th:each="description: ${item.getDescription()}">
-                        <p style="color: #CCCCCC;" th:text="${description}"></p>
-                    </div>
-
-                    <span th:each="attribute: ${item.getItemAttributes()}">
-                        <span style="color: #CCCCCC;" th:text="${attribute.getName()} + ': '"></span><span th:style="'color: ' + ${attribute.getColour()}" th:text="${attribute.getDescription()}"></span>
-                        <br>
-                    </span>
-
-                    <p class="bold" th:style="'color: ' + ${item.getRarity().getColour()}" th:text="${item.getRarity().getName().toUpperCase()}"></p>
-                </div>
-            </div>
+            <div th:replace="fragments/item :: item" th:with="item=${item}"></div>
         </tr>
     </div>
 </div>
