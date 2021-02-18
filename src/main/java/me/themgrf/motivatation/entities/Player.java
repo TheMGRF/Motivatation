@@ -15,17 +15,65 @@ import java.util.Collections;
 
 public class Player extends LivingEntity {
 
-    private final GameUser gameUser;
-    private double intelligence;
+    private final long id;
+    private int tasks, coins, gems;
+    private double experience, intelligence;
 
-    public Player(GameUser gameUser) {
-        this.gameUser = gameUser;
+    public Player(long id) {
+        super();
 
+        this.id = id;
+        this.tasks = 0;
+        this.coins = 0;
+        this.gems = 0;
+        this.experience = 0;
         this.intelligence = 0;
     }
 
-    public GameUser getGameUser() {
-        return gameUser;
+    public Player(long id, String name, int level, double health, double defence, double strength, double speed, int tasks, int coins, int gems, double experience, double intelligence) {
+        super(name, level, health, defence, strength, speed);
+        this.id = id;
+        this.tasks = tasks;
+        this.coins = coins;
+        this.gems = gems;
+        this.experience = experience;
+        this.intelligence = intelligence;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public int getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(int tasks) {
+        this.tasks = tasks;
+    }
+
+    public int getCoins() {
+        return coins;
+    }
+
+    public void setCoins(int coins) {
+        this.coins = coins;
+    }
+
+    public int getGems() {
+        return gems;
+    }
+
+    public void setGems(int gems) {
+        this.gems = gems;
+    }
+
+    public double getExperience() {
+        return experience;
+    }
+
+    public void setExperience(double experience) {
+        this.experience = experience;
     }
 
     public double getIntelligence() {

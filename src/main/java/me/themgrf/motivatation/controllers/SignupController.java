@@ -1,5 +1,7 @@
 package me.themgrf.motivatation.controllers;
 
+import me.themgrf.motivatation.database.PlayerManager;
+import me.themgrf.motivatation.entities.Player;
 import me.themgrf.motivatation.entities.User;
 import me.themgrf.motivatation.users.service.UserService;
 import me.themgrf.motivatation.users.UserValidator;
@@ -49,6 +51,7 @@ public class SignupController extends ControllerBase {
         }
 
         userService.save(userData);
+        PlayerManager.addPlayer(new Player(userData.getId()));
 
         return "redirect:/welcome";
     }
