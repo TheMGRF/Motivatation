@@ -2,7 +2,9 @@ package me.themgrf.motivatation.inventories;
 
 import me.themgrf.motivatation.inventories.items.Item;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Inventory {
 
@@ -40,11 +42,40 @@ public class Inventory {
         this.items.add(item);
     }
 
+    public void addItems(List<Item> items) {
+        this.items.addAll(items);
+    }
+
     public void removeItem(Item item) {
         this.items.remove(item);
     }
 
     public void setItems(List<Item> items) {
         this.items = items;
+    }
+
+    @Override
+    public String toString() {
+        HashMap<String, Integer> itemMap = new HashMap<>();
+
+        for (Item item : items) {
+            String id = item.getId();
+            int oldValue = itemMap.putIfAbsent(id, 1);
+            if (oldValue > 1) {
+                itemMap.put(id, oldValue + 1);
+            }
+        }
+
+        int loop = 0;
+        StringBuilder sb = new StringBuilder();
+        for (Map.Entry<String, Integer> entry : itemMap.entrySet()) {
+            sb.append(entry.getKey()).append(":").append(entry.getValue());
+            if (loop != itemMap.size() - 1) {
+                sb.append(",");
+            }
+            loop++;
+        }
+
+        return sb.toString();
     }
 }

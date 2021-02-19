@@ -46,9 +46,9 @@ public enum Texture {
 
     // Potions
     HEALTH_POTION("/items/potions/health_potion.png"),
-    PLENTIFUL_HEALTH_POTION("/items/shields/plentiful_health_potion.png"),
-    STAMINA_POTION("/items/shields/stamina_potion.png"),
-    PLENTIFUL_STAMINA_POTION("/items/shields/plentiful_stamina_potion.png"),
+    PLENTIFUL_HEALTH_POTION("/items/potions/plentiful_health_potion.png"),
+    STAMINA_POTION("/items/potions/stamina_potion.png"),
+    PLENTIFUL_STAMINA_POTION("/items/potions/plentiful_stamina_potion.png"),
 
     // Food
     APPLE("/items/food/apple.png"),

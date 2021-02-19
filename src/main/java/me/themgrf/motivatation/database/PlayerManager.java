@@ -3,13 +3,16 @@ package me.themgrf.motivatation.database;
 import me.themgrf.motivatation.entities.Player;
 import me.themgrf.motivatation.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import xyz.minecrossing.databaseconnector.DatabaseConnector;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 
@@ -17,9 +20,6 @@ import java.util.HashMap;
 public class PlayerManager {
 
     private static final HashMap<User, Player> PLAYERS = new HashMap<>();
-
-    @Autowired
-    private static JdbcTemplate db;
 
     public static Player getPlayer(long id) {
         return getDefaultPlayer(id); // TODO: Replace with get
@@ -37,11 +37,47 @@ public class PlayerManager {
     }
 
     public static Player getPlayerFromDB(long id) {
-        String sql = "SELECT * FROM players WHERE player_id = ? LIMIT 1;";
-        Object[] params = new Object[]{id};
-        PlayerMapper mapper = new PlayerMapper();
+        String sql = "SELECT * FROM players INNER JOIN users ON players.player_id = users.id WHERE player_id = ? LIMIT 1;";
 
-        return db.queryForObject(sql, params, mapper);
+        String name = "";
+        double health = 0;
+        double defence = 0;
+        double strength = 0;
+        double speed = 0;
+        double intelligence = 0;
+        int level = 0;
+        int tasks = 0;
+        int coins = 0;
+        int gems = 0;
+        double experience = 0;
+
+        try (Connection con = DatabaseConnector.getInstance().getConnection("motivatation")) {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setLong(1, id);
+
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                name = rs.getString("username");
+                health = rs.getDouble("health");
+                defence = rs.getDouble("defence");
+                strength = rs.getDouble("strength");
+                speed = rs.getDouble("speed");
+                intelligence = rs.getDouble("intelligence");
+                level = rs.getInt("level");
+                tasks = rs.getInt("tasks");
+                coins = rs.getInt("coins");
+                gems = rs.getInt("gems");
+                experience = rs.getDouble("experience");
+            }
+
+            rs.close();
+            ps.close();
+            con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return makePlayer(id, name, health, defence, strength, speed, intelligence, level, tasks, coins, gems, experience);
     }
 
     /**
@@ -79,10 +115,8 @@ public class PlayerManager {
     }
 
     public static void savePlayer(Player player) {
-        // TODO: Save player
-        String sql = "INSERT INTO players (health, defence, strength, speed, intelligence, level, tasks, coins, gems, experience) " +
-                "VALUES" +
-                "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)" +
+        String sql = "UPDATE players SET health = ?, defence = ?, strength = ?, speed = ?, intelligence = ?, level = ?, tasks = ?, coins = ?, gems = ?, experience = ? " +
+                "WHERE player_id = ?" +
                 ";";
 
         try (Connection con = DatabaseConnector.getInstance().getConnection("motivatation")) {
@@ -97,6 +131,7 @@ public class PlayerManager {
             ps.setInt(8, player.getCoins());
             ps.setInt(9, player.getGems());
             ps.setDouble(10, player.getExperience());
+            ps.setLong(11, player.getId());
 
             ps.execute();
 
@@ -105,6 +140,26 @@ public class PlayerManager {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        sql = "UPDATE inventories SET items = ? WHERE player_id = ?;";
+
+        try (Connection con = DatabaseConnector.getInstance().getConnection("motivatation")) {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, player.getInventory().toString());
+            ps.setLong(2, player.getId());
+
+            ps.executeQuery();
+
+            ps.close();
+            con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static Player makePlayer(long id, String name, double health, double defence, double strength, double speed,
+                                    double intelligence, int level, int tasks, int coins, int gems, double experience) {
+        return new Player(id, name, level, health, defence, strength, speed, tasks, coins, gems, experience, intelligence);
     }
 
     public static Player getDefaultPlayer(long id) {

@@ -1,6 +1,7 @@
 package me.themgrf.motivatation.entities;
 
 import me.themgrf.motivatation.inventories.Inventory;
+import me.themgrf.motivatation.inventories.items.ItemManager;
 import me.themgrf.motivatation.inventories.items.ItemRarity;
 import me.themgrf.motivatation.inventories.items.Texture;
 import me.themgrf.motivatation.inventories.items.attributes.DefenceAttribute;
@@ -9,7 +10,12 @@ import me.themgrf.motivatation.inventories.items.attributes.SpeedAttribute;
 import me.themgrf.motivatation.util.inventory.InventoryCreator;
 import me.themgrf.motivatation.util.inventory.ItemBuilder;
 import me.themgrf.motivatation.util.inventory.Size;
+import xyz.minecrossing.databaseconnector.DatabaseConnector;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.Collections;
 
@@ -38,6 +44,8 @@ public class Player extends LivingEntity {
         this.gems = gems;
         this.experience = experience;
         this.intelligence = intelligence;
+
+        getInventory().addItem(ItemManager.getItem("apple"));
     }
 
     public long getId() {
@@ -84,54 +92,26 @@ public class Player extends LivingEntity {
         this.intelligence = intelligence;
     }
 
-    // TODO: Remove and use real inventories
     @Override
     public Inventory getInventory() {
-        return InventoryCreator.create(
-                "Player Inventory",
-                Size.TEN,
-                Arrays.asList(
-                        new ItemBuilder("test_1")
-                                .name("Training Sword")
-                                .description(Collections.singletonList("Used for simple and efficient training!"))
-                                .texture(Texture.SLIM_IRON_SWORD)
-                                .rarity(ItemRarity.COMMON)
-                                .get(),
-                        new ItemBuilder("test_2")
-                                .name("Decorative Blade")
-                                .description(Collections.singletonList("Some damage, mostly decorative!"))
-                                .texture(Texture.JEWELED_IRON_SWORD)
-                                .addItemAttribute(new HealthAttribute(5))
-                                .rarity(ItemRarity.UNCOMMON)
-                                .get(),
-                        new ItemBuilder("test_3")
-                                .name("Great Iron Sword")
-                                .description(Collections.singletonList("A two-handed great sword!"))
-                                .texture(Texture.GREAT_IRON_SWORD)
-                                .addItemAttributes(new HealthAttribute(6), new DefenceAttribute(3))
-                                .rarity(ItemRarity.RARE)
-                                .get(),
-                        new ItemBuilder("test_4")
-                                .name("Greater Iron Sword")
-                                .description(Collections.singletonList("An even greater two-handed great sword!"))
-                                .texture(Texture.GREATER_IRON_SWORD)
-                                .addItemAttributes(new HealthAttribute(8), new DefenceAttribute(4), new SpeedAttribute(12))
-                                .rarity(ItemRarity.EPIC)
-                                .get(),
-                        new ItemBuilder("test_5")
-                                .name("Oak Bow")
-                                .description(Collections.singletonList("A basic oak bow!"))
-                                .texture(Texture.OAK_BOW)
-                                .rarity(ItemRarity.COMMON)
-                                .get(),
-                        new ItemBuilder("test_6")
-                                .name("Curved Bow")
-                                .description(Collections.singletonList("A strong curved bow for even further accuracy!"))
-                                .texture(Texture.CURVED_BOW)
-                                .addItemAttributes(new HealthAttribute(4), new SpeedAttribute(2))
-                                .rarity(ItemRarity.RARE)
-                                .get()
-                )
-        );
+        Inventory inventory = InventoryCreator.createEmptyPlayerInventory(this);
+
+        String items = "";
+
+        try (Connection con = DatabaseConnector.getInstance().getConnection("motivatation")) {
+            PreparedStatement ps = con.prepareStatement("SELECT items FROM inventories WHERE player_id = ? LIMIT 1;");
+            ps.setLong(1, getId());
+
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                items = rs.getString("items");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        inventory.addItems(ItemManager.itemsFromString(items));
+
+        return inventory;
     }
 }

@@ -18,6 +18,8 @@ public class MotivatationApplication {
                 "motivate",
                 "password"
         ));
+
+        Motivatation.getInstance().setupItems();
     }
 
 }

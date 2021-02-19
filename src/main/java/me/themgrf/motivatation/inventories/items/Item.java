@@ -5,9 +5,11 @@ import me.themgrf.motivatation.inventories.items.attributes.ItemAttribute;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
 
 public class Item {
 
+    private final UUID internalID;
     private final String id;
 
     private String name;
@@ -21,12 +23,17 @@ public class Item {
     }
 
     public Item(String id, String name, Texture texture, List<String> description, List<ItemAttribute> itemAttributes, ItemRarity rarity) {
+        this.internalID = UUID.randomUUID();
         this.id = id;
         this.name = name;
         this.texture = texture;
         this.description = description;
         this.itemAttributes = itemAttributes;
         this.rarity = rarity;
+    }
+
+    public UUID getInternalID() {
+        return internalID;
     }
 
     public String getId() {
