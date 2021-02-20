@@ -19,6 +19,7 @@
     <link rel="stylesheet" type="text/css" th:href="@{css/nav.css}">
     <link rel="stylesheet" type="text/css" th:href="@{css/styles.css}">
     <link rel="stylesheet" type="text/css" th:href="@{css/home.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{css/inventory.css}">
 
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
 
@@ -55,6 +56,14 @@
             <div th:replace="fragments/item :: item" th:with="item=${item}"></div>
         </tr>
     </div>
+
+    <ul class="list" id="list">
+        <li><a href="">Use</a></li>
+        <li><a href="">Trade</a></li>
+        <li><a href="">Drop</a></li>
+    </ul>
 </div>
+
+<script th:src="@{js/right-click.js}"></script>
 </body>
 </html>
