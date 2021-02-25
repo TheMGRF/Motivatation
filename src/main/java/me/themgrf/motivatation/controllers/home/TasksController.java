@@ -28,7 +28,7 @@ public class TasksController extends ControllerBase {
 
     @Override
     public String getPageName() {
-        return "Motivatation | Tasks";
+        return "Motivatation | Home";
     }
 
 }

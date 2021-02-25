@@ -22,12 +22,12 @@
                 <div id="profile-container">
                     <li id="profile-info">
                         <span>
-                            <b th:text="${username}">TheMGRF</b>
-                            <p>Test 1: <span th:text="${player.health}"></span></p>
+                            <b th:text="${username}">User</b>
+                            <!--<p>Test 1: <span th:text="${player.health}"></span></p>-->
                             <small id="levels-tasks">
-                                Level: 10
+                                Level: <span th:text="${player.getLevel()}"></span>
                                 <br>
-                                Tasks: 4
+                                Tasks: <span th:text="${player.getTasks()}"></span>
                             </small>
                         </span>
                     </li>

@@ -29,6 +29,6 @@ public class InventoryController extends ControllerBase {
 
     @Override
     public String getPageName() {
-        return "Motivatation | Inventory";
+        return "Motivatation | Home";
     }
 }

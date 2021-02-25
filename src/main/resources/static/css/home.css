@@ -70,11 +70,11 @@
     display: inline;
 }
 
-#coins {
+.coins {
     color: gold;
 }
 
-#gems {
+.gems {
     color: aqua;
     margin: 0 20px 0 15px;
 }
