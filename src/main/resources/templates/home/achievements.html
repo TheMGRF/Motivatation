@@ -50,10 +50,12 @@
 
     <br>
 
-    <h3>Your Achievements</h3>
-    <tr class="achievements" th:each="achievement: ${achievements}">
-        <div th:replace="fragments/achievement :: achievement" th:with="achievement=${achievement}"></div>
-    </tr>
+    <div class="achievement-container">
+        <h3>Your Achievements</h3>
+        <tr class="achievements" th:each="achievement: ${achievements}">
+            <div th:replace="fragments/achievement :: achievement" th:with="achievement=${achievement}"></div>
+        </tr>
+    </div>
 </div>
 
 </body>

@@ -141,13 +141,20 @@
     visibility: hidden;
 }
 
+.achievement-container {
+    padding: 1%;
+}
+
 .achievement {
     background-color: #707070;
     width: 20%;
+    margin-bottom: 1%;
 }
 
 .achievement-img {
-    padding-top: 2%;
+    display: inline-block;
+
+    margin-top: 3%;
 }
 
 .achievement-text {
@@ -155,9 +162,9 @@
 }
 
 .achievement-name {
-    line-height: 10px !important;
+    line-height: 10px;
 }
 
 .achievement-description {
-    line-height: 5px !important;
+    line-height: 2px;
 }
