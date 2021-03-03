@@ -1,7 +1,7 @@
-package me.themgrf.motivatation.inventories.items.attributes;
+package me.themgrf.motivatation.game.inventories.items.attributes;
 
 import me.themgrf.motivatation.entities.Player;
-import me.themgrf.motivatation.inventories.items.ItemStat;
+import me.themgrf.motivatation.game.inventories.items.ItemStat;
 
 public abstract class ItemAttribute {
 

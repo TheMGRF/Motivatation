@@ -1,4 +1,4 @@
-package me.themgrf.motivatation.inventories.items;
+package me.themgrf.motivatation.game.inventories.items;
 
 import java.util.ArrayList;
 import java.util.HashMap;

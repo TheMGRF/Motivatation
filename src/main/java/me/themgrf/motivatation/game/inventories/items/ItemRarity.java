@@ -1,4 +1,4 @@
-package me.themgrf.motivatation.inventories.items;
+package me.themgrf.motivatation.game.inventories.items;
 
 import me.themgrf.motivatation.util.Colour;
 import org.thymeleaf.util.StringUtils;

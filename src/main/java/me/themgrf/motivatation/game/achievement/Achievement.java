@@ -2,7 +2,7 @@ package me.themgrf.motivatation.game.achievement;
 
 import me.themgrf.motivatation.game.rewards.Reward;
 import me.themgrf.motivatation.game.rewards.RewardType;
-import me.themgrf.motivatation.inventories.items.Texture;
+import me.themgrf.motivatation.game.inventories.items.Texture;
 
 public enum Achievement {
 

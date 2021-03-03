@@ -1,9 +1,9 @@
 package me.themgrf.motivatation.util.inventory;
 
-import me.themgrf.motivatation.inventories.items.Item;
-import me.themgrf.motivatation.inventories.items.ItemRarity;
-import me.themgrf.motivatation.inventories.items.Texture;
-import me.themgrf.motivatation.inventories.items.attributes.ItemAttribute;
+import me.themgrf.motivatation.game.inventories.items.Item;
+import me.themgrf.motivatation.game.inventories.items.ItemRarity;
+import me.themgrf.motivatation.game.inventories.items.Texture;
+import me.themgrf.motivatation.game.inventories.items.attributes.ItemAttribute;
 
 import java.util.List;
 

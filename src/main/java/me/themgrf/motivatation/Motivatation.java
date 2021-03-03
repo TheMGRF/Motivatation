@@ -1,11 +1,11 @@
 package me.themgrf.motivatation;
 
-import me.themgrf.motivatation.inventories.items.ItemManager;
-import me.themgrf.motivatation.inventories.items.ItemRarity;
-import me.themgrf.motivatation.inventories.items.Texture;
-import me.themgrf.motivatation.inventories.items.attributes.DefenceAttribute;
-import me.themgrf.motivatation.inventories.items.attributes.HealthAttribute;
-import me.themgrf.motivatation.inventories.items.attributes.SpeedAttribute;
+import me.themgrf.motivatation.game.inventories.items.ItemManager;
+import me.themgrf.motivatation.game.inventories.items.ItemRarity;
+import me.themgrf.motivatation.game.inventories.items.Texture;
+import me.themgrf.motivatation.game.inventories.items.attributes.DefenceAttribute;
+import me.themgrf.motivatation.game.inventories.items.attributes.HealthAttribute;
+import me.themgrf.motivatation.game.inventories.items.attributes.SpeedAttribute;
 import me.themgrf.motivatation.util.inventory.ItemBuilder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;

@@ -1,12 +1,12 @@
 package me.themgrf.motivatation.entities;
 
-import me.themgrf.motivatation.inventories.Inventory;
-import me.themgrf.motivatation.inventories.items.ItemManager;
-import me.themgrf.motivatation.inventories.items.ItemRarity;
-import me.themgrf.motivatation.inventories.items.Texture;
-import me.themgrf.motivatation.inventories.items.attributes.DefenceAttribute;
-import me.themgrf.motivatation.inventories.items.attributes.HealthAttribute;
-import me.themgrf.motivatation.inventories.items.attributes.SpeedAttribute;
+import me.themgrf.motivatation.game.inventories.Inventory;
+import me.themgrf.motivatation.game.inventories.items.ItemManager;
+import me.themgrf.motivatation.game.inventories.items.ItemRarity;
+import me.themgrf.motivatation.game.inventories.items.Texture;
+import me.themgrf.motivatation.game.inventories.items.attributes.DefenceAttribute;
+import me.themgrf.motivatation.game.inventories.items.attributes.HealthAttribute;
+import me.themgrf.motivatation.game.inventories.items.attributes.SpeedAttribute;
 import me.themgrf.motivatation.util.inventory.InventoryCreator;
 import me.themgrf.motivatation.util.inventory.ItemBuilder;
 import me.themgrf.motivatation.util.inventory.Size;

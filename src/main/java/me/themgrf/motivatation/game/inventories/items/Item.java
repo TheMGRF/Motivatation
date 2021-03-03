@@ -1,6 +1,6 @@
-package me.themgrf.motivatation.inventories.items;
+package me.themgrf.motivatation.game.inventories.items;
 
-import me.themgrf.motivatation.inventories.items.attributes.ItemAttribute;
+import me.themgrf.motivatation.game.inventories.items.attributes.ItemAttribute;
 
 import java.util.ArrayList;
 import java.util.Arrays;

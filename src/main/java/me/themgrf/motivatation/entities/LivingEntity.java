@@ -1,6 +1,6 @@
 package me.themgrf.motivatation.entities;
 
-import me.themgrf.motivatation.inventories.Inventory;
+import me.themgrf.motivatation.game.inventories.Inventory;
 import me.themgrf.motivatation.util.inventory.InventoryCreator;
 
 public abstract class LivingEntity {

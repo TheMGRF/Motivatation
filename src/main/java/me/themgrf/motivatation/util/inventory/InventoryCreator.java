@@ -1,8 +1,8 @@
 package me.themgrf.motivatation.util.inventory;
 
 import me.themgrf.motivatation.entities.Player;
-import me.themgrf.motivatation.inventories.Inventory;
-import me.themgrf.motivatation.inventories.items.Item;
+import me.themgrf.motivatation.game.inventories.Inventory;
+import me.themgrf.motivatation.game.inventories.items.Item;
 
 import java.util.ArrayList;
 import java.util.List;

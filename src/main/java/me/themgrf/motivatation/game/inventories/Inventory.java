@@ -1,6 +1,6 @@
-package me.themgrf.motivatation.inventories;
+package me.themgrf.motivatation.game.inventories;
 
-import me.themgrf.motivatation.inventories.items.Item;
+import me.themgrf.motivatation.game.inventories.items.Item;
 
 import java.util.HashMap;
 import java.util.List;

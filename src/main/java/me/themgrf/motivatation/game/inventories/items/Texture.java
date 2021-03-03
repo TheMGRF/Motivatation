@@ -1,4 +1,4 @@
-package me.themgrf.motivatation.inventories.items;
+package me.themgrf.motivatation.game.inventories.items;
 
 public enum Texture {
 
