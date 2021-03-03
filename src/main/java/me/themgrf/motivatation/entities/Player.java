@@ -1,5 +1,7 @@
 package me.themgrf.motivatation.entities;
 
+import me.themgrf.motivatation.game.achievement.Achievement;
+import me.themgrf.motivatation.game.achievement.AchievementManager;
 import me.themgrf.motivatation.game.inventories.Inventory;
 import me.themgrf.motivatation.game.inventories.items.ItemManager;
 import me.themgrf.motivatation.game.inventories.items.ItemRarity;
@@ -90,6 +92,10 @@ public class Player extends LivingEntity {
 
     public void setIntelligence(double intelligence) {
         this.intelligence = intelligence;
+    }
+
+    public boolean hasCompleted(Achievement achievement) {
+        return AchievementManager.hasCompleted(this, achievement);
     }
 
     @Override

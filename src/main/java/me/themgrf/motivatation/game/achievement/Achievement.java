@@ -6,12 +6,14 @@ import me.themgrf.motivatation.game.inventories.items.Texture;
 
 public enum Achievement {
 
-    LOG_IN("Logged and loaded!", "Log into Motivatation for the first time!", Texture.APPLE, 1, new Reward(RewardType.COINS, 10)),
+    LOG_IN("Logged and loaded!", "Log in for the first time!", Texture.APPLE, 1, new Reward(RewardType.COINS, 10)),
     FIRST_TASK("A Whole New World", "Create your first task!", Texture.READABLE_SCROLL, 1, new Reward(RewardType.COINS, 5)),
     FIVE_TASKS("Dedicated", "Create a total of five tasks!", Texture.BLUE_SCROLL, 5, new Reward(RewardType.COINS, 5)),
     TEN_TASKS("Task Master", "Create a total of ten tasks!", Texture.RED_SCROLL, 10, new Reward(RewardType.COINS, 10)),
 
     ;
+
+    public static final Achievement[] VALUES = values();
 
     private final String name, description;
     private final Texture texture;

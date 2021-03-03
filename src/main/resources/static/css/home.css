@@ -100,7 +100,6 @@
     width: 64px;
     height: 64px;
 
-    background-color: rgba(38, 38, 38, 0.8);
     margin-left: 5px;
     padding: 4px;
     border-radius: 2px;
@@ -140,4 +139,25 @@
 
 .item .tooltip:hover {
     visibility: hidden;
+}
+
+.achievement {
+    background-color: #707070;
+    width: 20%;
+}
+
+.achievement-img {
+    padding-top: 2%;
+}
+
+.achievement-text {
+    display: inline-block;
+}
+
+.achievement-name {
+    line-height: 10px !important;
+}
+
+.achievement-description {
+    line-height: 5px !important;
 }

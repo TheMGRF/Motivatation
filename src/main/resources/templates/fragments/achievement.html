@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    ...
+</head>
+<body>
+
+<div class="achievement" th:fragment="achievement">
+    <img class="item-img achievement-img" th:src="${achievement.getTexture().getPath()}" width="64px" height="64px">
+
+    <div class="achievement-text">
+        <h3 class="achievement-name" th:text="${achievement.getName()}"></h3>
+
+        <p class="achievement-description" style="color: #CCCCCC;" th:text="${achievement.getDescription()}"></p>
+    </div>
+</div>
+
+</body>
+</html>
