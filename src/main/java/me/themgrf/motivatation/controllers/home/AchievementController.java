@@ -23,7 +23,13 @@ public class AchievementController extends ControllerBase {
         if (user != null) {
             model.addAttribute("username", user.getUsername());
             Player player = PlayerManager.getPlayer(user);
+            for (Achievement achievement : Achievement.VALUES) {
+                if (player.hasCompletedAchievement(achievement)) {
+                    player.awardAchievement(achievement);
+                }
+            }
             model.addAttribute("player", player);
+            model.addAttribute("playerAchievements", player.getAchievements());
         }
 
         return "home/achievements";

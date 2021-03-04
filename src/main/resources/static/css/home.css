@@ -75,7 +75,7 @@
 }
 
 .gems {
-    color: aqua;
+    color: #00ffff;
     margin: 0 20px 0 15px;
 }
 
@@ -167,4 +167,12 @@
 
 .achievement-description {
     line-height: 2px;
+}
+
+.completed-mark {
+    font-size: 5em;
+}
+
+.completed-mark * {
+    display: inline-block;
 }

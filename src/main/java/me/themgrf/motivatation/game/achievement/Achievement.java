@@ -9,7 +9,7 @@ public enum Achievement {
     LOG_IN("Logged and loaded!", "Log in for the first time!", Texture.APPLE, 1, new Reward(RewardType.COINS, 10)),
     FIRST_TASK("A Whole New World", "Create your first task!", Texture.READABLE_SCROLL, 1, new Reward(RewardType.COINS, 5)),
     FIVE_TASKS("Dedicated", "Create a total of five tasks!", Texture.BLUE_SCROLL, 5, new Reward(RewardType.COINS, 5)),
-    TEN_TASKS("Task Master", "Create a total of ten tasks!", Texture.RED_SCROLL, 10, new Reward(RewardType.COINS, 10)),
+    TEN_TASKS("Task Master", "Create a total of ten tasks!", Texture.RED_SCROLL, 10, new Reward(RewardType.GEMS, 10)),
 
     ;
 
@@ -26,6 +26,10 @@ public enum Achievement {
         this.texture = texture;
         this.target = target;
         this.reward = reward;
+    }
+
+    public String getId() {
+        return name();
     }
 
     public String getName() {

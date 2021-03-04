@@ -18,14 +18,17 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 
 public class Player extends LivingEntity {
 
     private final long id;
     private int tasks, coins, gems;
     private double experience, intelligence;
+    private List<Achievement> achievements;
 
     public Player(long id) {
         super();
@@ -36,6 +39,7 @@ public class Player extends LivingEntity {
         this.gems = 0;
         this.experience = 0;
         this.intelligence = 0;
+        this.achievements = new ArrayList<>();
     }
 
     public Player(long id, String name, int level, double health, double defence, double strength, double speed, int tasks, int coins, int gems, double experience, double intelligence) {
@@ -46,6 +50,7 @@ public class Player extends LivingEntity {
         this.gems = gems;
         this.experience = experience;
         this.intelligence = intelligence;
+        this.achievements = new ArrayList<>();
 
         getInventory().addItem(ItemManager.getItem("apple"));
     }
@@ -94,7 +99,25 @@ public class Player extends LivingEntity {
         this.intelligence = intelligence;
     }
 
-    public boolean hasCompleted(Achievement achievement) {
+    public List<Achievement> getAchievements() {
+        return achievements;
+    }
+
+    public void awardAchievement(Achievement achievement) {
+        achievements.add(achievement);
+    }
+
+    public boolean hasAchievement(Achievement achievement) {
+        return achievements.contains(achievement);
+    }
+
+    /**
+     * Database call to check if an achievement has been completed
+     *
+     * @param achievement The achievement to check
+     * @return <code>true</code> if the achievement has been completed, <code>false</code> otherwise
+     */
+    public boolean hasCompletedAchievement(Achievement achievement) {
         return AchievementManager.hasCompleted(this, achievement);
     }
 
@@ -112,6 +135,10 @@ public class Player extends LivingEntity {
             while (rs.next()) {
                 items = rs.getString("items");
             }
+
+            rs.close();
+            ps.close();
+            con.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

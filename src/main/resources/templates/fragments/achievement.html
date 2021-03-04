@@ -5,13 +5,15 @@
 </head>
 <body>
 
-<div class="achievement" th:fragment="achievement">
-    <img class="item-img achievement-img" th:src="${achievement.getTexture().getPath()}" width="64px" height="64px">
+<div class="achievement" th:style="${playerAchievements.contains(achievement)} ? '' : 'background-color: #262626;'" th:fragment="achievement">
+    <img class="item-img achievement-img" th:src="${achievement.getTexture().getPath()}" alt="Achievement Item" width="64px" height="64px">
 
     <div class="achievement-text">
         <h3 class="achievement-name" th:text="${achievement.getName()}"></h3>
 
         <p class="achievement-description" style="color: #CCCCCC;" th:text="${achievement.getDescription()}"></p>
+
+        <p class="achievement-description" th:style="${achievement.getReward().getRewardType().name() == 'GEMS'} ? 'color: #00FFFF;' : 'color: #e2b80a;'" th:text="'+' + ${achievement.getReward().getAmount() + ' ' + achievement.getReward().getRewardType().getName()}"></p>
     </div>
 </div>
 
