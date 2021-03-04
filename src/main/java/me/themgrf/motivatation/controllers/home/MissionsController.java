@@ -4,6 +4,7 @@ import me.themgrf.motivatation.controllers.ControllerBase;
 import me.themgrf.motivatation.database.PlayerManager;
 import me.themgrf.motivatation.entities.Player;
 import me.themgrf.motivatation.entities.User;
+import me.themgrf.motivatation.game.missions.MissionManager;
 import me.themgrf.motivatation.util.Auth;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +22,8 @@ public class MissionsController extends ControllerBase {
             model.addAttribute("username", user.getUsername());
             Player player = PlayerManager.getPlayer(user);
             model.addAttribute("player", player);
+
+            model.addAttribute("missions", MissionManager.createMissionsForPlayer(player));
         }
 
         return "home/missions";

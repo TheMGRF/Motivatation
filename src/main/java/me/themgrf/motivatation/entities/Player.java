@@ -66,6 +66,14 @@ public class Player extends LivingEntity {
         this.coins = coins;
     }
 
+    public void addCoins(int coins) {
+        this.coins += coins;
+    }
+
+    public void removeCoins(int coins) {
+        this.coins -= coins;
+    }
+
     public int getGems() {
         return gems;
     }
@@ -74,12 +82,24 @@ public class Player extends LivingEntity {
         this.gems = gems;
     }
 
+    public void addGems(int gems) {
+        this.gems += gems;
+    }
+
+    public void removeGems(int gems) {
+        this.gems -= gems;
+    }
+
     public double getExperience() {
         return experience;
     }
 
     public void setExperience(double experience) {
         this.experience = experience;
+    }
+
+    public void giveExperience(double experience) {
+        this.experience += experience;
     }
 
     public double getIntelligence() {

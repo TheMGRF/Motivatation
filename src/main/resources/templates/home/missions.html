@@ -50,6 +50,27 @@
 
     <br>
 
+    <div class="mission-container">
+        <tr class="achievements" th:each="mission: ${missions}">
+            <div class="mission">
+                <h3 th:text="${mission.getName()}"></h3>
+                <h4 th:text="${mission.getDescription()}"></h4>
+                <p class="label mission-level" th:text="'Level: ' + ${mission.getLevel()}"></p>
+                <p class="label mission-danger" th:text="'Difficulty: ' + ${mission.getDangerLevel().getName()}"></p>
+                <p class="label mission-time" th:text="'Distance: ' + ${mission.getJourneyTime().getName()}"></p>
+
+                <hr>
+                <div class="mission-bottom">
+                    <div class="mission-rewards" th:each="reward: ${mission.getRewards()}">
+                        <p class="mission-reward" th:style="'color: ' + ${reward.getRewardType().getColour()}"><span th:text="'+' + ${reward.getAmount()}"></span> <i th:class="${reward.getRewardType().getIcon()}"></i></p>
+                    </div>
+
+                    <br>
+                    <a class="mission-accept" href="#">Accept</a>
+                </div>
+            </div>
+        </tr>
+    </div>
 
 </div>
 

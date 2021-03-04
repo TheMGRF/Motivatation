@@ -176,3 +176,94 @@
 .completed-mark * {
     display: inline-block;
 }
+
+.mission-container {
+    padding-top: 2%;
+
+    text-align: center;
+}
+
+.mission {
+    background-color: rgba(38, 38, 38, 0.8);
+
+    display: inline-block;
+
+    padding: 1%;
+
+    width: 20%;
+
+    border-radius: 3px;
+
+    text-align: left;
+}
+
+.mission h3, .mission h4 {
+    line-height: 5px;
+
+    /*text-align: left;*/
+}
+
+.label {
+    border-radius: 15px;
+    padding: 2%;
+
+    width: 20%;
+
+    font-weight: bold;
+    text-align: center;
+}
+
+.label:hover {
+    cursor: pointer;
+}
+
+.mission-level {
+    background-color: #6ca91f;
+    color: white;
+}
+
+.mission-danger {
+    background-color: #c3103a;
+
+    width: 35%;
+}
+
+.mission-time {
+    background-color: #c39610;
+
+    width: 35%;
+}
+
+.mission-rewards {
+    display: inline-block;
+}
+
+.mission-reward {
+    display: inline-block;
+
+    padding-right: 20px;
+}
+
+.mission-accept {
+    background-color: #47b326;
+    color: white;
+
+    padding: 2% 20% 2% 20%;
+
+    border-radius: 15px;
+
+    transition: 0.3s;
+}
+
+.mission-accept:hover {
+    background-color: #3a921d;
+    color: white;
+
+    padding: 2% 21% 2% 21%;
+
+    transition: 0.3s;
+}
+
+.mission-bottom {
+    text-align: center;
+}

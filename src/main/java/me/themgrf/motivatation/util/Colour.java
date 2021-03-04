@@ -8,6 +8,7 @@ public class Colour {
     public static final String BLUE = "#0066FF";
     public static final String PURPLE = "#9933FF";
     public static final String ORANGE = "#FF9966";
+    public static final String GOLD = "#FFD700";
     public static final String CYAN = "#00FFFF";
     public static final String GREEN = "#00FF00";
     public static final String YELLOW = "#FFFF00";

@@ -17,4 +17,9 @@ public class Reward {
     public int getAmount() {
         return amount;
     }
+
+    @Override
+    public String toString() {
+        return amount + " " + rewardType.getName();
+    }
 }
