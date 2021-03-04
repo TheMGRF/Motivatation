@@ -20,7 +20,6 @@
     <link rel="stylesheet" type="text/css" th:href="@{css/styles.css}">
     <link rel="stylesheet" type="text/css" th:href="@{css/home.css}">
     <link rel="stylesheet" type="text/css" th:href="@{css/inventory.css}">
-    <link rel="stylesheet" type="text/css" th:href="@{css/notification.css}">
 
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
 
@@ -38,8 +37,8 @@
     <li><a href="/home/tasks"><i class="fas fa-thumbtack"></i> Tasks</a></li>
     <li><a href="/home/inventory"><i class="fas fa-archive"></i> Inventory</a></li>
     <li><a href="/home/market"><i class="fas fa-store"></i> Market</a></li>
-    <li><a href="/home/missions"><i class="fas fa-campfire"></i> Missions</a></li>
-    <li><a class="active" href="/home/achievements"><i class="fas fa-trophy"></i> Achievements</a></li>
+    <li><a class="active" href="/home/missions"><i class="fas fa-campfire"></i> Missions</a></li>
+    <li><a href="/home/achievements"><i class="fas fa-trophy"></i> Achievements</a></li>
     <li><a href="/home/help"><i class="far fa-question-circle"></i> Help</a></li>
 </ul>
 
@@ -51,14 +50,7 @@
 
     <br>
 
-    <div class="achievement-container">
-        <h3>Your Achievements</h3>
-        <tr class="achievements" th:each="achievement: ${achievements}">
-            <div th:replace="fragments/achievement :: achievement" th:with="achievement=${achievement},playerAchievements=${playerAchievements}"></div>
-        </tr>
-    </div>
 
-    <div th:replace="fragments/notification :: notification"></div>
 </div>
 
 </body>

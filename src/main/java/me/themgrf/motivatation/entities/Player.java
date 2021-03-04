@@ -4,14 +4,7 @@ import me.themgrf.motivatation.game.achievement.Achievement;
 import me.themgrf.motivatation.game.achievement.AchievementManager;
 import me.themgrf.motivatation.game.inventories.Inventory;
 import me.themgrf.motivatation.game.inventories.items.ItemManager;
-import me.themgrf.motivatation.game.inventories.items.ItemRarity;
-import me.themgrf.motivatation.game.inventories.items.Texture;
-import me.themgrf.motivatation.game.inventories.items.attributes.DefenceAttribute;
-import me.themgrf.motivatation.game.inventories.items.attributes.HealthAttribute;
-import me.themgrf.motivatation.game.inventories.items.attributes.SpeedAttribute;
 import me.themgrf.motivatation.util.inventory.InventoryCreator;
-import me.themgrf.motivatation.util.inventory.ItemBuilder;
-import me.themgrf.motivatation.util.inventory.Size;
 import xyz.minecrossing.databaseconnector.DatabaseConnector;
 
 import java.sql.Connection;
@@ -19,8 +12,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class Player extends LivingEntity {
@@ -28,7 +19,7 @@ public class Player extends LivingEntity {
     private final long id;
     private int tasks, coins, gems;
     private double experience, intelligence;
-    private List<Achievement> achievements;
+    private final List<Achievement> achievements;
 
     public Player(long id) {
         super();

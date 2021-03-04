@@ -32,7 +32,6 @@ public class AchievementManager {
                 int current = rs.getInt("current");
                 if (current >= achievement.getTarget()) {
                     completed.set(true);
-                    System.out.println(player.getName() + " has completed " + achievement.getId());
                 }
             }
 

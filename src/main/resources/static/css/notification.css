@@ -1,0 +1,53 @@
+.notification-img {
+    display: inline-block;
+}
+
+.notification-text {
+    font-family: Minecraft, Roboto, serif;
+
+    display: inline-block;
+}
+
+.achievement-title {
+    color: #DAA520;
+}
+
+.notification-message {
+    display: block;
+
+    font-weight: normal;
+}
+
+#notification {
+    background-color: rgba(16, 3, 45, 0.9);
+    border: 2px solid rgba(42, 7, 122, 0.9);
+    color: #b7b7b7;
+
+    display: flex;
+
+    width: 300px;
+    height: 100px;
+
+    top: 100px;
+    right: -310px;
+
+    font-size: 18px;
+    border-radius: 3px;
+
+    align-items: center;
+    position: fixed;
+}
+
+.visible {
+    animation: moveIn 0.5s ease forwards, moveOut 0.5s 3s ease forwards;
+}
+
+@keyframes moveIn {
+    from { right: -310px; }
+    to   { right: 10px; }
+}
+
+@keyframes moveOut {
+    from { right: 10px; }
+    to   { right: -310px; }
+}
