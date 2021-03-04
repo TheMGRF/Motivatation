@@ -55,9 +55,9 @@
             <div class="mission">
                 <h3 th:text="${mission.getName()}"></h3>
                 <h4 th:text="${mission.getDescription()}"></h4>
-                <p class="label mission-level" th:text="'Level: ' + ${mission.getLevel()}"></p>
-                <p class="label mission-danger" th:text="'Difficulty: ' + ${mission.getDangerLevel().getName()}"></p>
-                <p class="label mission-time" th:text="'Distance: ' + ${mission.getJourneyTime().getName()}"></p>
+                <p class="label mission-level" th:style="${mission.getLevel() > player.getLevel()} ? 'background-color: #FF4D4D;' : 'background-color: #33CC33;'" th:text="'Level: ' + ${mission.getLevel()}"></p>
+                <p class="label mission-danger" th:style="'background-color: ' + ${mission.getDangerLevel().getColour()}" th:text="'Difficulty: ' + ${mission.getDangerLevel().getName()}"></p>
+                <p class="label mission-time" th:style="'background-color: ' + ${mission.getJourneyTime().getColour()}" th:text="'Distance: ' + ${mission.getJourneyTime().getName()}"></p>
 
                 <hr>
                 <div class="mission-bottom">
@@ -66,7 +66,8 @@
                     </div>
 
                     <br>
-                    <a class="mission-accept" href="#">Accept</a>
+                    <a class="mission-accept-locked" th:if="${mission.getLevel() > player.getLevel()}">LOCKED</a>
+                    <a class="mission-accept" th:if="not ${mission.getLevel() > player.getLevel()}" href="#">Accept</a>
                 </div>
             </div>
         </tr>

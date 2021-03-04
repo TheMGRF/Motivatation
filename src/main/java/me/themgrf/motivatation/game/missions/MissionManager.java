@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class MissionManager {
 
@@ -23,25 +24,19 @@ public class MissionManager {
     public static List<Mission> createMissionsForPlayer(Player player) {
         //int totalMissions = 3 * player.getLevel();
 
+        boolean safe = false;
+
         List<Mission> missions = new ArrayList<>(TOTAL_MISSIONS);
 
-        for (int i = 1; i < TOTAL_MISSIONS + 1; i++) {
-            missions.add(
-                    new MissionBuilder()
-                            .setName("Test mission " + i)
-                            .setDescription("Go kill " + 3 * i + " zombies")
-                            .setLevel(1)
-                            .setDangerLevel(Mission.DangerLevel.EASY)
-                            .setJourneyTime(Mission.JourneyTime.SHORT)
-                            .setRandomEvents(Collections.singletonList(new TravellingMerchantEvent()))
-                            .setRewards(
-                                    Arrays.asList(
-                                            new Reward(RewardType.EXP, 10 * i),
-                                            new Reward(RewardType.COINS, 5 * i)
-                                    )
-                            )
-                            .createMission()
-            );
+        for (int i = 1; i < TOTAL_MISSIONS + 1;) {
+            Mission mission = Missions.VALUES[ThreadLocalRandom.current().nextInt(Missions.VALUES.length)].getMission();
+            if (mission.getLevel() <= player.getLevel()) {
+                safe = true;
+            }
+            if (safe) {
+                missions.add(mission);
+                i++;
+            }
         }
 
         return missions;

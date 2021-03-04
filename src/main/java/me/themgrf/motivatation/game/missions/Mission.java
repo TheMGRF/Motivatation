@@ -2,6 +2,7 @@ package me.themgrf.motivatation.game.missions;
 
 import me.themgrf.motivatation.game.missions.events.RandomEvent;
 import me.themgrf.motivatation.game.rewards.Reward;
+import me.themgrf.motivatation.util.Colour;
 import org.springframework.util.StringUtils;
 
 import java.util.List;
@@ -83,11 +84,21 @@ public class Mission {
 
     public enum DangerLevel {
 
-        EASY,
-        MEDIUM,
-        HARD,
-        CHALLENGING,
-        IMPOSSIBLE;
+        EASY(Colour.DARK_GREEN),
+        MEDIUM(Colour.ORANGE),
+        HARD(Colour.LIGHT_RED),
+        CHALLENGING(Colour.RED),
+        IMPOSSIBLE(Colour.DARK_RED);
+
+        private final String colour;
+
+        DangerLevel(String colour) {
+            this.colour = colour;
+        }
+
+        public String getColour() {
+            return colour;
+        }
 
         public String getName() {
             return StringUtils.capitalize(name().toLowerCase());
@@ -97,9 +108,19 @@ public class Mission {
 
     public enum JourneyTime {
 
-        SHORT,
-        MEDIUM,
-        LONG;
+        SHORT(Colour.DARK_GREEN),
+        MEDIUM(Colour.ORANGE),
+        LONG(Colour.LIGHT_RED);
+
+        private final String colour;
+
+        JourneyTime(String colour) {
+            this.colour = colour;
+        }
+
+        public String getColour() {
+            return colour;
+        }
 
         public String getName() {
             return StringUtils.capitalize(name().toLowerCase());

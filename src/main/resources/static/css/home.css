@@ -191,16 +191,23 @@
     padding: 1%;
 
     width: 20%;
+    max-height: 410px;
 
     border-radius: 3px;
 
     text-align: left;
 }
 
-.mission h3, .mission h4 {
+.mission h3 {
     line-height: 5px;
 
     /*text-align: left;*/
+}
+
+.mission h4 {
+    max-height: 40px;
+
+    padding-bottom: 2%;
 }
 
 .label {
@@ -225,13 +232,13 @@
 .mission-danger {
     background-color: #c3103a;
 
-    width: 35%;
+    width: 40%;
 }
 
 .mission-time {
     background-color: #c39610;
 
-    width: 35%;
+    width: 40%;
 }
 
 .mission-rewards {
@@ -251,6 +258,26 @@
     padding: 2% 20% 2% 20%;
 
     border-radius: 15px;
+
+    transition: 0.3s;
+}
+
+.mission-accept-locked {
+    background-color: #FF4D4D;
+    color: white;
+
+    padding: 2% 20% 2% 20%;
+
+    border-radius: 15px;
+
+    transition: 0.3s;
+}
+
+.mission-accept-locked:hover {
+    background-color: #c61f1f;
+    color: white;
+
+    cursor: not-allowed;
 
     transition: 0.3s;
 }
