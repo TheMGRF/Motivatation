@@ -2,6 +2,7 @@ package me.themgrf.motivatation.game.missions.events;
 
 public enum RandomEventType {
 
+    PEACEFUL_JOURNEY,
     TRIP_AND_FALL,
     TRAVELLING_MERCHANT,
     MUGGING,

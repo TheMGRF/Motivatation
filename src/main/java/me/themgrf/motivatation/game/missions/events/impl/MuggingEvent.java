@@ -2,6 +2,7 @@ package me.themgrf.motivatation.game.missions.events.impl;
 
 import me.themgrf.motivatation.entities.Player;
 import me.themgrf.motivatation.game.missions.events.RandomEvent;
+import me.themgrf.motivatation.game.missions.events.RandomEventType;
 import me.themgrf.motivatation.game.missions.events.effects.EventEffect;
 import me.themgrf.motivatation.game.missions.events.effects.EventEffectType;
 
@@ -15,6 +16,7 @@ public class MuggingEvent extends RandomEvent {
         super(
                 "Never should have come here!",
                 "You decided to try a new shortcut! It was filled with bandits at every turn... They stole a lot of your gold.",
+                RandomEventType.MUGGING,
                 new EventEffect(
                         "-" + COIN_LOSS + " Coins",
                         EventEffectType.NEGATIVE
@@ -23,12 +25,7 @@ public class MuggingEvent extends RandomEvent {
     }
 
     @Override
-    public void onActivate(Player player) {
-        // Fight?
-    }
-
-    @Override
-    public void onEnd(Player player) {
+    public void activate(Player player) {
         player.removeCoins(COIN_LOSS);
     }
 }

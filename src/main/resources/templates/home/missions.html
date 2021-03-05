@@ -45,19 +45,22 @@
 <div id="content">
     <div id="currencies">
         <div class="currency gems"><i class="far fa-gem"></i> 420</div>
-        <div class="currency coins"><i class="fas fa-coins"></i> 1337</div>
+        <div class="currency coins"><i class="far fa-coins"></i> 1337</div>
     </div>
 
     <br>
 
     <div class="mission-container">
-        <tr class="achievements" th:each="mission: ${missions}">
+        <tr class="missions" th:each="mission: ${missions}">
             <div class="mission">
                 <h3 th:text="${mission.getName()}"></h3>
                 <h4 th:text="${mission.getDescription()}"></h4>
-                <p class="label mission-level" th:style="${mission.getLevel() > player.getLevel()} ? 'background-color: #FF4D4D;' : 'background-color: #33CC33;'" th:text="'Level: ' + ${mission.getLevel()}"></p>
-                <p class="label mission-danger" th:style="'background-color: ' + ${mission.getDangerLevel().getColour()}" th:text="'Difficulty: ' + ${mission.getDangerLevel().getName()}"></p>
-                <p class="label mission-time" th:style="'background-color: ' + ${mission.getJourneyTime().getColour()}" th:text="'Distance: ' + ${mission.getJourneyTime().getName()}"></p>
+
+                <div class="labels">
+                    <p class="label mission-level" th:style="${mission.getLevel() > player.getLevel()} ? 'background-color: #FF4D4D;' : 'background-color: #33CC33;'" th:text="'Level: ' + ${mission.getLevel()}"></p>
+                    <p class="label mission-danger" th:style="'background-color: ' + ${mission.getDangerLevel().getColour()}" th:text="'Difficulty: ' + ${mission.getDangerLevel().getName()}"></p>
+                    <p class="label mission-time" th:style="'background-color: ' + ${mission.getJourneyTime().getColour()}" th:text="'Distance: ' + ${mission.getJourneyTime().getName()}"></p>
+                </div>
 
                 <hr>
                 <div class="mission-bottom">
@@ -67,10 +70,15 @@
 
                     <br>
                     <a class="mission-accept-locked" th:if="${mission.getLevel() > player.getLevel()}">LOCKED</a>
-                    <a class="mission-accept" th:if="not ${mission.getLevel() > player.getLevel()}" href="#">Accept</a>
+                    <a class="mission-accept" th:if="not ${mission.getLevel() > player.getLevel()}" th:href="'/home/mission/' + ${mission.getId()}">Accept</a>
                 </div>
             </div>
         </tr>
+
+        <br>
+
+        <a class="reset-missions" href="/home/resetmissions">Reset Missions (100 <i class="far fa-coins"></i>)</a>
+        <p th:if="${resetError != null}" style="color: red;" th:text="${resetError}"></p>
     </div>
 
 </div>

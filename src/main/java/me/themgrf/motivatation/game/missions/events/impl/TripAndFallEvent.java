@@ -2,6 +2,7 @@ package me.themgrf.motivatation.game.missions.events.impl;
 
 import me.themgrf.motivatation.entities.Player;
 import me.themgrf.motivatation.game.missions.events.RandomEvent;
+import me.themgrf.motivatation.game.missions.events.RandomEventType;
 import me.themgrf.motivatation.game.missions.events.effects.EventEffect;
 import me.themgrf.motivatation.game.missions.events.effects.EventEffectType;
 
@@ -15,6 +16,7 @@ public class TripAndFallEvent extends RandomEvent {
         super(
                 "Another Happy Landing",
                 "In your haste you weren't looking at where you were going and tripped and fell! You saved your face but dropped a few coins on the way down.",
+                RandomEventType.TRIP_AND_FALL,
                 new EventEffect(
                         "-" + HEALTH_LOSS + " Health",
                         EventEffectType.NEGATIVE
@@ -23,12 +25,7 @@ public class TripAndFallEvent extends RandomEvent {
     }
 
     @Override
-    public void onActivate(Player player) {
+    public void activate(Player player) {
         player.setHealth(player.getHealth() - HEALTH_LOSS);
-    }
-
-    @Override
-    public void onEnd(Player player) {
-
     }
 }

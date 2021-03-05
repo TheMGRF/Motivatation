@@ -2,6 +2,7 @@ package me.themgrf.motivatation.game.missions.events.impl;
 
 import me.themgrf.motivatation.entities.Player;
 import me.themgrf.motivatation.game.missions.events.RandomEvent;
+import me.themgrf.motivatation.game.missions.events.RandomEventType;
 import me.themgrf.motivatation.game.missions.events.effects.EventEffect;
 import me.themgrf.motivatation.game.missions.events.effects.EventEffectType;
 
@@ -15,6 +16,7 @@ public class TravellingMerchantEvent extends RandomEvent {
         super(
                 "Hello There!",
                 "You bumped into a travelling merchant on the roads, he purchased some of your miscellaneous goods!",
+                RandomEventType.TRAVELLING_MERCHANT,
                 new EventEffect(
                         "+" + COIN_GAIN + " Coins",
                         EventEffectType.POSITIVE
@@ -23,12 +25,7 @@ public class TravellingMerchantEvent extends RandomEvent {
     }
 
     @Override
-    public void onActivate(Player player) {
-        // Trade GUI?
-    }
-
-    @Override
-    public void onEnd(Player player) {
+    public void activate(Player player) {
         player.addCoins(COIN_GAIN);
     }
 }

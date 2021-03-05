@@ -6,7 +6,7 @@ import org.springframework.util.StringUtils;
 public enum RewardType {
 
     EXP(Colour.GREEN, "fad fa-sparkles"),
-    COINS(Colour.GOLD, "fas fa-coins"),
+    COINS(Colour.GOLD, "far fa-coins"),
     GEMS(Colour.CYAN, "far fa-gem");
 
     private final String colour, icon;

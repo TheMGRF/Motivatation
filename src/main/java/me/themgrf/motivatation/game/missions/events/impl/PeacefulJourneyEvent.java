@@ -2,6 +2,7 @@ package me.themgrf.motivatation.game.missions.events.impl;
 
 import me.themgrf.motivatation.entities.Player;
 import me.themgrf.motivatation.game.missions.events.RandomEvent;
+import me.themgrf.motivatation.game.missions.events.RandomEventType;
 import me.themgrf.motivatation.game.missions.events.effects.EventEffect;
 import me.themgrf.motivatation.game.missions.events.effects.EventEffectType;
 
@@ -11,6 +12,7 @@ public class PeacefulJourneyEvent extends RandomEvent {
         super(
                 "",
                 "",
+                RandomEventType.PEACEFUL_JOURNEY,
                 new EventEffect(
                         "",
                         EventEffectType.NEUTRAL
@@ -19,10 +21,6 @@ public class PeacefulJourneyEvent extends RandomEvent {
     }
 
     @Override
-    public void onActivate(Player player) {
-    }
-
-    @Override
-    public void onEnd(Player player) {
+    public void activate(Player player) {
     }
 }

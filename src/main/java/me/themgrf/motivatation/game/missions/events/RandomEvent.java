@@ -3,20 +3,22 @@ package me.themgrf.motivatation.game.missions.events;
 import me.themgrf.motivatation.entities.Player;
 import me.themgrf.motivatation.game.missions.events.effects.EventEffect;
 
-public abstract class RandomEvent {
+public abstract class RandomEvent implements Event {
 
     private final String name, description;
+    private final RandomEventType type;
     private final EventEffect effect;
 
-    public RandomEvent(String name, String description, EventEffect effect) {
+    public RandomEvent(String name, String description, RandomEventType type, EventEffect effect) {
         this.name = name;
         this.description = description;
+        this.type = type;
         this.effect = effect;
     }
 
-    public abstract void onActivate(Player player);
-
-    public abstract void onEnd(Player player);
+    @Override
+    public void activate(Player player) {
+    }
 
     public String getName() {
         return name;
@@ -24,6 +26,10 @@ public abstract class RandomEvent {
 
     public String getDescription() {
         return description;
+    }
+
+    public RandomEventType getType() {
+        return type;
     }
 
     public EventEffect getEffect() {
