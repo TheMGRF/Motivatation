@@ -9,7 +9,7 @@ import org.springframework.util.StringUtils;
 
 import java.util.List;
 
-public class Mission implements PlayerRunnable {
+public class Mission implements PlayerRunnable, Completable {
 
     private String id, name, description;
     private int level;
@@ -106,6 +106,13 @@ public class Mission implements PlayerRunnable {
     @Override
     public void activate(Player player) {
         event.activate(player);
+    }
+
+    @Override
+    public void complete(Player player) {
+        for (Reward reward : rewards) {
+            player.giveReward(reward);
+        }
     }
 
     public enum DangerLevel {

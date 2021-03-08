@@ -4,6 +4,8 @@ import me.themgrf.motivatation.game.achievement.Achievement;
 import me.themgrf.motivatation.game.achievement.AchievementManager;
 import me.themgrf.motivatation.game.inventories.Inventory;
 import me.themgrf.motivatation.game.inventories.items.ItemManager;
+import me.themgrf.motivatation.game.rewards.Reward;
+import me.themgrf.motivatation.game.rewards.RewardType;
 import me.themgrf.motivatation.util.inventory.InventoryCreator;
 import xyz.minecrossing.databaseconnector.DatabaseConnector;
 
@@ -130,6 +132,30 @@ public class Player extends LivingEntity {
      */
     public boolean hasCompletedAchievement(Achievement achievement) {
         return AchievementManager.hasCompleted(this, achievement);
+    }
+
+    /**
+     * Give a player a specified reward containing the reward type and amount
+     *
+     * @param reward The reward to give the player
+     */
+    public void giveReward(Reward reward) {
+        int amount = reward.getAmount();
+
+        switch (reward.getRewardType()) {
+            case EXP:
+                giveExperience(amount);
+                break;
+            case COINS:
+                addCoins(amount);
+                break;
+            case GEMS:
+                addGems(amount);
+                break;
+            default:
+                System.out.println("Invalid reward specified!");
+                break;
+        }
     }
 
     @Override

@@ -75,6 +75,9 @@ public class MissionsController extends ControllerBase {
             randomEvent.activate(player);
             mission.activate(player);
 
+            // TODO: event logic / combat etc
+            mission.complete(player); // give rewards to player
+
             // Remove the mission from the player's list so they cant repeat it
             MissionManager.removeMission(player, mission);
         }
