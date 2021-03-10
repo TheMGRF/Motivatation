@@ -25,7 +25,8 @@ public class MuggingEvent extends RandomEvent {
     }
 
     @Override
-    public void activate(Player player) {
+    public boolean activate(Player player) {
         player.removeCoins(COIN_LOSS);
+        return true;
     }
 }

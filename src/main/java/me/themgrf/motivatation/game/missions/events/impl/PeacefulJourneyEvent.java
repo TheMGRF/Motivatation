@@ -21,6 +21,7 @@ public class PeacefulJourneyEvent extends RandomEvent {
     }
 
     @Override
-    public void activate(Player player) {
+    public boolean activate(Player player) {
+        return true;
     }
 }

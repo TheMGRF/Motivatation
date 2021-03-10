@@ -25,7 +25,8 @@ public class TripAndFallEvent extends RandomEvent {
     }
 
     @Override
-    public void activate(Player player) {
+    public boolean activate(Player player) {
         player.setHealth(player.getHealth() - HEALTH_LOSS);
+        return true;
     }
 }

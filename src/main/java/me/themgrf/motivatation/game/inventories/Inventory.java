@@ -60,8 +60,8 @@ public class Inventory {
 
         for (Item item : items) {
             String id = item.getId();
-            int oldValue = itemMap.putIfAbsent(id, 1);
-            if (oldValue > 1) {
+            Integer oldValue = itemMap.putIfAbsent(id, 1);
+            if (oldValue != null && oldValue > 1) {
                 itemMap.put(id, oldValue + 1);
             }
         }

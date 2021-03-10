@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    ...
+</head>
+<body>
+
+<div id="currencies">
+    <div class="currency gems">
+        <span th:text="${player.getGems()}"></span>
+        <i class="far fa-gem"></i>
+    </div>
+    <div class="currency coins">
+        <span th:text="${player.getCoins()}"></span>
+        <i class="far fa-coins"></i>
+    </div>
+</div>
+
+</body>
+</html>

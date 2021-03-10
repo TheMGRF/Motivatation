@@ -17,7 +17,8 @@ public abstract class RandomEvent implements Event {
     }
 
     @Override
-    public void activate(Player player) {
+    public boolean activate(Player player) {
+        return true;
     }
 
     public String getName() {

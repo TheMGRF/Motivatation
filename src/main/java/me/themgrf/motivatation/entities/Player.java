@@ -5,7 +5,6 @@ import me.themgrf.motivatation.game.achievement.AchievementManager;
 import me.themgrf.motivatation.game.inventories.Inventory;
 import me.themgrf.motivatation.game.inventories.items.ItemManager;
 import me.themgrf.motivatation.game.rewards.Reward;
-import me.themgrf.motivatation.game.rewards.RewardType;
 import me.themgrf.motivatation.util.inventory.InventoryCreator;
 import xyz.minecrossing.databaseconnector.DatabaseConnector;
 

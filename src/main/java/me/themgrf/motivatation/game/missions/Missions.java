@@ -20,7 +20,10 @@ public enum Missions {
                     .setDangerLevel(Mission.DangerLevel.EASY)
                     .setJourneyTime(Mission.JourneyTime.SHORT)
                     .setRandomEvents(Collections.singletonList(new TravellingMerchantEvent()))
-                    .setEvent(player -> System.out.println(player.getName() + " has ran Zombie hunter I!"))
+                    .setEvent(player -> {
+                        System.out.println(player.getName() + " has ran Zombie hunter I!");
+                        return true;
+                    })
                     .setRewards(
                             Arrays.asList(
                                     new Reward(RewardType.EXP, 10),
@@ -38,7 +41,10 @@ public enum Missions {
                     .setDangerLevel(Mission.DangerLevel.EASY)
                     .setJourneyTime(Mission.JourneyTime.MEDIUM)
                     .setRandomEvents(Collections.singletonList(new TravellingMerchantEvent()))
-                    .setEvent(player -> System.out.println(player.getName() + " has ran Zombie hunter II!"))
+                    .setEvent(player -> {
+                        System.out.println(player.getName() + " has ran Zombie hunter II!");
+                        return true;
+                    })
                     .setRewards(
                             Arrays.asList(
                                     new Reward(RewardType.EXP, 15),
@@ -56,7 +62,10 @@ public enum Missions {
                     .setDangerLevel(Mission.DangerLevel.MEDIUM)
                     .setJourneyTime(Mission.JourneyTime.MEDIUM)
                     .setRandomEvents(Collections.singletonList(new MuggingEvent()))
-                    .setEvent(player -> System.out.println(player.getName() + " has ran Zombie hunter III!"))
+                    .setEvent(player -> {
+                        System.out.println(player.getName() + " has ran Zombie hunter III!");
+                        return true;
+                    })
                     .setRewards(
                             Arrays.asList(
                                     new Reward(RewardType.EXP, 30),
@@ -74,7 +83,10 @@ public enum Missions {
                     .setDangerLevel(Mission.DangerLevel.EASY)
                     .setJourneyTime(Mission.JourneyTime.LONG)
                     .setRandomEvents(Arrays.asList(new MuggingEvent(), new TripAndFallEvent()))
-                    .setEvent(player -> System.out.println(player.getName() + " has ran Pilgrimage!"))
+                    .setEvent(player -> {
+                        System.out.println(player.getName() + " has ran Pilgrimage!");
+                        return true;
+                    })
                     .setRewards(
                             Arrays.asList(
                                     new Reward(RewardType.EXP, 30),
@@ -92,7 +104,10 @@ public enum Missions {
                     .setDangerLevel(Mission.DangerLevel.HARD)
                     .setJourneyTime(Mission.JourneyTime.MEDIUM)
                     .setRandomEvents(Collections.singletonList(new MuggingEvent()))
-                    .setEvent(player -> System.out.println(player.getName() + " has ran Business!"))
+                    .setEvent(player -> {
+                        System.out.println(player.getName() + " has ran Business!");
+                        return true;
+                    })
                     .setRewards(
                             Arrays.asList(
                                     new Reward(RewardType.EXP, 40),

@@ -1,5 +1,6 @@
 package me.themgrf.motivatation.game.missions;
 
+import me.themgrf.motivatation.database.PlayerManager;
 import me.themgrf.motivatation.entities.Player;
 import me.themgrf.motivatation.game.missions.events.Event;
 import me.themgrf.motivatation.game.missions.events.RandomEvent;
@@ -104,8 +105,8 @@ public class Mission implements PlayerRunnable, Completable {
     }
 
     @Override
-    public void activate(Player player) {
-        event.activate(player);
+    public boolean activate(Player player) {
+        return event.activate(player);
     }
 
     @Override
@@ -113,6 +114,8 @@ public class Mission implements PlayerRunnable, Completable {
         for (Reward reward : rewards) {
             player.giveReward(reward);
         }
+
+        PlayerManager.savePlayer(player);
     }
 
     public enum DangerLevel {

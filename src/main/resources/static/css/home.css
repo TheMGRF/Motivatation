@@ -62,12 +62,21 @@
     margin-top: 5px;
 
     font-size: 1.2em;
-    font-weight: bold;
 }
 
 .currency {
     float: right;
-    display: inline;
+    display: inline-block;
+}
+
+.currency span {
+    font-family: Minecraft, Roboto, serif;
+
+    display: inline-block;
+}
+
+.currency i {
+    display: inline-block;
 }
 
 .coins {

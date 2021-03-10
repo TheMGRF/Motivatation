@@ -25,7 +25,8 @@ public class TravellingMerchantEvent extends RandomEvent {
     }
 
     @Override
-    public void activate(Player player) {
+    public boolean activate(Player player) {
         player.addCoins(COIN_GAIN);
+        return true;
     }
 }

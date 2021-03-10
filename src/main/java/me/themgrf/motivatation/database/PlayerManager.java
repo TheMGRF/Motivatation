@@ -148,7 +148,7 @@ public class PlayerManager {
             ps.setString(1, player.getInventory().toString());
             ps.setLong(2, player.getId());
 
-            ps.executeQuery();
+            ps.execute();
 
             ps.close();
             con.close();
