@@ -62,9 +62,25 @@ public class MissionsController extends ControllerBase {
 
             RandomEvent randomEvent = new PeacefulJourneyEvent();
 
-            // 50% chance that a random event will occur
+            // % chance that a random event will occur dependant on journey time
             int random = ThreadLocalRandom.current().nextInt(100);
-            if (random >= 50) {
+            boolean runRandomEvent;
+            switch (mission.getJourneyTime()) {
+                case SHORT:
+                    runRandomEvent = random > 70;
+                    break;
+                case MEDIUM:
+                    runRandomEvent = random > 50;
+                    break;
+                case LONG:
+                    runRandomEvent = random > 30;
+                    break;
+                default:
+                    runRandomEvent = false;
+                    break;
+            }
+
+            if (runRandomEvent) {
                 List<RandomEvent> randomEvents = mission.getRandomEvents();
                 randomEvent = randomEvents.get(ThreadLocalRandom.current().nextInt(randomEvents.size()));
             }
