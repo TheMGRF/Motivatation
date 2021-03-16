@@ -95,10 +95,10 @@ public enum Texture {
     LEATHER_FINGERLESS_GLOVES("/items/armour/gauntlets/leather_fingerless_gloves.png"),
     LEATHER_GLOVES("/items/armour/gauntlets/leather_gloves.png"),
     // Helmets
-    IRON_HELMET("/items/armour/helmets/iron_helmets.png"),
-    HORNED_IRON_HELMET("/items/armour/helmets/horned_iron_helmets.png"),
-    DECORATIVE_IRON_HELMET("/items/armour/helmets/decorative_iron_helmets.png"),
-    TEMPLAR_HELMET("/items/armour/helmets/templar_helmets.png"),
+    IRON_HELMET("/items/armour/helmets/iron_helmet.png"),
+    HORNED_IRON_HELMET("/items/armour/helmets/horned_iron_helmet.png"),
+    DECORATIVE_IRON_HELMET("/items/armour/helmets/decorative_iron_helmet.png"),
+    TEMPLAR_HELMET("/items/armour/helmets/templar_helmet.png"),
     // Hats
     CAP("/items/armour/hats/cap.png"),
     HEADBAND("/items/armour/hats/headband.png"),
