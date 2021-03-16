@@ -9,9 +9,11 @@ import me.themgrf.motivatation.util.Colour;
 import org.springframework.util.StringUtils;
 
 import java.util.List;
+import java.util.UUID;
 
 public class Mission implements PlayerRunnable, Completable {
 
+    private final UUID uuid;
     private String id, name, description;
     private int level;
     private DangerLevel dangerLevel;
@@ -21,6 +23,7 @@ public class Mission implements PlayerRunnable, Completable {
     private List<Reward> rewards;
 
     public Mission(String id, String name, String description, int level, DangerLevel dangerLevel, JourneyTime journeyTime, List<RandomEvent> randomEvents, Event event, List<Reward> rewards) {
+        this.uuid = UUID.randomUUID();
         this.id = id;
         this.name = name;
         this.description = description;
@@ -30,6 +33,10 @@ public class Mission implements PlayerRunnable, Completable {
         this.randomEvents = randomEvents;
         this.event = event;
         this.rewards = rewards;
+    }
+
+    public UUID getUUID() {
+        return uuid;
     }
 
     public String getId() {

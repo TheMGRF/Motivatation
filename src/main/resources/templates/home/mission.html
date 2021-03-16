@@ -73,17 +73,11 @@
 
             <a class="mission-btn" href="home/missions">Continue</a>
         </div>
-
-        <script>
-            document.getElementById("complete-random-event").onclick = function() {
-                document.getElementById("random-event-display").style.display = "none";
-                document.getElementById("mission-event-display").style.visibility = "visible";
-                document.getElementById("mission-event-display").style.backgroundColor = "#262626";
-            };
-        </script>
     </div>
 
 </div>
+
+<script th:src="@{js/missionComplete.js}"></script>
 
 </body>
 </html>
