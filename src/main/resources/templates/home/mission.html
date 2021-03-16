@@ -48,10 +48,39 @@
     <br>
 
     <div class="mission-container">
-        <p th:if="${randomEvent.getType().name() != 'PEACEFUL_JOURNEY'}" th:text="'Random Event: ' + ${randomEvent.getName()}"></p>
-        <script th:if="${randomEvent.getType().name() != 'PEACEFUL_JOURNEY'}" th:scr>alert("Attack!")</script>
+        <div id="random-event-display" th:if="${randomEvent.getType().name() != 'PEACEFUL_JOURNEY'}">
+            <h2>Random Event!</h2>
+            <h3 th:text="${randomEvent.getName()}"></h3>
+            <p th:text="${randomEvent.getDescription()}"></p>
 
-        <p th:text="'Completed Mission: ' + ${mission.getName()}"></p>
+            <p th:style="'color: ' + ${randomEvent.getEffect().getType().getColour()}" th:text="${randomEvent.getEffect().getName()}"></p>
+
+            <a id="complete-random-event" class="mission-btn">Continue</a>
+        </div>
+
+        <div id="mission-event-display" th:style="${randomEvent.getType().name() == 'PEACEFUL_JOURNEY' ? 'visibility: visible' : 'visibility: hidden'}">
+            <h2>Mission Complete!</h2>
+            <h3 th:text="${mission.getName()}"></h3>
+
+            <div id="mission-rewards">
+                <h4>Rewards</h4>
+                <div class="mission-rewards" th:each="reward: ${mission.getRewards()}">
+                    <p class="mission-reward" th:style="'color: ' + ${reward.getRewardType().getColour()}"><span th:text="'+' + ${reward.getAmount()}"></span> <i th:class="${reward.getRewardType().getIcon()}"></i></p>
+                </div>
+            </div>
+
+            <br>
+
+            <a class="mission-btn" href="home/missions">Continue</a>
+        </div>
+
+        <script>
+            document.getElementById("complete-random-event").onclick = function() {
+                document.getElementById("random-event-display").style.display = "none";
+                document.getElementById("mission-event-display").style.visibility = "visible";
+                document.getElementById("mission-event-display").style.backgroundColor = "#262626";
+            };
+        </script>
     </div>
 
 </div>

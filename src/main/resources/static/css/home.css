@@ -271,7 +271,7 @@
 
     padding: 2% 20% 2% 20%;
 
-    border-radius: 15px;
+    border-radius: 3px;
 
     transition: 0.3s;
 }
@@ -282,7 +282,7 @@
 
     padding: 2% 20% 2% 20%;
 
-    border-radius: 15px;
+    border-radius: 3px;
 
     transition: 0.3s;
 }
@@ -327,6 +327,48 @@
 .reset-missions:hover {
     background-color: #c68b12;
     color: white;
+
+    transition: 0.3s;
+}
+
+#random-event-display {
+    background-color: #262626;
+
+    padding: 2%;
+}
+
+#mission-event-display {
+    visibility: hidden;
+
+    background-color: #262626;
+
+    padding: 2%;
+}
+
+#mission-rewards {
+    line-height: 5px;
+}
+
+.mission-btn {
+    background-color: #DAA520;
+    color: white;
+
+    display: inline-block;
+    width: 10%;
+
+    margin-top: 1%;
+    padding: 1% 2% 1% 2%;
+
+    border-radius: 3px;
+
+    transition: 0.3s;
+}
+
+.mission-btn:hover {
+    background-color: #c68b12;
+    color: white;
+
+    cursor: pointer;
 
     transition: 0.3s;
 }
