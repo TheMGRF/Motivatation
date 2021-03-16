@@ -1,5 +1,7 @@
 package me.themgrf.motivatation.controllers;
 
+import me.themgrf.motivatation.database.PlayerManager;
+import me.themgrf.motivatation.entities.Player;
 import me.themgrf.motivatation.entities.User;
 import me.themgrf.motivatation.users.service.UserService;
 import me.themgrf.motivatation.users.UserValidator;
@@ -14,9 +16,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-public class SignupController {
-
-    private static final String PAGE_NAME = "Motivatation | Signup";
+public class SignupController extends ControllerBase {
 
     @Autowired
     private UserService userService;
@@ -26,10 +26,9 @@ public class SignupController {
 
     @GetMapping("/signup")
     public String signup(Model model) {
+        model = super.setup(model);
+
         model.addAttribute("signup", new User());
-        model.addAttribute("appName", AppInfo.SITE_NAME);
-        model.addAttribute("pageName", PAGE_NAME);
-        model.addAttribute("loggedIn", Auth.isLoggedIn());
 
         return "signup";
     }
@@ -38,9 +37,10 @@ public class SignupController {
     public String signup(@ModelAttribute("signup") User userData, BindingResult bindingResult, Model model) {
         userValidator.validate(userData, bindingResult);
 
-        model.addAttribute("appName", AppInfo.SITE_NAME);
+        /*model.addAttribute("appName", AppInfo.SITE_NAME);
         model.addAttribute("pageName", PAGE_NAME);
-        model.addAttribute("loggedIn", Auth.isLoggedIn());
+        model.addAttribute("loggedIn", Auth.isLoggedIn());*/
+        model = super.setup(model);
 
         if (bindingResult.hasErrors()) {
             System.out.println("ERROR: " + bindingResult.getErrorCount());
@@ -51,9 +51,13 @@ public class SignupController {
         }
 
         userService.save(userData);
+        PlayerManager.addPlayer(new Player(userData.getId()));
 
         return "redirect:/welcome";
     }
 
-
+    @Override
+    public String getPageName() {
+        return "Motivatation | Signup";
+    }
 }

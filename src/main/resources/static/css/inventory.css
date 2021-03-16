@@ -1,0 +1,43 @@
+.section {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.box1 {
+    position: relative;
+    height: 400px;
+    width: 400px;
+    background-color: #e7e7e7;
+}
+
+.list {
+    display: none;
+    position: absolute;
+    list-style: none;
+    background-color: rgba(16, 3, 45, 0.9);
+    border: 2px solid rgba(42, 7, 122, 0.9);
+    border-radius: 2px;
+    width: 100px;
+    padding: 0;
+}
+
+.list li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.list li a{
+    padding: 0;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.list li a:hover, .list li:hover a{
+    text-decoration: none;
+    color: #b7b7b7;
+}
+
+.list li:hover {
+    color: #b7b7b7;
+}

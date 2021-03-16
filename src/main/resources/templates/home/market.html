@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Thomas Griffiths">
+    <meta name="description" content="Motivatation | Modern problems require modern solutions">
+    <meta name="keywords" content="Motivatation,RPG">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta property="og:title" content="Motivatation | 404 - Page Not Found">
+    <meta property="og:description" content="Modern problems require modern solutions">
+    <meta property="og:image" content="https://motivatation.com/img/logo.png">
+    <meta property="og:url" content="https://motivatation.com/">
+    <base href="/">
+
+    <link rel="icon" type="image/png" th:href="@{img/favicon.ico}">
+
+    <!-- Styles -->
+    <link rel="stylesheet" type="text/css" th:href="@{css/nav.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{css/styles.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{css/home.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{css/inventory.css}">
+
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+
+    <title th:text="${pageName}"></title>
+</head>
+<body>
+<div th:replace="fragments/nav :: nav"></div>
+
+<div class="mobile-seperator">
+    <hr>
+</div>
+
+<ul id="sidebar">
+    <li><a href="/home"><i class="fas fa-home"></i> Home</a></li>
+    <li><a href="/home/tasks"><i class="fas fa-thumbtack"></i> Tasks</a></li>
+    <li><a href="/home/inventory"><i class="fas fa-archive"></i> Inventory</a></li>
+    <li><a class="active" href="/home/market"><i class="fas fa-store"></i> Market</a></li>
+    <li><a href="/home/missions"><i class="fas fa-campfire"></i> Missions</a></li>
+    <li><a href="/home/achievements"><i class="fas fa-trophy"></i> Achievements</a></li>
+    <li><a href="/home/help"><i class="far fa-question-circle"></i> Help</a></li>
+</ul>
+
+<div id="content">
+    <div th:replace="fragments/currency :: #currencies"></div>
+
+    <br>
+
+</div>
+
+</body>
+</html>

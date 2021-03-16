@@ -10,7 +10,6 @@ public class UserInfoMapper implements RowMapper<LoginDetails> {
 
     @Override
     public LoginDetails mapRow(ResultSet rs, int row) throws SQLException {
-
         String username = rs.getString("username");
         String password = rs.getString("password");
 

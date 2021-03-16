@@ -31,20 +31,17 @@
     </div>
 
     <ul id="sidebar">
-        <li><a class="active" href="#home"><i class="fas fa-home"></i> Home</a></li>
-        <li><a href="#tasks"><i class="fas fa-thumbtack"></i> Tasks</a></li>
-        <li><a href="#inventory"><i class="fas fa-archive"></i> Inventory</a></li>
-        <li><a href="#town"><i class="fas fa-store"></i> Town Square</a></li>
-        <li><a href="#guild"><i class="fas fa-university"></i> Guild</a></li>
-        <li><a href="#achievements"><i class="fas fa-trophy"></i> Achievements</a></li>
-        <li><a href="#help"><i class="far fa-question-circle"></i> Help</a></li>
+        <li><a class="active" href="/home"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="/home/tasks"><i class="fas fa-thumbtack"></i> Tasks</a></li>
+        <li><a href="/home/inventory"><i class="fas fa-archive"></i> Inventory</a></li>
+        <li><a href="/home/market"><i class="fas fa-store"></i> Market</a></li>
+        <li><a href="/home/missions"><i class="fas fa-campfire"></i> Missions</a></li>
+        <li><a href="/home/achievements"><i class="fas fa-trophy"></i> Achievements</a></li>
+        <li><a href="/home/help"><i class="far fa-question-circle"></i> Help</a></li>
     </ul>
 
     <div id="content">
-        <div id="currencies">
-            <div id="gems" class="currency"><i class="far fa-gem"></i> 420</div>
-            <div id="coins" class="currency"><i class="fas fa-coins"></i> 1337</div>
-        </div>
+        <div th:replace="fragments/currency :: #currencies"></div>
     </div>
 </body>
 </html>

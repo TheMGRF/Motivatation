@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Thomas Griffiths">
+    <meta name="description" content="Motivatation | Modern problems require modern solutions">
+    <meta name="keywords" content="Motivatation,RPG">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta property="og:title" content="Motivatation | Tasks">
+    <meta property="og:description" content="Modern problems require modern solutions">
+    <meta property="og:image" content="https://motivatation.com/img/logo.png">
+    <meta property="og:url" content="https://motivatation.com/">
+    <base href="/">
+
+    <link rel="icon" type="image/png" th:href="@{img/favicon.ico}">
+
+    <!-- Styles -->
+    <link rel="stylesheet" type="text/css" th:href="@{css/nav.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{css/styles.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{css/home.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{css/tasks.css}">
+
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+
+    <title th:text="${pageName}"></title>
+</head>
+<body>
+<div th:replace="fragments/nav :: nav"></div>
+
+<div class="mobile-seperator">
+    <hr>
+</div>
+
+<ul id="sidebar">
+    <li><a href="/home"><i class="fas fa-home"></i> Home</a></li>
+    <li><a class="active" href="/home/tasks"><i class="fas fa-thumbtack"></i> Tasks</a></li>
+    <li><a href="/home/inventory"><i class="fas fa-archive"></i> Inventory</a></li>
+    <li><a href="/home/market"><i class="fas fa-store"></i> Market</a></li>
+    <li><a href="/home/missions"><i class="fas fa-campfire"></i> Missions</a></li>
+    <li><a href="/home/achievements"><i class="fas fa-trophy"></i> Achievements</a></li>
+    <li><a href="/home/help"><i class="far fa-question-circle"></i> Help</a></li>
+</ul>
+
+<div id="content">
+    <div th:replace="fragments/currency :: #currencies"></div>
+
+    <br>
+
+    <div class="task-container">
+        <h3>Your Tasks</h3>
+        <table id="task-table">
+            <tr>
+                <th>Task</th>
+                <th>Status</th>
+                <th>Priority</th>
+                <th>Due Date</th>
+                <th>Reward</th>
+                <th>Done</th>
+            </tr>
+            <tr>
+                <td>Clean room</td>
+                <td><span class="label in-progress">In Progress</span></td>
+                <td><span class="label high">High</span></td>
+                <td>25/02/2021</td>
+                <td><span class="coins"><i class="far fa-coins"></i> 100</span></td>
+                <td>
+                    <label class="checkbox">
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>Write code</td>
+                <td><span class="label in-progress">In Progress</span></td>
+                <td><span class="label medium">Medium</span></td>
+                <td>29/02/2021</td>
+                <td><span class="gems"><i class="far fa-gem"></i> 24</span></td>
+                <td>
+                    <label class="checkbox">
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+
+</body>
+</html>

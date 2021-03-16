@@ -62,19 +62,313 @@
     margin-top: 5px;
 
     font-size: 1.2em;
-    font-weight: bold;
 }
 
 .currency {
     float: right;
-    display: inline;
+    display: inline-block;
 }
 
-#coins {
+.currency span {
+    font-family: Minecraft, Roboto, serif;
+
+    display: inline-block;
+}
+
+.currency i {
+    display: inline-block;
+}
+
+.coins {
     color: gold;
 }
 
-#gems {
-    color: aqua;
+.gems {
+    color: #00ffff;
     margin: 0 20px 0 15px;
+}
+
+.inventory-container {
+    margin: 2%;
+
+    background-color: #9f9f9f;
+    width: 80%;
+
+    border-radius: 5px;
+}
+
+.inventory-container h3 {
+    color: #ffffff;
+    background-color: #707070;
+
+    padding: 1%;
+}
+
+.item-img {
+    image-rendering: pixelated;
+    width: 64px;
+    height: 64px;
+
+    margin-left: 5px;
+    padding: 4px;
+    border-radius: 2px;
+}
+
+.item-img:hover {
+    cursor: pointer;
+    filter: brightness(120%);
+}
+
+.item {
+    position: relative;
+    display: inline-block;
+}
+
+.item .tooltip {
+    visibility: hidden;
+    width: 240px;
+    background-color: rgba(16, 3, 45, 0.9);
+    border: 2px solid rgba(42, 7, 122, 0.9);
+    border-radius: 4px;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0 10px 0 10px;
+    font-family: Minecraft;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    left: 105%;
+}
+
+.item:hover .tooltip {
+    visibility: visible;
+}
+
+.item .tooltip:hover {
+    visibility: hidden;
+}
+
+.achievement-container {
+    padding: 1%;
+}
+
+.achievement {
+    background-color: #707070;
+    width: 20%;
+    margin-bottom: 1%;
+}
+
+.achievement-img {
+    display: inline-block;
+
+    margin-top: 3%;
+}
+
+.achievement-text {
+    display: inline-block;
+}
+
+.achievement-name {
+    line-height: 10px;
+}
+
+.achievement-description {
+    line-height: 2px;
+}
+
+.completed-mark {
+    font-size: 5em;
+}
+
+.completed-mark * {
+    display: inline-block;
+}
+
+.mission-container {
+    padding-top: 2%;
+
+    text-align: center;
+}
+
+.mission {
+    background-color: rgba(38, 38, 38, 0.8);
+
+    display: inline-block;
+
+    padding: 1%;
+
+    width: 20%;
+    max-height: 410px;
+
+    border-radius: 3px;
+
+    text-align: center;
+}
+
+.mission h3 {
+    line-height: 5px;
+
+    /*text-align: left;*/
+}
+
+.mission h4 {
+    max-height: 40px;
+
+    padding-bottom: 2%;
+}
+
+.labels {
+    text-align: center;
+}
+
+.label {
+    border-radius: 15px;
+    padding: 2% 0 2% 0;
+    margin: 2% 20% 2% 20%;
+
+    width: 60%;
+
+    font-weight: bold;
+    text-align: center;
+}
+
+.label:hover {
+    cursor: pointer;
+}
+
+.mission-level {
+    background-color: #6ca91f;
+    color: white;
+}
+
+.mission-danger {
+    background-color: #c3103a;
+
+    width: 60%;
+}
+
+.mission-time {
+    background-color: #c39610;
+
+    width: 60%;
+}
+
+.mission-rewards {
+    display: inline-block;
+}
+
+.mission-reward {
+    display: inline-block;
+
+    padding-right: 20px;
+}
+
+.mission-accept {
+    background-color: #47b326;
+    color: white;
+
+    padding: 2% 20% 2% 20%;
+
+    border-radius: 3px;
+
+    transition: 0.3s;
+}
+
+.mission-accept-locked {
+    background-color: #FF4D4D;
+    color: white;
+
+    padding: 2% 20% 2% 20%;
+
+    border-radius: 3px;
+
+    transition: 0.3s;
+}
+
+.mission-accept-locked:hover {
+    background-color: #c61f1f;
+    color: white;
+
+    cursor: not-allowed;
+
+    transition: 0.3s;
+}
+
+.mission-accept:hover {
+    background-color: #3a921d;
+    color: white;
+
+    padding: 2% 21% 2% 21%;
+
+    transition: 0.3s;
+}
+
+.mission-bottom {
+    text-align: center;
+}
+
+.reset-missions {
+    background-color: #DAA520;
+    color: white;
+
+    display: inline-block;
+    width: 10%;
+
+    margin-top: 1%;
+    padding: 1% 2% 1% 2%;
+
+    border-radius: 3px;
+
+    transition: 0.3s;
+}
+
+.reset-missions:hover {
+    background-color: #c68b12;
+    color: white;
+
+    transition: 0.3s;
+}
+
+#random-event-display {
+    background-color: #262626;
+
+    padding: 2%;
+}
+
+#mission-event-display {
+    visibility: hidden;
+
+    background-color: #262626;
+
+    padding: 2%;
+}
+
+#mission-rewards {
+    line-height: 5px;
+}
+
+.mission-btn {
+    background-color: #DAA520;
+    color: white;
+
+    display: inline-block;
+    width: 10%;
+
+    margin-top: 1%;
+    padding: 1% 2% 1% 2%;
+
+    border-radius: 3px;
+
+    transition: 0.3s;
+}
+
+.mission-btn:hover {
+    background-color: #c68b12;
+    color: white;
+
+    cursor: pointer;
+
+    transition: 0.3s;
 }
