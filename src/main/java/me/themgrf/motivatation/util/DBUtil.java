@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public class DBUtil {
 
-    public static final String DATABASE_NAME = "motivitation";
+    public static final String DATABASE_NAME = "motivatation";
 
     public static Connection getConnection() throws SQLException {
         return DatabaseConnector.getInstance().getConnection(DATABASE_NAME);

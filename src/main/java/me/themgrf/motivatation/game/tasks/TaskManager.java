@@ -14,7 +14,7 @@ public class TaskManager {
 
     public static final HashMap<Long, List<Task>> PLAYER_TASKS = new HashMap<>();
 
-    public static void loadTasks(Player player) {
+    public static List<Task> loadTasks(Player player) {
         List<Task> tasks = new ArrayList<>();
         long id = player.getId();
 
@@ -29,6 +29,7 @@ public class TaskManager {
                 tasks.add(new Task(
                         UUID.fromString(rs.getString("task_uuid")),
                         rs.getString("task"),
+                        rs.getString("description"),
                         rs.getString("due"),
                         Task.TaskStatus.valueOf(rs.getString("status")),
                         Task.TaskPriority.valueOf(rs.getString("priority")),
@@ -46,19 +47,38 @@ public class TaskManager {
         }
 
         PLAYER_TASKS.put(id, tasks);
+
+        return tasks;
     }
 
-    // TODO: save tasks to DB in one bulk save
     public static void saveTasks(Player player) {
         try (Connection con = DBUtil.getConnection()) {
-            String sql = "INSERT INTO ...";
+            for (Task task : getTasks(player)) {
 
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, "");
+                String sql = "INSERT INTO tasks (player_id, task_uuid, task, description, status, priority, due, reward, done, repeat)" +
+                        "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE status=?, done=?, repeat=?";
 
-            ps.execute();
+                PreparedStatement ps = con.prepareStatement(sql);
+                ps.setInt(1, (int) player.getId());
+                ps.setString(2, task.getUUID().toString());
+                ps.setString(3, task.getName());
+                ps.setString(4, task.getDescription());
+                ps.setString(5, task.getStatus().name());
+                ps.setString(6, task.getPriority().name());
+                ps.setString(7, task.getDue());
+                ps.setString(8, task.getReward().toDBString());
+                ps.setBoolean(9, task.isDone());
+                ps.setFloat(10, task.getRepeat());
 
-            ps.close();
+                // update stuff
+                ps.setString(11, task.getStatus().name());
+                ps.setBoolean(12, task.isDone());
+                ps.setFloat(13, task.getRepeat());
+
+                ps.execute();
+
+                ps.close();
+            }
             con.close();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -66,7 +86,11 @@ public class TaskManager {
     }
 
     public static List<Task> getTasks(Player player) {
-        return PLAYER_TASKS.get(player.getId());
+        List<Task> tasks = PLAYER_TASKS.get(player.getId());
+        if (tasks == null) {
+            return loadTasks(player);
+        }
+        return tasks;
     }
 
     public static void addTask(Player player, Task task) {

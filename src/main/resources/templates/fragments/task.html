@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    ...
+</head>
+<body>
+
+<div class="task" th:fragment="task">
+    <h4 th:inline="text">
+        [[${task.getName()}]]
+        <br>
+        <small class="task-desc" th:text="${task.getDescription()}"></small>
+    </h4>
+    <p th:inline="text"><i class="far fa-calendar-alt"></i> [[${task.getDue()}]]</p>
+    <hr>
+    <p><span class="label in-progress" th:text="${task.getStatus().toString()}"></span></p>
+    <p><span class="label low" th:text="${task.getPriority().toString()}"></span></p>
+    <p th:style="'color: ' + ${task.getReward().getRewardType().getColour()}"><span th:text="'+' + ${task.getReward().getAmount()}"></span> <i th:class="${task.getReward().getRewardType().getIcon()}"></i></p>
+
+    <a class="label complete" href="#">Complete</a>
+</div>
+
+</body>
+</html>

@@ -2,6 +2,8 @@ package me.themgrf.motivatation.database;
 
 import me.themgrf.motivatation.entities.Player;
 import me.themgrf.motivatation.entities.User;
+import me.themgrf.motivatation.game.tasks.TaskManager;
+import me.themgrf.motivatation.util.DBUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -51,7 +53,7 @@ public class PlayerManager {
         int gems = 0;
         double experience = 0;
 
-        try (Connection con = DatabaseConnector.getInstance().getConnection("motivatation")) {
+        try (Connection con = DBUtil.getConnection()) {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setLong(1, id);
 
@@ -91,7 +93,7 @@ public class PlayerManager {
                 "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)" +
                 ";";
 
-        try (Connection con = DatabaseConnector.getInstance().getConnection("motivatation")) {
+        try (Connection con = DBUtil.getConnection()) {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setLong(1, player.getId());
             ps.setDouble(2, player.getHealth());
@@ -115,11 +117,11 @@ public class PlayerManager {
     }
 
     public static void savePlayer(Player player) {
-        String sql = "UPDATE players SET health = ?, defence = ?, strength = ?, speed = ?, intelligence = ?, level = ?, tasks = ?, coins = ?, gems = ?, experience = ? " +
-                "WHERE player_id = ?" +
-                ";";
+        try (Connection con = DBUtil.getConnection()) {
+            String sql = "UPDATE players SET health = ?, defence = ?, strength = ?, speed = ?, intelligence = ?, level = ?, tasks = ?, coins = ?, gems = ?, experience = ? " +
+                    "WHERE player_id = ?" +
+                    ";";
 
-        try (Connection con = DatabaseConnector.getInstance().getConnection("motivatation")) {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setDouble(1, player.getHealth());
             ps.setDouble(2, player.getDefence());
@@ -135,16 +137,10 @@ public class PlayerManager {
 
             ps.execute();
 
-            ps.close();
-            con.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+            // Update inventories
+            sql = "UPDATE inventories SET items = ? WHERE player_id = ?;";
 
-        sql = "UPDATE inventories SET items = ? WHERE player_id = ?;";
-
-        try (Connection con = DatabaseConnector.getInstance().getConnection("motivatation")) {
-            PreparedStatement ps = con.prepareStatement(sql);
+            ps = con.prepareStatement(sql);
             ps.setString(1, player.getInventory().toString());
             ps.setLong(2, player.getId());
 
@@ -152,9 +148,14 @@ public class PlayerManager {
 
             ps.close();
             con.close();
+
+            ps.close();
+            con.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        TaskManager.saveTasks(player);
     }
 
     public static Player makePlayer(long id, String name, double health, double defence, double strength, double speed,

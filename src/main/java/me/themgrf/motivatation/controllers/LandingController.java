@@ -16,6 +16,6 @@ public class LandingController extends ControllerBase {
 
     @Override
     public String getPageName() {
-        return "Motivitation";
+        return "Motivatation";
     }
 }

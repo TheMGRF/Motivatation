@@ -23,6 +23,10 @@ public class Reward {
         return new Reward(RewardType.valueOf(args[0].toUpperCase()), Integer.parseInt(args[1]));
     }
 
+    public String toDBString() {
+        return rewardType.name() + "," + amount;
+    }
+
     @Override
     public String toString() {
         return amount + " " + rewardType.getName();
