@@ -18,6 +18,11 @@ public class Reward {
         return amount;
     }
 
+    public static Reward fromString(String rewardString) {
+        String[] args = rewardString.split(",");
+        return new Reward(RewardType.valueOf(args[0].toUpperCase()), Integer.parseInt(args[1]));
+    }
+
     @Override
     public String toString() {
         return amount + " " + rewardType.getName();

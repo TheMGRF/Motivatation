@@ -47,47 +47,59 @@
 
     <br>
 
-    <div class="task-container">
-        <h3>Your Tasks</h3>
-        <table id="task-table">
-            <tr>
-                <th>Task</th>
-                <th>Status</th>
-                <th>Priority</th>
-                <th>Due Date</th>
-                <th>Reward</th>
-                <th>Done</th>
-            </tr>
-            <tr>
-                <td>Clean room</td>
-                <td><span class="label in-progress">In Progress</span></td>
-                <td><span class="label high">High</span></td>
-                <td>25/02/2021</td>
-                <td><span class="coins"><i class="far fa-coins"></i> 100</span></td>
-                <td>
-                    <label class="checkbox">
-                        <input type="checkbox" checked="checked">
-                        <span class="checkmark"></span>
-                    </label>
-                </td>
-            </tr>
-            <tr>
-                <td>Write code</td>
-                <td><span class="label in-progress">In Progress</span></td>
-                <td><span class="label medium">Medium</span></td>
-                <td>29/02/2021</td>
-                <td><span class="gems"><i class="far fa-gem"></i> 24</span></td>
-                <td>
-                    <label class="checkbox">
-                        <input type="checkbox" checked="checked">
-                        <span class="checkmark"></span>
-                    </label>
-                </td>
-            </tr>
-        </table>
+    <a id="add-task"><i class="fas fa-edit"></i> Add Task</a>
+
+    <div class="tasks">
+        <div class="task">
+            <h4>
+                Clean Room
+                <br>
+                <small class="task-desc">Make sure the room is very clean</small>
+            </h4>
+            <p><i class="far fa-calendar-alt"></i> 25/02/2021</p>
+            <hr>
+            <p><span class="label in-progress">In Progress</span></p>
+            <p><span class="label low">Low</span></p>
+            <p><span class="coins"><i class="far fa-coins"></i> 100</span></p>
+
+            <a class="label complete" href="#">Complete</a>
+        </div>
+        <div class="task">
+            <h4>
+                Write Code
+                <br>
+                <small class="task-desc">Write all the code so it looks good</small>
+            </h4>
+            <p><i class="far fa-calendar-alt"></i> 29/02/2021</p>
+            <hr>
+            <p><span class="label in-progress">In Progress</span></p>
+            <p><span class="label medium">Medium</span></p>
+            <p><span class="gems"><i class="far fa-gem"></i> 24</span></p>
+
+            <a class="label complete" href="#">Complete</a>
+        </div>
+        <div class="task">
+            <h4>
+                Write Essay
+                <br>
+                <small class="task-desc">Complete the dissertation essay</small>
+            </h4>
+            <p><i class="far fa-calendar-alt"></i> 3/03/2021</p>
+            <hr>
+            <p><span class="label in-progress">In Progress</span></p>
+            <p><span class="label high">High</span></p>
+            <p><span class="coins"><i class="far fa-coins"></i> 50</span></p>
+
+            <a class="label complete" href="#">Complete</a>
+        </div>
     </div>
 
 </div>
 
+<script>
+    document.getElementById("add-task").onclick = function() {
+        alert("Modal for creating a task!");
+    };
+</script>
 </body>
 </html>

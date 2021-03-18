@@ -14,6 +14,23 @@ h3 {
     padding: 1%;
 }
 
+.tasks {
+    padding: 2%;
+}
+
+.task {
+    background-color: #262626;
+    width: 10%;
+
+    text-align: left;
+
+    padding: 0.2% 1% 1% 1%;
+
+    border-radius: 5px;
+
+    display: inline-block;
+}
+
 #task-table {
     background-color: #9f9f9f;
 
@@ -29,29 +46,60 @@ h3 {
     min-width: 200px;
 }
 
-.label {
-    border-radius: 15px;
-    padding: 1% 4% 1% 4%;
-
-    box-shadow: 1px 1px 2px #929292;
-
-    font-weight: bold;
+.task .gems {
+    margin: 0;
 }
 
-.label:hover {
-    cursor: pointer;
+.task-desc {
+    font-weight: normal;
+}
+
+.label {
+    font-weight: bold;
+
+    margin: 0;
 }
 
 .in-progress {
     background-color: #b1135d;
 }
 
-.medium {
+.low {
     background-color: #6ca91f;
+}
+
+.medium {
+    background-color: #b5ae0d;
 }
 
 .high {
     background-color: #a91f3f;
+}
+
+.complete {
+    background-color: #4bea5e;
+
+    margin: 2% 20% 2% 20%;
+    border-radius: 3px;
+}
+
+#add-task {
+    background-color: #DAA520;
+    color: white;
+
+    padding: 1%;
+
+    border-radius: 3px;
+
+    transition: background-color 0.3s;
+}
+
+#add-task:hover {
+    cursor: pointer;
+
+    background-color: #c38e25;
+
+    transition: background-color 0.3s;
 }
 
 .checkbox {
