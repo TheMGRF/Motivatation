@@ -4,12 +4,15 @@ import me.themgrf.motivatation.controllers.ControllerBase;
 import me.themgrf.motivatation.database.PlayerManager;
 import me.themgrf.motivatation.entities.Player;
 import me.themgrf.motivatation.entities.User;
+import me.themgrf.motivatation.game.missions.ActionRecorder;
 import me.themgrf.motivatation.game.missions.Mission;
 import me.themgrf.motivatation.game.missions.MissionManager;
 import me.themgrf.motivatation.game.missions.Missions;
 import me.themgrf.motivatation.game.missions.events.RandomEvent;
 import me.themgrf.motivatation.game.missions.events.impl.PeacefulJourneyEvent;
+import me.themgrf.motivatation.game.missions.impl.zombies.LocalZombieHunterMission;
 import me.themgrf.motivatation.util.Auth;
+import me.themgrf.motivatation.util.MathUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,7 +27,7 @@ import java.util.concurrent.ThreadLocalRandom;
 @Controller
 public class MissionsController extends ControllerBase {
 
-    private static final int RESET_COST = -1; // TODO: Set to 100
+    private static final int RESET_COST = 100;
 
     @GetMapping("/home/missions")
     public String missions(Model model) {
@@ -89,14 +92,24 @@ public class MissionsController extends ControllerBase {
 
             // Run the actual events logic
             randomEvent.activate(player);
-            boolean complete = mission.activate(player);
+            //boolean complete = mission.activate(player);
+            boolean complete = mission.runEvent(player);
             if (complete) {
                 // TODO: event logic / combat etc
                 mission.complete(player); // give rewards to player
+            } else {
+                int lostCoins = player.getCoins() / 2;
+                player.setCoins(lostCoins);
+                model.addAttribute("lostCoins", MathUtil.format(lostCoins));
             }
+
+            model.addAttribute("missionState", complete);
+            model.addAttribute("missionActions", ActionRecorder.EVENT_LIST.get(player.getId()));
 
             // Remove the mission from the player's list so they cant repeat it
             MissionManager.removeMission(player, mission);
+
+            PlayerManager.savePlayer(player);
         }
 
         return "home/mission";
@@ -112,6 +125,9 @@ public class MissionsController extends ControllerBase {
 
             if (player.getCoins() >= RESET_COST) {
                 attributes.addFlashAttribute("missions", MissionManager.reset(player));
+                player.removeCoins(RESET_COST);
+
+                PlayerManager.savePlayer(player);
             } else {
                 attributes.addFlashAttribute("resetError", "Not Enough Coins!");
             }

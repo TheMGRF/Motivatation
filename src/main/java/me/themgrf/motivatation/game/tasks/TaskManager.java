@@ -55,8 +55,8 @@ public class TaskManager {
         try (Connection con = DBUtil.getConnection()) {
             for (Task task : getTasks(player)) {
 
-                String sql = "INSERT INTO tasks (player_id, task_uuid, task, description, status, priority, due, reward, done, repeat)" +
-                        "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE status=?, done=?, repeat=?";
+                String sql = "INSERT INTO tasks (`player_id`, `task_uuid`, `task`, `description`, `status`, `priority`, `due`, `reward`, `done`, `repeat`)" +
+                        " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE `status`=`status`, `done`=`done`, `repeat`=`repeat`;";
 
                 PreparedStatement ps = con.prepareStatement(sql);
                 ps.setInt(1, (int) player.getId());
@@ -71,9 +71,9 @@ public class TaskManager {
                 ps.setFloat(10, task.getRepeat());
 
                 // update stuff
-                ps.setString(11, task.getStatus().name());
+                /*ps.setString(11, task.getStatus().name());
                 ps.setBoolean(12, task.isDone());
-                ps.setFloat(13, task.getRepeat());
+                ps.setFloat(13, task.getRepeat());*/
 
                 ps.execute();
 

@@ -3,7 +3,11 @@ package me.themgrf.motivatation.entities;
 import me.themgrf.motivatation.game.inventories.Inventory;
 import me.themgrf.motivatation.util.inventory.InventoryCreator;
 
+import java.util.UUID;
+
 public abstract class LivingEntity {
+
+    private final UUID uuid;
 
     private String name;
     private int level;
@@ -11,6 +15,7 @@ public abstract class LivingEntity {
     private Inventory inventory;
 
     public LivingEntity(String name, int level, double health, double defence, double strength, double speed, Inventory inventory) {
+        this.uuid = UUID.randomUUID();
         this.name = name;
         this.level = level;
         this.health = health;
@@ -24,8 +29,16 @@ public abstract class LivingEntity {
         this(name, level, health, defence, strength, speed, InventoryCreator.create(name + "'s Inventory"));
     }
 
+    public LivingEntity(String name) {
+        this(name, 1, 20, 1, 1, 1);
+    }
+
     public LivingEntity() {
-        this("Rename Me!", 1, 20, 20, 20, 20);
+        this("Rename Me!");
+    }
+
+    public UUID getUuid() {
+        return uuid;
     }
 
     public String getName() {

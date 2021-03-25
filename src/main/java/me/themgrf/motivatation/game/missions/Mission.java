@@ -22,6 +22,11 @@ public class Mission implements PlayerRunnable, Completable {
     private Event event;
     private List<Reward> rewards;
 
+    public Mission(String id) {
+        this.uuid = UUID.randomUUID();
+        this.id = id;
+    }
+
     public Mission(String id, String name, String description, int level, DangerLevel dangerLevel, JourneyTime journeyTime, List<RandomEvent> randomEvents, Event event, List<Reward> rewards) {
         this.uuid = UUID.randomUUID();
         this.id = id;
@@ -99,6 +104,10 @@ public class Mission implements PlayerRunnable, Completable {
         return event;
     }
 
+    public boolean runEvent(Player player) {
+        return false;
+    }
+
     public void setEvent(Event event) {
         this.event = event;
     }
@@ -113,12 +122,12 @@ public class Mission implements PlayerRunnable, Completable {
 
     @Override
     public boolean activate(Player player) {
-        return event.activate(player);
+        return getEvent().activate(player);
     }
 
     @Override
     public void complete(Player player) {
-        for (Reward reward : rewards) {
+        for (Reward reward : getRewards()) {
             player.giveReward(reward);
         }
 

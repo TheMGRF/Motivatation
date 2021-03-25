@@ -229,7 +229,7 @@
     border-radius: 15px;
 
     padding: 2% 6% 2% 6%;
-    margin: 2% 20% 2% 20%;
+    margin: 2% 15% 2% 15%;
 
     width: 60%;
 
@@ -350,7 +350,7 @@
     padding: 2%;
 }
 
-#mission-rewards {
+.mission-reward-text {
     line-height: 5px;
 }
 
@@ -376,4 +376,12 @@
     cursor: pointer;
 
     transition: 0.3s;
+}
+
+#summary-container {
+    margin-bottom: 2%;
+}
+
+#you-died {
+    color: #9f0000;
 }

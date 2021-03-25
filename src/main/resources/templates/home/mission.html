@@ -20,6 +20,7 @@
     <link rel="stylesheet" type="text/css" th:href="@{css/styles.css}">
     <link rel="stylesheet" type="text/css" th:href="@{css/home.css}">
     <link rel="stylesheet" type="text/css" th:href="@{css/inventory.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{css/modal.css}">
 
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
 
@@ -59,13 +60,44 @@
         </div>
 
         <div id="mission-event-display" th:style="${randomEvent.getType().name() == 'PEACEFUL_JOURNEY' ? 'visibility: visible' : 'visibility: hidden'}">
-            <h2>Mission Complete!</h2>
-            <h3 th:text="${mission.getName()}"></h3>
+            <div th:if="${missionState}">
+                <h2>Mission Complete!</h2>
+                <h3 th:text="${mission.getName()}"></h3>
 
-            <div id="mission-rewards">
-                <h4>Rewards</h4>
-                <div class="mission-rewards" th:each="reward: ${mission.getRewards()}">
-                    <p class="mission-reward" th:style="'color: ' + ${reward.getRewardType().getColour()}"><span th:text="'+' + ${reward.getAmount()}"></span> <i th:class="${reward.getRewardType().getIcon()}"></i></p>
+                <div class="mission-reward-text">
+                    <h4>Rewards</h4>
+                    <div class="mission-rewards" th:each="reward: ${mission.getRewards()}">
+                        <p class="mission-reward" th:style="'color: ' + ${reward.getRewardType().getColour()}"><span th:text="'+' + ${reward.getAmount()}"></span> <i th:class="${reward.getRewardType().getIcon()}"></i></p>
+                    </div>
+                </div>
+            </div>
+            <div th:if="not ${missionState}">
+                <h2>Mission Failed!</h2>
+                <h3 th:text="${mission.getName()}"></h3>
+
+                <div class="mission-reward-text">
+                    <h4 id="you-died">You died and lost <span th:text="${lostCoins}"></span> coins!</h4>
+                </div>
+            </div>
+
+            <div id="summary-container">
+                <a id="summary-open">Summary</a>
+                <!-- The Modal -->
+                <div id="summary-modal" class="modal">
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <span class="close">&times;</span>
+                            <h2>Mission Report</h2>
+                        </div>
+                        <div class="modal-body">
+                            <div th:each="action: ${missionActions}">
+                                <p th:text="${action}"></p>
+                            </div>
+
+                            <a id="summary-continue" class="mission-btn">Continue</a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -78,6 +110,7 @@
 </div>
 
 <script th:src="@{js/missionComplete.js}"></script>
+<script th:src="@{js/modal.js}"></script>
 
 </body>
 </html>

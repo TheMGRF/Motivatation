@@ -1,0 +1,118 @@
+.modal {
+    z-index: 1;
+
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+
+    display: none;
+    position: fixed;
+
+    padding-top: 100px;
+    margin-bottom: 2em;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: scroll;
+}
+
+.modal-content {
+    background-color: #262626;
+
+    position: relative;
+    margin: auto;
+    padding: 0;
+
+    width: 40%;
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+@-webkit-keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #DAA520;
+    color: white;
+}
+
+.modal-body {
+    padding: 2px 16px;
+
+    max-height: calc(100vh - 210px);
+    overflow-y: auto;
+}
+
+#summary-open {
+    background-color: #b85151;
+    color: white;
+
+    padding: 0.5% 2%;
+
+    border-radius: 3px;
+
+    transition: background-color 0.3s;
+}
+
+#summary-open:hover {
+    background-color: #9f3b3b;
+
+    cursor: pointer;
+
+    transition: background-color 0.3s;
+}
+
+#summary-continue {
+    margin-bottom: 1%;
+
+    background-color: #6ca91f;
+
+    transition: background-color 0.3s;
+}
+
+#summary-continue:hover {
+    background-color: #507e17;
+
+    transition: background-color 0.3s;
+}

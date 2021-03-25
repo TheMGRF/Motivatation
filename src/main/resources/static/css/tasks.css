@@ -58,7 +58,7 @@ h3 {
 .label {
     font-weight: bold;
 
-    margin: 0;
+    /*margin: 0;*/
 }
 
 .in-progress {
