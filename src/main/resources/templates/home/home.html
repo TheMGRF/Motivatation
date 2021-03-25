@@ -42,6 +42,21 @@
 
     <div id="content">
         <div th:replace="fragments/currency :: #currencies"></div>
+
+        <br>
+
+        <div class="player-container">
+            <!--<img class="character" th:src="@{img/character/idle.gif}" alt="Player Character">-->
+            <img class="character" th:src="@{img/character.png}" alt="Player Character">
+
+            <h2 th:text="${player.getName()}"></h2>
+            <h3 th:text="'Health: ❤️' + ${player.getHealth()}"></h3>
+            <h3 th:text="'Defence: 🛡️' + ${player.getDefence()}"></h3>
+            <h3 th:text="'Stength: ⚔️' + ${player.getStrength()}"></h3>
+            <h3 th:text="'Speed: 🚶' + ${player.getSpeed()}"></h3>
+            <h3 th:text="'Intelligence: 💡' + ${player.getIntelligence()}"></h3>
+        </div>
+
     </div>
 </body>
 </html>

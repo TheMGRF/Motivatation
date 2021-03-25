@@ -385,3 +385,27 @@
 #you-died {
     color: #9f0000;
 }
+
+.player-container {
+    background-color: #262626;
+
+    border-radius: 3px;
+
+    padding: 1%;
+    margin: 2%;
+
+    width: 30%;
+}
+
+.character {
+    image-rendering: pixelated;
+
+    float: right;
+
+    margin-top: 4%;
+    width: 220px;
+}
+
+.character:hover {
+
+}

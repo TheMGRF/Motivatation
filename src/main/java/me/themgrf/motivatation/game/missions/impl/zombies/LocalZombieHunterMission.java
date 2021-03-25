@@ -61,15 +61,12 @@ public class LocalZombieHunterMission extends Mission {
 
         long id = player.getId();
         double speed = player.getSpeed();
-        double defence = player.getDefence();
-        double strength = player.getStrength();
 
         ActionRecorder.clearEvents(id);
 
         for (int i = 0; i < 5; i++) {
             Zombie zombie = new Zombie();
 
-            //for (int j = 0; j < 4; j++) {
             while (player.getHealth() > 0 || zombie.getHealth() > 0) {
                 if (player.getHealth() <= 0) {
                     ActionRecorder.addEvent(
