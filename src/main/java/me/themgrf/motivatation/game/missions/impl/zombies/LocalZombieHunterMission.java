@@ -97,9 +97,8 @@ public class LocalZombieHunterMission extends Mission {
                     ActionRecorder.addEvent(
                             id,
                             TUtil.getMessage(
-                                    Icons.BANG + "%entity1% damaged %entity2% for %damage%" + Icons.HEART,
-                                    "entity1", zombie.getName(),
-                                    "entity2", player.getName(),
+                                    Icons.BANG + "%entity% damaged you for %damage%" + Icons.HEART,
+                                    "entity", zombie.getName(),
                                     "damage", String.valueOf(damage)
                             )
                     );

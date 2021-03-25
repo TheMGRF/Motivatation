@@ -1,0 +1,21 @@
+.summary-action {
+    white-space: nowrap;
+    overflow: hidden;
+
+    visibility: hidden;
+
+    animation: type 2s steps(60, end) forwards;
+}
+
+@keyframes type {
+    0% {
+        /*width: 0;*/
+        opacity: 0;
+        visibility: hidden;
+    }
+    100% {
+        /*width: 100%;*/
+        opacity: 1;
+        visibility: visible;
+    }
+}
