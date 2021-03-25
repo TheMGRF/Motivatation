@@ -20,6 +20,7 @@
     <link rel="stylesheet" type="text/css" th:href="@{css/styles.css}">
     <link rel="stylesheet" type="text/css" th:href="@{css/home.css}">
     <link rel="stylesheet" type="text/css" th:href="@{css/tasks.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{css/modal.css}">
 
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
 
@@ -55,12 +56,37 @@
         </tr>
     </div>
 
+    <div id="task-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Creating Task</h2>
+            </div>
+
+            <br>
+
+            <div class="modal-body">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+                <br>
+                <label for="desc">Description:</label>
+                <input type="text" id="desc" name="desc">
+
+                <br>
+
+                <a id="task-add" class="mission-btn">Add Task</a>
+            </div>
+        </div>
+    </div>
+
 </div>
 
-<script>
+<!--<script>
     document.getElementById("add-task").onclick = function() {
         alert("Modal for creating a task!");
     };
-</script>
+</script>-->
+
+<script th:src="@{js/modals/taskModal.js}"></script>
 </body>
 </html>

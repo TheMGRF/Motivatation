@@ -58,7 +58,7 @@ h3 {
 .label {
     font-weight: bold;
 
-    /*margin: 0;*/
+    margin: 0;
 }
 
 .in-progress {
@@ -179,4 +179,18 @@ h3 {
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
+}
+
+#task-add {
+    background-color: #6ca91f;
+
+    margin: 2% 0;
+
+    transition: background-color 0.3s;
+}
+
+#task-add:hover {
+    background-color: #598d18;
+
+    transition: background-color 0.3s;
 }
