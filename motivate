@@ -31,11 +31,11 @@ case "$1" in
         echo "Hello $user lets get this party started shall we!"
         echo ""
         echo "Motivate is a simple build tool command. This provides"
-		echo "a variety of commands to build, run and manage Motivatation."
+		    echo "a variety of commands to build, run and manage Motivatation."
         echo ""
         echo " Available commands:"
         echo "  * compile | Compile the project with Java 8."
         echo "  * run | Run the complete and compiled project."
-		echo ""
+        echo ""
     ;;
 esac
