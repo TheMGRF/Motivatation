@@ -10,13 +10,11 @@ import me.themgrf.motivatation.game.missions.events.impl.TravellingMerchantEvent
 import me.themgrf.motivatation.game.rewards.Reward;
 import me.themgrf.motivatation.game.rewards.RewardType;
 import me.themgrf.motivatation.util.Icons;
-import me.themgrf.motivatation.util.MathUtil;
 import me.themgrf.motivatation.util.TUtil;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class LocalZombieHunterMission extends Mission {

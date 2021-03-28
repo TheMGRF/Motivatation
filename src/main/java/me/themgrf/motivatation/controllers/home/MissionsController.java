@@ -95,7 +95,6 @@ public class MissionsController extends ControllerBase {
             //boolean complete = mission.activate(player);
             boolean complete = mission.runEvent(player);
             if (complete) {
-                // TODO: event logic / combat etc
                 mission.complete(player); // give rewards to player
             } else {
                 int lostCoins = player.getCoins() / 2;
