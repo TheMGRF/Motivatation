@@ -60,7 +60,7 @@ public class PortZombieHunterMission extends Mission {
     @Override
     public boolean runEvent(Player player) {
         FightingMission fight = new FightingMission(getName(), Difficulty.MEDIUM, player, EntityType.ZOMBIE);
-        return fight.run();
+        return fight.start();
     }
 
     @Override

@@ -12,7 +12,7 @@ import me.themgrf.motivatation.game.missions.actions.Actions;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-public class FightingMission {
+public class FightingMission implements BaseMission {
 
     private final String name;
     private final Difficulty difficulty;
@@ -26,7 +26,8 @@ public class FightingMission {
         this.enemyType = enemyType;
     }
 
-    public boolean run() {
+    @Override
+    public boolean start() {
         System.out.println(player.getName() + " has embarked on " + name + "!");
 
         long id = player.getId();

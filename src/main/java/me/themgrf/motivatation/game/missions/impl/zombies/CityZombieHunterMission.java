@@ -58,7 +58,7 @@ public class CityZombieHunterMission extends Mission {
     @Override
     public boolean runEvent(Player player) {
         FightingMission fight = new FightingMission(getName(), Difficulty.HARD, player, EntityType.ZOMBIE);
-        return fight.run();
+        return fight.start();
     }
 
     @Override
