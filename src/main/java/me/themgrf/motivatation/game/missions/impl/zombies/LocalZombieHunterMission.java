@@ -1,21 +1,18 @@
 package me.themgrf.motivatation.game.missions.impl.zombies;
 
+import me.themgrf.motivatation.entities.EntityType;
 import me.themgrf.motivatation.entities.Player;
-import me.themgrf.motivatation.entities.Zombie;
-import me.themgrf.motivatation.game.damage.DamageHandler;
-import me.themgrf.motivatation.game.missions.ActionRecorder;
+import me.themgrf.motivatation.game.missions.Difficulty;
 import me.themgrf.motivatation.game.missions.Mission;
+import me.themgrf.motivatation.game.missions.base.FightingMission;
 import me.themgrf.motivatation.game.missions.events.RandomEvent;
 import me.themgrf.motivatation.game.missions.events.impl.TravellingMerchantEvent;
 import me.themgrf.motivatation.game.rewards.Reward;
 import me.themgrf.motivatation.game.rewards.RewardType;
-import me.themgrf.motivatation.util.Icons;
-import me.themgrf.motivatation.util.TUtil;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class LocalZombieHunterMission extends Mission {
 
@@ -55,66 +52,8 @@ public class LocalZombieHunterMission extends Mission {
 
     @Override
     public boolean runEvent(Player player) {
-        System.out.println(player.getName() + " has embarked on Zombie hunter I!");
-
-        long id = player.getId();
-        double speed = player.getSpeed();
-
-        ActionRecorder.clearEvents(id);
-
-        for (int i = 0; i < 5; i++) {
-            Zombie zombie = new Zombie();
-
-            while (player.getHealth() > 0 || zombie.getHealth() > 0) {
-                if (player.getHealth() <= 0) {
-                    ActionRecorder.addEvent(
-                            id,
-                            TUtil.getMessage(Icons.SKULL + " You were killed by a %entity%!", "entity", zombie.getName())
-                    );
-                    return false;
-                }
-
-                if (zombie.getHealth() <= 0) {
-                    ActionRecorder.addEvent(
-                            id,
-                            TUtil.getMessage(Icons.SKULL_AND_BONES + "️ You killed a %entity%!", "entity", zombie.getName())
-                    );
-                    break;
-                }
-
-                // If player speed is low zombie attacks first
-                double rand = ThreadLocalRandom.current().nextDouble(speed);
-                if (rand < (speed / 2)) {
-                    // player was too slow - zombie attacks
-                    int damage = DamageHandler.calculateDamage(zombie, player);
-                    player.damage(damage);
-
-                    ActionRecorder.addEvent(
-                            id,
-                            TUtil.getMessage(
-                                    Icons.BANG + "%entity% damaged you for %damage%" + Icons.HEART,
-                                    "entity", zombie.getName(),
-                                    "damage", String.valueOf(damage)
-                            )
-                    );
-                } else {
-                    // players speed was good and gets first hit
-                    int damage = DamageHandler.calculateDamage(player, zombie);
-                    zombie.damage(damage);
-
-                    ActionRecorder.addEvent(
-                            id,
-                            TUtil.getMessage(
-                                    Icons.BANG + "You dealt %damage%" +  Icons.HEART + " to %entity%",
-                                    "damage", String.valueOf(damage),
-                                    "entity", zombie.getName()
-                            )
-                    );
-                }
-            }
-        }
-
-        return true;
+        FightingMission fight = new FightingMission(getName(), Difficulty.EASY, player, EntityType.ZOMBIE);
+        return fight.run();
     }
 
     @Override

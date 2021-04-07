@@ -1,5 +1,6 @@
 package me.themgrf.motivatation.game.missions.impl;
 
+import me.themgrf.motivatation.entities.Player;
 import me.themgrf.motivatation.game.missions.Mission;
 import me.themgrf.motivatation.game.missions.events.RandomEvent;
 import me.themgrf.motivatation.game.missions.events.impl.MuggingEvent;
@@ -14,11 +15,6 @@ public class BusinessMission extends Mission {
 
     public BusinessMission() {
         super("BUSINESS");
-
-        setEvent(player -> {
-            System.out.println(player.getName() + " has ran Business!");
-            return true;
-        });
     }
 
     @Override
@@ -49,6 +45,11 @@ public class BusinessMission extends Mission {
     @Override
     public List<RandomEvent> getRandomEvents() {
         return Collections.singletonList(new MuggingEvent());
+    }
+
+    @Override
+    public boolean runEvent(Player player) {
+        return true;
     }
 
     @Override

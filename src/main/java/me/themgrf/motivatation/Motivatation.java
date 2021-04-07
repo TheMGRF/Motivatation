@@ -1,5 +1,9 @@
 package me.themgrf.motivatation;
 
+import me.themgrf.motivatation.entities.EntityType;
+import me.themgrf.motivatation.entities.LivingEntity;
+import me.themgrf.motivatation.entities.Player;
+import me.themgrf.motivatation.entities.Zombie;
 import me.themgrf.motivatation.game.inventories.items.ItemManager;
 import me.themgrf.motivatation.game.inventories.items.ItemRarity;
 import me.themgrf.motivatation.game.inventories.items.Texture;
@@ -27,6 +31,23 @@ public class Motivatation {
 
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
+    }
+
+    public LivingEntity getEntity(EntityType type) {
+        LivingEntity entity;
+        switch (type) {
+            case ZOMBIE:
+                entity = new Zombie();
+                break;
+            case SKELETON:
+                entity = new Zombie(); // TODO: Add skeleton
+                break;
+            default:
+                entity = null;
+                break;
+        }
+
+        return entity;
     }
 
     public void setupItems() {

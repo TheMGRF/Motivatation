@@ -1,6 +1,10 @@
 package me.themgrf.motivatation.game.missions.impl.zombies;
 
+import me.themgrf.motivatation.entities.EntityType;
+import me.themgrf.motivatation.entities.Player;
+import me.themgrf.motivatation.game.missions.Difficulty;
 import me.themgrf.motivatation.game.missions.Mission;
+import me.themgrf.motivatation.game.missions.base.FightingMission;
 import me.themgrf.motivatation.game.missions.events.RandomEvent;
 import me.themgrf.motivatation.game.missions.events.impl.MuggingEvent;
 import me.themgrf.motivatation.game.rewards.Reward;
@@ -49,6 +53,12 @@ public class CityZombieHunterMission extends Mission {
     @Override
     public List<RandomEvent> getRandomEvents() {
         return Collections.singletonList(new MuggingEvent());
+    }
+
+    @Override
+    public boolean runEvent(Player player) {
+        FightingMission fight = new FightingMission(getName(), Difficulty.HARD, player, EntityType.ZOMBIE);
+        return fight.run();
     }
 
     @Override

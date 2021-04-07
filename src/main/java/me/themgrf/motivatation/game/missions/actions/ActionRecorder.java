@@ -1,4 +1,4 @@
-package me.themgrf.motivatation.game.missions;
+package me.themgrf.motivatation.game.missions.actions;
 
 import java.util.ArrayList;
 import java.util.Arrays;
