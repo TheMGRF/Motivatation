@@ -1,6 +1,8 @@
 package me.themgrf.motivatation.game.missions.impl;
 
+import me.themgrf.motivatation.entities.Player;
 import me.themgrf.motivatation.game.missions.Mission;
+import me.themgrf.motivatation.game.missions.actions.Actions;
 import me.themgrf.motivatation.game.missions.events.RandomEvent;
 import me.themgrf.motivatation.game.missions.events.impl.MuggingEvent;
 import me.themgrf.motivatation.game.missions.events.impl.TripAndFallEvent;
@@ -9,16 +11,14 @@ import me.themgrf.motivatation.game.rewards.RewardType;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class PilgrimageMission extends Mission {
 
+    private static final int MAX_TIP = 8;
+
     public PilgrimageMission() {
         super("PILGRIMAGE");
-
-        setEvent(player -> {
-            System.out.println(player.getName() + " has ran Pilgrimage!");
-            return true;
-        });
     }
 
     @Override
@@ -49,6 +49,32 @@ public class PilgrimageMission extends Mission {
     @Override
     public List<RandomEvent> getRandomEvents() {
         return Arrays.asList(new MuggingEvent(), new TripAndFallEvent());
+    }
+
+    @Override
+    public boolean runEvent(Player player) {
+        long id = player.getId();
+        double speed = player.getSpeed();
+        double intelligence = player.getIntelligence();
+
+        double rand = ThreadLocalRandom.current().nextDouble(speed);
+        if (rand < (speed / 2)) {
+            player.setHealth(player.getHealth() - 2);
+            Actions.selfDamage(id, 2, "Low Stamina");
+        }
+
+        Actions.deliveryMade(id, "the Monks");
+
+        // give the player an extra tip if they were smart enough
+        rand = ThreadLocalRandom.current().nextDouble(intelligence);
+        if (rand < (intelligence / 2)) {
+            Reward tip = new Reward(RewardType.COINS, ThreadLocalRandom.current().nextInt(MAX_TIP));
+            Actions.tip(id, tip);
+            player.giveReward(tip);
+            Actions.addReward(id, tip);
+        }
+
+        return true;
     }
 
     @Override
