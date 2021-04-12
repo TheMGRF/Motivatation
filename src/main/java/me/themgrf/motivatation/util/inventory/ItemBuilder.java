@@ -50,6 +50,11 @@ public class ItemBuilder {
         return this;
     }
 
+    public ItemBuilder value(int value) {
+        item.setValue(value);
+        return this;
+    }
+
     public Item get() {
         return item;
     }

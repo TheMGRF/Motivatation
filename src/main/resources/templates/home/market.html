@@ -47,6 +47,13 @@
 
     <br>
 
+    <div class="inventory-container">
+        <h3>For Sale</h3>
+        <tr class="inventory" th:each="item: ${items}">
+            <div th:replace="fragments/purchasable-item :: item" th:with="item=${item}"></div>
+        </tr>
+    </div>
+
 </div>
 
 </body>

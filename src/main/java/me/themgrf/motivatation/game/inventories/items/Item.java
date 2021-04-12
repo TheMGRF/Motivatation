@@ -17,12 +17,17 @@ public class Item {
     private List<String> description;
     private ItemRarity rarity;
     private List<ItemAttribute> itemAttributes;
+    private int value;
 
     public Item(String id) {
-        this(id, "", Texture.SLIM_IRON_SWORD, new ArrayList<>(), new ArrayList<>(), ItemRarity.COMMON);
+        this(id, "", Texture.SLIM_IRON_SWORD, new ArrayList<>(), new ArrayList<>(), ItemRarity.COMMON, 10);
     }
 
     public Item(String id, String name, Texture texture, List<String> description, List<ItemAttribute> itemAttributes, ItemRarity rarity) {
+        this(id, name, texture, description, itemAttributes, rarity, 10);
+    }
+
+    public Item(String id, String name, Texture texture, List<String> description, List<ItemAttribute> itemAttributes, ItemRarity rarity, int value) {
         this.internalID = UUID.randomUUID();
         this.id = id;
         this.name = name;
@@ -30,6 +35,7 @@ public class Item {
         this.description = description;
         this.itemAttributes = itemAttributes;
         this.rarity = rarity;
+        this.value = value;
     }
 
     public UUID getInternalID() {
@@ -86,5 +92,13 @@ public class Item {
 
     public void setRarity(ItemRarity rarity) {
         this.rarity = rarity;
+    }
+
+    public int getValue() {
+        return value;
+    }
+
+    public void setValue(int value) {
+        this.value = value;
     }
 }

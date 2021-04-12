@@ -57,6 +57,7 @@ public class Motivatation {
                         .description(Collections.singletonList("Used for simple and efficient training!"))
                         .texture(Texture.SLIM_IRON_SWORD)
                         .rarity(ItemRarity.COMMON)
+                        .value(5)
                         .get()
         );
         ItemManager.addItem(
@@ -66,15 +67,17 @@ public class Motivatation {
                         .texture(Texture.JEWELED_IRON_SWORD)
                         .addItemAttribute(new HealthAttribute(5))
                         .rarity(ItemRarity.UNCOMMON)
+                        .value(10)
                         .get()
         );
         ItemManager.addItem(
-                new ItemBuilder("test_3")
+                new ItemBuilder("great_iron_sword")
                         .name("Great Iron Sword")
                         .description(Collections.singletonList("A two-handed great sword!"))
                         .texture(Texture.GREAT_IRON_SWORD)
                         .addItemAttributes(new HealthAttribute(6), new DefenceAttribute(3))
                         .rarity(ItemRarity.RARE)
+                        .value(20)
                         .get()
         );
         ItemManager.addItem(
@@ -84,6 +87,7 @@ public class Motivatation {
                         .texture(Texture.GREATER_IRON_SWORD)
                         .addItemAttributes(new HealthAttribute(8), new DefenceAttribute(4), new SpeedAttribute(12))
                         .rarity(ItemRarity.EPIC)
+                        .value(30)
                         .get()
         );
         ItemManager.addItem(
@@ -92,6 +96,7 @@ public class Motivatation {
                         .description(Collections.singletonList("A basic oak bow!"))
                         .texture(Texture.OAK_BOW)
                         .rarity(ItemRarity.COMMON)
+                        .value(10)
                         .get()
         );
         ItemManager.addItem(
@@ -101,6 +106,7 @@ public class Motivatation {
                         .texture(Texture.CURVED_BOW)
                         .addItemAttributes(new HealthAttribute(4), new SpeedAttribute(2))
                         .rarity(ItemRarity.RARE)
+                        .value(15)
                         .get()
         );
         ItemManager.addItem(
@@ -110,6 +116,7 @@ public class Motivatation {
                         .texture(Texture.APPLE)
                         .addItemAttributes(new HealthAttribute(2))
                         .rarity(ItemRarity.COMMON)
+                        .value(5)
                         .get()
         );
         ItemManager.addItem(
@@ -119,6 +126,7 @@ public class Motivatation {
                         .texture(Texture.CHEESE_WHEEL)
                         .addItemAttributes(new HealthAttribute(3))
                         .rarity(ItemRarity.UNCOMMON)
+                        .value(8)
                         .get()
         );
         ItemManager.addItem(
@@ -128,6 +136,7 @@ public class Motivatation {
                         .texture(Texture.PIE)
                         .addItemAttributes(new HealthAttribute(4))
                         .rarity(ItemRarity.RARE)
+                        .value(6)
                         .get()
         );
         ItemManager.addItem(
@@ -146,6 +155,7 @@ public class Motivatation {
                         .texture(Texture.HEALTH_POTION)
                         .addItemAttributes(new HealthAttribute(6))
                         .rarity(ItemRarity.UNCOMMON)
+                        .value(15)
                         .get()
         );
         ItemManager.addItem(
@@ -155,6 +165,7 @@ public class Motivatation {
                         .texture(Texture.HEALTH_POTION)
                         .addItemAttributes(new HealthAttribute(7))
                         .rarity(ItemRarity.UNCOMMON)
+                        .value(20)
                         .get()
         );
         ItemManager.addItem(
@@ -164,6 +175,7 @@ public class Motivatation {
                         .texture(Texture.PLENTIFUL_HEALTH_POTION)
                         .addItemAttributes(new HealthAttribute(8))
                         .rarity(ItemRarity.RARE)
+                        .value(30)
                         .get()
         );
         ItemManager.addItem(
@@ -173,6 +185,7 @@ public class Motivatation {
                         .texture(Texture.PLENTIFUL_HEALTH_POTION)
                         .addItemAttributes(new HealthAttribute(10))
                         .rarity(ItemRarity.EPIC)
+                        .value(50)
                         .get()
         );
         ItemManager.addItem(
@@ -191,6 +204,7 @@ public class Motivatation {
                         .texture(Texture.STAMINA_POTION)
                         .addItemAttributes(new SpeedAttribute(4))
                         .rarity(ItemRarity.UNCOMMON)
+                        .value(15)
                         .get()
         );
         ItemManager.addItem(
@@ -200,6 +214,7 @@ public class Motivatation {
                         .texture(Texture.PLENTIFUL_STAMINA_POTION)
                         .addItemAttributes(new SpeedAttribute(6))
                         .rarity(ItemRarity.UNCOMMON)
+                        .value(20)
                         .get()
         );
         ItemManager.addItem(
@@ -209,6 +224,7 @@ public class Motivatation {
                         .texture(Texture.STAR_AMULET)
                         .addItemAttributes(new DefenceAttribute(5))
                         .rarity(ItemRarity.EPIC)
+                        .value(15)
                         .get()
         );
         ItemManager.addItem(
@@ -217,6 +233,7 @@ public class Motivatation {
                         .description(Collections.singletonList("A decorative and luxurious amulet."))
                         .texture(Texture.GEM_AMULET)
                         .rarity(ItemRarity.COMMON)
+                        .value(20)
                         .get()
         );
         ItemManager.addItem(
@@ -225,6 +242,7 @@ public class Motivatation {
                         .description(Collections.singletonList("An old and rustic amulet formed from bone."))
                         .texture(Texture.BONE_AMULET)
                         .rarity(ItemRarity.COMMON)
+                        .value(12)
                         .get()
         );
     }

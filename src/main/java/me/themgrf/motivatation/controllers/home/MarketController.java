@@ -4,6 +4,7 @@ import me.themgrf.motivatation.controllers.ControllerBase;
 import me.themgrf.motivatation.database.PlayerManager;
 import me.themgrf.motivatation.entities.Player;
 import me.themgrf.motivatation.entities.User;
+import me.themgrf.motivatation.game.inventories.items.ItemManager;
 import me.themgrf.motivatation.util.Auth;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +22,8 @@ public class MarketController extends ControllerBase {
             model.addAttribute("username", user.getUsername());
             Player player = PlayerManager.getPlayer(user);
             model.addAttribute("player", player);
+            //model.addAttribute("items", MarketManager.getItemsForSale());
+            model.addAttribute("items", ItemManager.getItems().values());
         }
 
         return "home/market";
