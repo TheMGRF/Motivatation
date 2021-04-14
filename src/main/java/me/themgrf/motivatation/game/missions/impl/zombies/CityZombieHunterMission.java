@@ -18,11 +18,6 @@ public class CityZombieHunterMission extends Mission {
 
     public CityZombieHunterMission() {
         super("KILL_ZOMBIES_3");
-
-        setEvent(player -> {
-            System.out.println(player.getName() + " has ran Zombie hunter III!");
-            return true;
-        });
     }
 
     @Override

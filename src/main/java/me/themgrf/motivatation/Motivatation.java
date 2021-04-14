@@ -67,7 +67,7 @@ public class Motivatation {
                         .texture(Texture.JEWELED_IRON_SWORD)
                         .addItemAttribute(new HealthAttribute(5))
                         .rarity(ItemRarity.UNCOMMON)
-                        .value(10)
+                        .value(50)
                         .get()
         );
         ItemManager.addItem(
@@ -77,7 +77,7 @@ public class Motivatation {
                         .texture(Texture.GREAT_IRON_SWORD)
                         .addItemAttributes(new HealthAttribute(6), new DefenceAttribute(3))
                         .rarity(ItemRarity.RARE)
-                        .value(20)
+                        .value(100)
                         .get()
         );
         ItemManager.addItem(
@@ -87,7 +87,7 @@ public class Motivatation {
                         .texture(Texture.GREATER_IRON_SWORD)
                         .addItemAttributes(new HealthAttribute(8), new DefenceAttribute(4), new SpeedAttribute(12))
                         .rarity(ItemRarity.EPIC)
-                        .value(30)
+                        .value(500)
                         .get()
         );
         ItemManager.addItem(
@@ -106,7 +106,7 @@ public class Motivatation {
                         .texture(Texture.CURVED_BOW)
                         .addItemAttributes(new HealthAttribute(4), new SpeedAttribute(2))
                         .rarity(ItemRarity.RARE)
-                        .value(15)
+                        .value(50)
                         .get()
         );
         ItemManager.addItem(
@@ -165,7 +165,7 @@ public class Motivatation {
                         .texture(Texture.HEALTH_POTION)
                         .addItemAttributes(new HealthAttribute(7))
                         .rarity(ItemRarity.UNCOMMON)
-                        .value(20)
+                        .value(30)
                         .get()
         );
         ItemManager.addItem(
@@ -175,7 +175,7 @@ public class Motivatation {
                         .texture(Texture.PLENTIFUL_HEALTH_POTION)
                         .addItemAttributes(new HealthAttribute(8))
                         .rarity(ItemRarity.RARE)
-                        .value(30)
+                        .value(50)
                         .get()
         );
         ItemManager.addItem(
@@ -185,7 +185,7 @@ public class Motivatation {
                         .texture(Texture.PLENTIFUL_HEALTH_POTION)
                         .addItemAttributes(new HealthAttribute(10))
                         .rarity(ItemRarity.EPIC)
-                        .value(50)
+                        .value(65)
                         .get()
         );
         ItemManager.addItem(
@@ -204,7 +204,7 @@ public class Motivatation {
                         .texture(Texture.STAMINA_POTION)
                         .addItemAttributes(new SpeedAttribute(4))
                         .rarity(ItemRarity.UNCOMMON)
-                        .value(15)
+                        .value(20)
                         .get()
         );
         ItemManager.addItem(
@@ -214,7 +214,7 @@ public class Motivatation {
                         .texture(Texture.PLENTIFUL_STAMINA_POTION)
                         .addItemAttributes(new SpeedAttribute(6))
                         .rarity(ItemRarity.UNCOMMON)
-                        .value(20)
+                        .value(35)
                         .get()
         );
         ItemManager.addItem(
@@ -224,7 +224,7 @@ public class Motivatation {
                         .texture(Texture.STAR_AMULET)
                         .addItemAttributes(new DefenceAttribute(5))
                         .rarity(ItemRarity.EPIC)
-                        .value(15)
+                        .value(120)
                         .get()
         );
         ItemManager.addItem(
@@ -233,7 +233,7 @@ public class Motivatation {
                         .description(Collections.singletonList("A decorative and luxurious amulet."))
                         .texture(Texture.GEM_AMULET)
                         .rarity(ItemRarity.COMMON)
-                        .value(20)
+                        .value(80)
                         .get()
         );
         ItemManager.addItem(

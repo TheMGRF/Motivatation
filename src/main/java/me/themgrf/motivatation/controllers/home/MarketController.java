@@ -36,7 +36,6 @@ public class MarketController extends ControllerBase {
     }
 
     @GetMapping("/home/market/item/{item}")
-    //public RedirectView buyItem(Model model, @PathVariable String item) {
     public RedirectView buyItem(HttpServletRequest req, RedirectAttributes attributes, @PathVariable String item) {
         RedirectView redirectView = new RedirectView("/home/market", true);
 
