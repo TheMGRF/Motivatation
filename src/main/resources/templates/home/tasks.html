@@ -65,33 +65,52 @@
 
                 <br>
 
-                <div class="modal-body">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name">
+                <div class="modal-body task-modal">
+                    <div>
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Clean the dishes">
+                    </div>
                     <br>
-                    <label for="desc">Description:</label>
-                    <input type="text" id="desc" name="desc">
+                    <div>
+                        <label for="desc">Description</label>
+                        <textarea id="desc" name="desc" cols="50" rows="10" placeholder="I should really clone those dishes I left"></textarea>
+                    </div>
                     <br>
-                    <label for="date">Due:</label>
-                    <input type="date" id="date" name="date">
+                    <div>
+                        <label for="date">Due</label>
+                        <input type="date" id="date" name="date">
+                    </div>
                     <br>
-                    <label for="state">State:</label>
-                    <select name="state" id="state">
-                        <option value="todo">Todo</option>
-                        <option value="in-progress">In Progress</option>
-                        <option value="on-hold">On-Hold</option>
-                    </select>
+                    <div>
+                        <label for="state">State</label>
+                        <select name="state" id="state">
+                            <option value="todo">Todo</option>
+                            <option value="in-progress">In Progress</option>
+                            <option value="on-hold">On-Hold</option>
+                        </select>
+                    </div>
                     <br>
-                    <label for="priority">Priority:</label>
-                    <select name="priority" id="priority">
-                        <option value="low">Low</option>
-                        <option value="medium">Medium</option>
-                        <option value="high">High</option>
-                    </select>
+                    <div>
+                        <label for="priority">Priority</label>
+                        <select name="priority" id="priority">
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
                     <br>
-                    <label for="reward">Reward:</label>
-                    <input type="text" id="reward" name="reward">
-
+                    <div>
+                        <label for="reward-type">Reward Type</label>
+                        <select name="reward-type" id="reward-type">
+                            <option value="COINS">Coins</option>
+                            <option value="GEMS">Gems</option>
+                        </select>
+                    </div>
+                    <br>
+                    <div>
+                        <label for="reward">Reward</label>
+                        <input type="number" id="reward" name="reward" min="0" max="100" placeholder="0">
+                    </div>
                     <br>
 
                     <a id="task-add" class="mission-btn">Add Task</a>
@@ -100,12 +119,6 @@
         </div>
 
     </div>
-
-    <!--<script>
-        document.getElementById("add-task").onclick = function() {
-            alert("Modal for creating a task!");
-        };
-    </script>-->
 
     <script th:src="@{js/modals/taskModal.js}"></script>
 </body>

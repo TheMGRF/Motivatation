@@ -194,3 +194,25 @@ h3 {
 
     transition: background-color 0.3s;
 }
+
+.task-modal {
+    text-align: center;
+}
+
+.task-modal div {
+    margin-top: 0.2%;
+}
+
+.task-modal div label {
+    display: block;
+}
+
+.task-modal input, select, textarea {
+    background-color: #d0d0d0;
+    color: black;
+
+    padding: 0.5%;
+
+    border: none;
+    border-radius: 3px;
+}
