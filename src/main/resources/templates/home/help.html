@@ -7,7 +7,7 @@
     <meta name="keywords" content="Motivatation,RPG">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <meta property="og:title" content="Motivatation | Inventory">
+    <meta property="og:title" content="Motivatation | Help">
     <meta property="og:description" content="Modern problems require modern solutions">
     <meta property="og:image" content="https://motivatation.com/img/logo.png">
     <meta property="og:url" content="https://motivatation.com/">
@@ -35,11 +35,11 @@
     <ul id="sidebar">
         <li><a href="/home"><i class="fas fa-home"></i> Home</a></li>
         <li><a href="/home/tasks"><i class="fas fa-thumbtack"></i> Tasks</a></li>
-        <li><a class="active" href="/home/inventory"><i class="fas fa-archive"></i> Inventory</a></li>
+        <li><a href="/home/inventory"><i class="fas fa-archive"></i> Inventory</a></li>
         <li><a href="/home/market"><i class="fas fa-store"></i> Market</a></li>
         <li><a href="/home/missions"><i class="fas fa-campfire"></i> Missions</a></li>
         <li><a href="/home/achievements"><i class="fas fa-trophy"></i> Achievements</a></li>
-        <li><a href="/home/help"><i class="far fa-question-circle"></i> Help</a></li>
+        <li><a class="active" href="/home/help"><i class="far fa-question-circle"></i> Help</a></li>
     </ul>
 
     <div id="content">
@@ -47,20 +47,9 @@
 
         <br>
 
-        <div class="inventory-container">
-            <h3>Your Inventory</h3>
-            <tr class="inventory" th:each="item: ${player.getInventory().getItems()}">
-                <div th:replace="fragments/item :: item" th:with="item=${item}"></div>
-            </tr>
-        </div>
+        <h1>Help</h1>
 
-        <ul class="list" id="list">
-            <li><a href="">Use</a></li>
-            <li><a href="">Trade</a></li>
-            <li><a href="">Drop</a></li>
-        </ul>
     </div>
 
-    <script th:src="@{js/right-click.js}"></script>
 </body>
 </html>

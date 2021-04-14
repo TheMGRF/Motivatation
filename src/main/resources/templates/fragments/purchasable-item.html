@@ -6,7 +6,9 @@
 <body>
 
 <div class="item" th:fragment="item">
-    <img class="item-img" style="background-color: rgba(38, 38, 38, 0.8);" th:src="${item.getTexture().getPath()}">
+    <a th:href="'/home/market/item/' + ${item.getId()}">
+        <img class="item-img" style="background-color: rgba(38, 38, 38, 0.8);" th:src="${item.getTexture().getPath()}">
+    </a>
     <div class="tooltip">
         <p th:style="'color: ' + ${item.getRarity().getColour()}" th:text="${item.getName()}"></p>
 
@@ -22,7 +24,7 @@
         <p class="bold" th:style="'color: ' + ${item.getRarity().getColour()}" th:text="${item.getRarity().getName().toUpperCase()}"></p>
 
         <p></p>
-        <p style="color: #CCCCCC;">Cost: <span style="color: #FFD700;" th:text="${item.getValue()}"></span></p>
+        <p style="color: #CCCCCC;">Cost: <span style="color: #FFD700;" th:text="${item.getValue()}"></span><i style="color: #FFD700;" class="far fa-coins"></i></p>
         <p></p>
 
         <p style="color: #FFFF00;">Click to purchase!</p>

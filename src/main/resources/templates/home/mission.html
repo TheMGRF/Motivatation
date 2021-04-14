@@ -7,7 +7,7 @@
     <meta name="keywords" content="Motivatation,RPG">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <meta property="og:title" content="Motivatation | 404 - Page Not Found">
+    <meta property="og:title" content="Motivatation | On-Mission">
     <meta property="og:description" content="Modern problems require modern solutions">
     <meta property="og:image" content="https://motivatation.com/img/logo.png">
     <meta property="og:url" content="https://motivatation.com/">
@@ -28,96 +28,94 @@
     <title th:text="${pageName}"></title>
 </head>
 <body>
-<div th:replace="fragments/nav :: nav"></div>
+    <div th:replace="fragments/nav :: nav"></div>
 
-<div class="mobile-seperator">
-    <hr>
-</div>
+    <div class="mobile-seperator">
+        <hr>
+    </div>
 
-<ul id="sidebar">
-    <li><a href="/home"><i class="fas fa-home"></i> Home</a></li>
-    <li><a href="/home/tasks"><i class="fas fa-thumbtack"></i> Tasks</a></li>
-    <li><a href="/home/inventory"><i class="fas fa-archive"></i> Inventory</a></li>
-    <li><a href="/home/market"><i class="fas fa-store"></i> Market</a></li>
-    <li><a class="active" href="/home/missions"><i class="fas fa-campfire"></i> Missions</a></li>
-    <li><a href="/home/achievements"><i class="fas fa-trophy"></i> Achievements</a></li>
-    <li><a href="/home/help"><i class="far fa-question-circle"></i> Help</a></li>
-</ul>
+    <ul id="sidebar">
+        <li><a href="/home"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="/home/tasks"><i class="fas fa-thumbtack"></i> Tasks</a></li>
+        <li><a href="/home/inventory"><i class="fas fa-archive"></i> Inventory</a></li>
+        <li><a href="/home/market"><i class="fas fa-store"></i> Market</a></li>
+        <li><a class="active" href="/home/missions"><i class="fas fa-campfire"></i> Missions</a></li>
+        <li><a href="/home/achievements"><i class="fas fa-trophy"></i> Achievements</a></li>
+        <li><a href="/home/help"><i class="far fa-question-circle"></i> Help</a></li>
+    </ul>
 
-<div id="content">
-    <div th:replace="fragments/currency :: #currencies"></div>
+    <div id="content">
+        <div th:replace="fragments/currency :: #currencies"></div>
 
-    <br>
+        <br>
 
-    <div class="mission-container">
-        <div id="random-event-display" th:if="${randomEvent.getType().name() != 'PEACEFUL_JOURNEY'}">
-            <h2>Random Event!</h2>
-            <h3 th:text="${randomEvent.getName()}"></h3>
-            <p th:text="${randomEvent.getDescription()}"></p>
+        <div class="mission-container">
+            <div id="random-event-display" th:if="${randomEvent.getType().name() != 'PEACEFUL_JOURNEY'}">
+                <h2>Random Event!</h2>
+                <h3 th:text="${randomEvent.getName()}"></h3>
+                <p th:text="${randomEvent.getDescription()}"></p>
 
-            <p th:style="'color: ' + ${randomEvent.getEffect().getType().getColour()}" th:text="${randomEvent.getEffect().getName()}"></p>
+                <p th:style="'color: ' + ${randomEvent.getEffect().getType().getColour()}" th:text="${randomEvent.getEffect().getName()}"></p>
 
-            <a id="complete-random-event" class="mission-btn">Continue</a>
-        </div>
+                <a id="complete-random-event" class="mission-btn">Continue</a>
+            </div>
 
-        <div id="mission-event-display" th:style="${randomEvent.getType().name() == 'PEACEFUL_JOURNEY' ? 'visibility: visible' : 'visibility: hidden'}">
-            <div th:if="${missionState}">
-                <h2>Mission Complete!</h2>
-                <h3 th:text="${mission.getName()}"></h3>
+            <div id="mission-event-display" th:style="${randomEvent.getType().name() == 'PEACEFUL_JOURNEY' ? 'visibility: visible' : 'visibility: hidden'}">
+                <div th:if="${missionState}">
+                    <h2>Mission Complete!</h2>
+                    <h3 th:text="${mission.getName()}"></h3>
 
-                <div class="mission-reward-text">
-                    <h4>Rewards</h4>
-                    <div class="mission-rewards" th:each="reward: ${mission.getRewards()}">
-                        <p class="mission-reward" th:style="'color: ' + ${reward.getRewardType().getColour()}"><span th:text="'+' + ${reward.getAmount()}"></span> <i th:class="${reward.getRewardType().getIcon()}"></i></p>
+                    <div class="mission-reward-text">
+                        <h4>Rewards</h4>
+                        <div class="mission-rewards" th:each="reward: ${mission.getRewards()}">
+                            <p class="mission-reward" th:style="'color: ' + ${reward.getRewardType().getColour()}"><span th:text="'+' + ${reward.getAmount()}"></span> <i th:class="${reward.getRewardType().getIcon()}"></i></p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div th:if="not ${missionState}">
-                <h2>Mission Failed!</h2>
-                <h3 th:text="${mission.getName()}"></h3>
+                <div th:if="not ${missionState}">
+                    <h2>Mission Failed!</h2>
+                    <h3 th:text="${mission.getName()}"></h3>
 
-                <div class="mission-reward-text">
-                    <h4 id="you-died">You died and lost <span th:text="${lostCoins}"></span> coins!</h4>
+                    <div class="mission-reward-text">
+                        <h4 id="you-died">You died and lost <span th:text="${lostCoins}"></span> coins!</h4>
+                    </div>
                 </div>
-            </div>
 
-            <div id="summary-container">
-                <a id="summary-open">Summary</a>
+                <div id="summary-container">
+                    <a id="summary-open">Summary</a>
 
-                <div id="summary-modal" class="modal">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <span class="close">&times;</span>
-                            <h2>Mission Report</h2>
-                        </div>
-                        <div class="modal-body">
-                            <div th:each="action: ${missionActions}">
-                                <p class="summary-action" th:text="${action}"></p>
+                    <div id="summary-modal" class="modal">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <span class="close">&times;</span>
+                                <h2>Mission Report</h2>
                             </div>
+                            <div class="modal-body">
+                                <div th:each="action: ${missionActions}">
+                                    <p class="summary-action" th:text="${action}"></p>
+                                </div>
 
-                            <a id="summary-continue" class="mission-btn">Continue</a>
+                                <a id="summary-continue" class="mission-btn">Continue</a>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <br>
+
+                <a class="mission-btn" href="home/missions">Continue</a>
             </div>
-
-            <br>
-
-            <a class="mission-btn" href="home/missions">Continue</a>
         </div>
     </div>
 
-</div>
-
-<script th:src="@{js/missionComplete.js}"></script>
-<script th:src="@{js/modals/summaryModal.js}"></script>
-<script>
-    let increment = 0.3;
-    for (let action of document.getElementsByClassName("summary-action")) {
-        action.style.animationDelay = increment + "s";
-        increment += 0.3;
-    }
-</script>
-
+    <script th:src="@{js/missionComplete.js}"></script>
+    <script th:src="@{js/modals/summaryModal.js}"></script>
+    <script>
+        let increment = 0.3;
+        for (let action of document.getElementsByClassName("summary-action")) {
+            action.style.animationDelay = increment + "s";
+            increment += 0.3;
+        }
+    </script>
 </body>
 </html>

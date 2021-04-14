@@ -154,10 +154,19 @@
     padding: 1%;
 }
 
+.achievement-container h4 {
+    color: #bbbbbb;
+
+    font-weight: normal;
+}
+
 .achievement {
     background-color: #707070;
     width: 20%;
+    margin-right: 0.5%;
     margin-bottom: 1%;
+
+    display: inline-block;
 }
 
 .achievement-img {

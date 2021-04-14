@@ -1,9 +1,12 @@
 const notificationBox = document.getElementById("notification");
 
-function notification(image, msg) {
+//"Achievement Get!"
+//"Item Purchased!"
+
+function notification(title, image, msg) {
     // Assign the notification as active if its not already
     if (!notificationBox.classList.contains("visible")) {
-        notificationBox.innerHTML = notificationHTML(image, msg);
+        notificationBox.innerHTML = notificationHTML(title, image, msg);
         notificationBox.classList.toggle("visible");
 
         sleep(4000).then(() => {
@@ -15,8 +18,8 @@ function notification(image, msg) {
     }
 }
 
-function notificationHTML(texture, msg) {
+function notificationHTML(title, texture, msg) {
     return "" +
-        "<img class='item-img notification-img' src='/img" + texture + "' alt='Notification Image'>" +
-        "<h5 class='notification-text'><b class='achievement-title'>Achievement Get!</b><span class='notification-message'>" + msg + "</span></h5>";
+        "<img class='item-img notification-img' src='" + texture + "' alt='Notification Image'>" +
+        "<h5 class='notification-text'><b class='achievement-title'>" + title + "</b><span class='notification-message'>" + msg + "</span></h5>";
 }

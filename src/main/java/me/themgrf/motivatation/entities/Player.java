@@ -23,16 +23,9 @@ public class Player extends LivingEntity {
     private final List<Achievement> achievements;
 
     public Player(long id) {
-        super();
-
-        this.id = id;
-        this.tasks = 0;
-        this.coins = 0;
-        this.gems = 0;
-        this.experience = 0;
-        this.intelligence = 0;
-        this.achievements = new ArrayList<>();
+        this(id, "Rename Me!", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
     }
+
 
     public Player(long id, String name, int level, double health, double defence, double strength, double speed, int tasks, int coins, int gems, double experience, double intelligence) {
         super(name, level, health, defence, strength, speed);
@@ -44,7 +37,7 @@ public class Player extends LivingEntity {
         this.intelligence = intelligence;
         this.achievements = new ArrayList<>();
 
-        getInventory().addItem(ItemManager.getItem("apple"));
+        setInventory(getInventoryFromDB());
     }
 
     public long getId() {
@@ -157,8 +150,7 @@ public class Player extends LivingEntity {
         }
     }
 
-    @Override
-    public Inventory getInventory() {
+    public Inventory getInventoryFromDB() {
         Inventory inventory = InventoryCreator.createEmptyPlayerInventory(this);
 
         String items = "";
