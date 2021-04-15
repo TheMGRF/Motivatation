@@ -24,12 +24,18 @@ h3 {
 
     text-align: left;
 
+    min-height: 290px;
+
     margin-right: 1%;
     padding: 0.2% 1% 1% 1%;
 
     border-radius: 5px;
 
     display: inline-block;
+}
+
+.task h4 {
+    min-height: 57px;
 }
 
 #task-table {
@@ -184,7 +190,9 @@ h3 {
 #task-add {
     background-color: #6ca91f;
 
-    margin: 2% 0;
+    width: 150px;
+    padding: 1.5% 4%;
+    margin-bottom: 2%;
 
     transition: background-color 0.3s;
 }

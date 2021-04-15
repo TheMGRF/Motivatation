@@ -5,7 +5,7 @@
 </head>
 <body>
 
-<div class="task" th:fragment="task">
+<div th:id="${task.getUUID()}" class="task" th:fragment="task">
     <h4 th:inline="text">
         [[${task.getName()}]]
         <br>

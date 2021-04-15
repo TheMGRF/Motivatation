@@ -57,65 +57,68 @@
         </div>
 
         <div id="task-modal" class="modal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <span class="close">&times;</span>
-                    <h2>Creating Task</h2>
+            <form method="POST" action="#" th:action="@{/home/tasks/add}" th:object="${newTask}">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="close">&times;</span>
+                        <h2>Creating Task</h2>
+                    </div>
+
+                    <br>
+
+                    <div class="modal-body task-modal">
+                        <div>
+                            <label for="name">Name</label>
+                            <input th:field="*{name}" type="text" id="name" name="name" placeholder="Clean the dishes">
+                        </div>
+                        <br>
+                        <div>
+                            <label for="desc">Description</label>
+                            <textarea th:field="*{description}" id="desc" name="desc" cols="50" rows="10" placeholder="I should really clone those dishes I left"></textarea>
+                        </div>
+                        <br>
+                        <div>
+                            <label for="date">Due</label>
+                            <input th:field="*{due}" type="date" id="date" name="date">
+                        </div>
+                        <br>
+                        <div>
+                            <label for="state">State</label>
+                            <select th:field="*{status}" name="state" id="state">
+                                <option value="TODO">Todo</option>
+                                <option value="STARTED">Started</option>
+                                <option value="IN_PROGRESS">In Progress</option>
+                                <option value="ON_HOLD">On-Hold</option>
+                            </select>
+                        </div>
+                        <br>
+                        <div>
+                            <label for="priority">Priority</label>
+                            <select th:field="*{priority}" name="priority" id="priority">
+                                <option value="LOW">Low</option>
+                                <option value="MEDIUM">Medium</option>
+                                <option value="HIGH">High</option>
+                            </select>
+                        </div>
+                        <br>
+                        <div>
+                            <label for="reward-type">Reward Type</label>
+                            <select th:field="*{formRewardType}" name="reward-type" id="reward-type">
+                                <option value="COINS">Coins</option>
+                                <option value="GEMS">Gems</option>
+                            </select>
+                        </div>
+                        <br>
+                        <div>
+                            <label th:field="*{formRewardAmount}" for="formRewardAmount">Reward</label>
+                            <input type="number" id="formRewardAmount" name="formRewardAmount" min="0" max="100" placeholder="0">
+                        </div>
+                        <br>
+
+                        <button id="task-add" class="mission-btn" type="submit" value="Submit">Add Task</button>
+                    </div>
                 </div>
-
-                <br>
-
-                <div class="modal-body task-modal">
-                    <div>
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" placeholder="Clean the dishes">
-                    </div>
-                    <br>
-                    <div>
-                        <label for="desc">Description</label>
-                        <textarea id="desc" name="desc" cols="50" rows="10" placeholder="I should really clone those dishes I left"></textarea>
-                    </div>
-                    <br>
-                    <div>
-                        <label for="date">Due</label>
-                        <input type="date" id="date" name="date">
-                    </div>
-                    <br>
-                    <div>
-                        <label for="state">State</label>
-                        <select name="state" id="state">
-                            <option value="todo">Todo</option>
-                            <option value="in-progress">In Progress</option>
-                            <option value="on-hold">On-Hold</option>
-                        </select>
-                    </div>
-                    <br>
-                    <div>
-                        <label for="priority">Priority</label>
-                        <select name="priority" id="priority">
-                            <option value="low">Low</option>
-                            <option value="medium">Medium</option>
-                            <option value="high">High</option>
-                        </select>
-                    </div>
-                    <br>
-                    <div>
-                        <label for="reward-type">Reward Type</label>
-                        <select name="reward-type" id="reward-type">
-                            <option value="COINS">Coins</option>
-                            <option value="GEMS">Gems</option>
-                        </select>
-                    </div>
-                    <br>
-                    <div>
-                        <label for="reward">Reward</label>
-                        <input type="number" id="reward" name="reward" min="0" max="100" placeholder="0">
-                    </div>
-                    <br>
-
-                    <a id="task-add" class="mission-btn">Add Task</a>
-                </div>
-            </div>
+            </form>
         </div>
 
     </div>

@@ -2,6 +2,8 @@ package me.themgrf.motivatation.game.rewards;
 
 public class Reward {
 
+    public static final Reward DEFAULT = new Reward(RewardType.COINS, 0);
+
     private final RewardType rewardType;
     private final int amount;
 
