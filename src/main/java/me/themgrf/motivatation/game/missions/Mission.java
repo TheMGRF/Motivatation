@@ -7,6 +7,7 @@ import me.themgrf.motivatation.game.missions.events.RandomEvent;
 import me.themgrf.motivatation.game.rewards.Reward;
 import me.themgrf.motivatation.util.Colour;
 import org.springframework.util.StringUtils;
+import xyz.minecrossing.coreutilities.CoreUtilities;
 
 import java.util.List;
 import java.util.UUID;
@@ -131,7 +132,7 @@ public class Mission implements PlayerRunnable, Completable {
             player.giveReward(reward);
         }
 
-        PlayerManager.savePlayer(player);
+        CoreUtilities.getTaskManager().runAsync(() -> PlayerManager.savePlayer(player));
     }
 
     public enum DangerLevel {

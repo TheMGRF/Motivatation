@@ -10,11 +10,10 @@ import me.themgrf.motivatation.game.tasks.TaskManager;
 import me.themgrf.motivatation.util.Auth;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
+import xyz.minecrossing.coreutilities.CoreUtilities;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -53,7 +52,32 @@ public class TasksController extends ControllerBase {
             attributes.addFlashAttribute("username", user.getUsername());
             Player player = PlayerManager.getPlayer(user);
             TaskManager.addTask(player, task);
-            PlayerManager.savePlayer(player);
+
+            CoreUtilities.getTaskManager().runAsync(() -> PlayerManager.savePlayer(player));
+        }
+
+        return redirectView;
+    }
+
+    @RequestMapping("/home/tasks/complete/{uuid}")
+    public RedirectView completeTask(HttpServletRequest req, RedirectAttributes attributes, @PathVariable String uuid) {
+        RedirectView redirectView = new RedirectView("/home/tasks", true);
+
+        User user = Auth.getUser();
+        if (user != null) {
+            Player player = PlayerManager.getPlayer(user);
+            for (Task task : TaskManager.getTasks(player)) {
+                if (task.getUUID().toString().equals(uuid)) {
+                    task.setDone(true);
+
+                    // save tasks to db
+                    CoreUtilities.getTaskManager().runAsync(() -> TaskManager.saveTasks(player));
+
+                    attributes.addFlashAttribute("taskCompleted", task.getReward().toString());
+                    System.out.println("User " + user.getUsername() + " has completed task: " + task.getName());
+                    break;
+                }
+            }
         }
 
         return redirectView;

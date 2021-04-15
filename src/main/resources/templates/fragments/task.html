@@ -5,7 +5,7 @@
 </head>
 <body>
 
-<div th:id="${task.getUUID()}" class="task" th:fragment="task">
+<div th:if="not ${task.isDone()}" th:id="${task.getUUID()}" class="task" th:fragment="task">
     <h4 th:inline="text">
         [[${task.getName()}]]
         <br>
@@ -17,7 +17,7 @@
     <p><span class="label low" th:text="${task.getPriority().toString()}"></span></p>
     <p th:style="'color: ' + ${task.getReward().getRewardType().getColour()}"><span th:text="'+' + ${task.getReward().getAmount()}"></span> <i th:class="${task.getReward().getRewardType().getIcon()}"></i></p>
 
-    <a class="label complete" href="#">Complete</a>
+    <a class="label complete" href="#" th:href="'/home/tasks/complete/' + ${task.getUUID()}">Complete</a>
 </div>
 
 </body>

@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
+import xyz.minecrossing.coreutilities.CoreUtilities;
 import xyz.minecrossing.databaseconnector.DatabaseConnector;
 
 import java.sql.Connection;
@@ -155,7 +156,7 @@ public class PlayerManager {
             e.printStackTrace();
         }
 
-        TaskManager.saveTasks(player);
+        CoreUtilities.getTaskManager().runAsync(() -> TaskManager.saveTasks(player));
     }
 
     public static Player makePlayer(long id, String name, double health, double defence, double strength, double speed,

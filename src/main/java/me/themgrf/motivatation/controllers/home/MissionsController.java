@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
+import xyz.minecrossing.coreutilities.CoreUtilities;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -107,7 +108,7 @@ public class MissionsController extends ControllerBase {
             // Remove the mission from the player's list so they cant repeat it
             MissionManager.removeMission(player, mission);
 
-            PlayerManager.savePlayer(player);
+            CoreUtilities.getTaskManager().runAsync(() -> PlayerManager.savePlayer(player));
         }
 
         return "home/mission";
@@ -125,7 +126,7 @@ public class MissionsController extends ControllerBase {
                 attributes.addFlashAttribute("missions", MissionManager.reset(player));
                 player.removeCoins(RESET_COST);
 
-                PlayerManager.savePlayer(player);
+                CoreUtilities.getTaskManager().runAsync(() -> PlayerManager.savePlayer(player));
             } else {
                 attributes.addFlashAttribute("resetError", "Not Enough Coins!");
             }

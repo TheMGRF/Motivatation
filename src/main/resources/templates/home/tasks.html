@@ -21,6 +21,7 @@
     <link rel="stylesheet" type="text/css" th:href="@{css/home.css}">
     <link rel="stylesheet" type="text/css" th:href="@{css/tasks.css}">
     <link rel="stylesheet" type="text/css" th:href="@{css/modal.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{css/notification.css}">
 
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
 
@@ -123,6 +124,16 @@
 
     </div>
 
+    <div th:replace="fragments/notification :: notification"></div>
     <script th:src="@{js/modals/taskModal.js}"></script>
+
+    <script th:if="${taskCompleted}" th:inline="javascript">
+        /*<![CDATA[*/
+
+        let reward = /*[[${taskCompleted}]]*/ 'reward';
+        notification("Task Completed!", "/img/items/misc/challice.png", "+" + reward);
+
+        /*]]>*/
+    </script>
 </body>
 </html>

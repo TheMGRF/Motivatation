@@ -13,8 +13,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
+import xyz.minecrossing.coreutilities.CoreUtilities;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -36,11 +38,9 @@ public class MarketController extends ControllerBase {
         return "home/market";
     }
 
-    @PostMapping("/home/market/item/{item}")
+    @RequestMapping("/home/market/item/{item}")
     public RedirectView buyItem(HttpServletRequest req, RedirectAttributes attributes, @PathVariable String item) {
         RedirectView redirectView = new RedirectView("/home/market", true);
-
-        //model = super.setup(model);
 
         User user = Auth.getUser();
         if (user != null) {
@@ -54,7 +54,8 @@ public class MarketController extends ControllerBase {
             if (Economy.canAfford(player, realItem)) {
                 Economy.purchase(player, realItem);
                 player.getInventory().addItem(realItem);
-                PlayerManager.savePlayer(player);
+
+                CoreUtilities.getTaskManager().runAsync(() -> PlayerManager.savePlayer(player));
 
                 attributes.addFlashAttribute("purchasedItem", realItem);
             } else {
@@ -62,7 +63,6 @@ public class MarketController extends ControllerBase {
             }
         }
 
-        //return "home/market";
         return redirectView;
     }
 
