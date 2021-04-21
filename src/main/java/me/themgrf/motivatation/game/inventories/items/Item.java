@@ -18,6 +18,7 @@ public class Item {
     private ItemRarity rarity;
     private List<ItemAttribute> itemAttributes;
     private int value;
+    private boolean consumable;
 
     public Item(String id) {
         this(id, "", Texture.SLIM_IRON_SWORD, new ArrayList<>(), new ArrayList<>(), ItemRarity.COMMON, 10);
@@ -36,6 +37,7 @@ public class Item {
         this.itemAttributes = itemAttributes;
         this.rarity = rarity;
         this.value = value;
+        this.consumable = false;
     }
 
     public UUID getInternalID() {
@@ -100,5 +102,13 @@ public class Item {
 
     public void setValue(int value) {
         this.value = value;
+    }
+
+    public boolean isConsumable() {
+        return consumable;
+    }
+
+    public void setConsumable(boolean consumable) {
+        this.consumable = consumable;
     }
 }

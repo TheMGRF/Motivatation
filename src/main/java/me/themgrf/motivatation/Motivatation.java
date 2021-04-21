@@ -117,6 +117,7 @@ public class Motivatation {
                         .addItemAttributes(new HealthAttribute(2))
                         .rarity(ItemRarity.COMMON)
                         .value(5)
+                        .consumable()
                         .get()
         );
         ItemManager.addItem(
@@ -127,6 +128,7 @@ public class Motivatation {
                         .addItemAttributes(new HealthAttribute(3))
                         .rarity(ItemRarity.UNCOMMON)
                         .value(8)
+                        .consumable()
                         .get()
         );
         ItemManager.addItem(
@@ -137,6 +139,7 @@ public class Motivatation {
                         .addItemAttributes(new HealthAttribute(4))
                         .rarity(ItemRarity.RARE)
                         .value(6)
+                        .consumable()
                         .get()
         );
         ItemManager.addItem(
@@ -146,6 +149,7 @@ public class Motivatation {
                         .texture(Texture.HEALTH_POTION)
                         .addItemAttributes(new HealthAttribute(5))
                         .rarity(ItemRarity.UNCOMMON)
+                        .consumable()
                         .get()
         );
         ItemManager.addItem(
@@ -156,6 +160,7 @@ public class Motivatation {
                         .addItemAttributes(new HealthAttribute(6))
                         .rarity(ItemRarity.UNCOMMON)
                         .value(15)
+                        .consumable()
                         .get()
         );
         ItemManager.addItem(
@@ -166,6 +171,7 @@ public class Motivatation {
                         .addItemAttributes(new HealthAttribute(7))
                         .rarity(ItemRarity.UNCOMMON)
                         .value(30)
+                        .consumable()
                         .get()
         );
         ItemManager.addItem(
@@ -176,6 +182,7 @@ public class Motivatation {
                         .addItemAttributes(new HealthAttribute(8))
                         .rarity(ItemRarity.RARE)
                         .value(50)
+                        .consumable()
                         .get()
         );
         ItemManager.addItem(
@@ -186,6 +193,7 @@ public class Motivatation {
                         .addItemAttributes(new HealthAttribute(10))
                         .rarity(ItemRarity.EPIC)
                         .value(65)
+                        .consumable()
                         .get()
         );
         ItemManager.addItem(
@@ -195,6 +203,7 @@ public class Motivatation {
                         .texture(Texture.STAMINA_POTION)
                         .addItemAttributes(new SpeedAttribute(2))
                         .rarity(ItemRarity.UNCOMMON)
+                        .consumable()
                         .get()
         );
         ItemManager.addItem(
@@ -205,6 +214,7 @@ public class Motivatation {
                         .addItemAttributes(new SpeedAttribute(4))
                         .rarity(ItemRarity.UNCOMMON)
                         .value(20)
+                        .consumable()
                         .get()
         );
         ItemManager.addItem(
@@ -215,6 +225,7 @@ public class Motivatation {
                         .addItemAttributes(new SpeedAttribute(6))
                         .rarity(ItemRarity.UNCOMMON)
                         .value(35)
+                        .consumable()
                         .get()
         );
         ItemManager.addItem(
@@ -225,6 +236,7 @@ public class Motivatation {
                         .addItemAttributes(new DefenceAttribute(5))
                         .rarity(ItemRarity.EPIC)
                         .value(120)
+                        .consumable()
                         .get()
         );
         ItemManager.addItem(

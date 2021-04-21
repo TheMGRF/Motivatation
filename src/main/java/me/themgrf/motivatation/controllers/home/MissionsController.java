@@ -28,6 +28,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class MissionsController extends ControllerBase {
 
     private static final int RESET_COST = 100;
+    private static final int REVIVE_COST = 500;
 
     @GetMapping("/home/missions")
     public String missions(Model model) {
@@ -39,7 +40,11 @@ public class MissionsController extends ControllerBase {
             Player player = PlayerManager.getPlayer(user);
             model.addAttribute("player", player);
 
-            model.addAttribute("missions", MissionManager.createMissionsForPlayer(player));
+            if (player.isDead()) {
+                model.addAttribute("hideMissions", true);
+            } else {
+                model.addAttribute("missions", MissionManager.createMissionsForPlayer(player));
+            }
         }
 
         return "home/missions";
@@ -125,6 +130,29 @@ public class MissionsController extends ControllerBase {
             if (player.getCoins() >= RESET_COST) {
                 attributes.addFlashAttribute("missions", MissionManager.reset(player));
                 player.removeCoins(RESET_COST);
+
+                CoreUtilities.getTaskManager().runAsync(() -> PlayerManager.savePlayer(player));
+            } else {
+                attributes.addFlashAttribute("resetError", "Not Enough Coins!");
+            }
+        }
+
+        return redirectView;
+    }
+
+    @GetMapping("/home/revive")
+    public RedirectView revivePlayer(HttpServletRequest req, RedirectAttributes attributes) {
+        RedirectView redirectView = new RedirectView("/home/missions", true);
+
+        User user = Auth.getUser();
+        if (user != null) {
+            Player player = PlayerManager.getPlayer(user);
+
+            if (player.getCoins() >= REVIVE_COST) {
+                attributes.addFlashAttribute("revived", true);
+                player.setDead(false);
+                player.setHealth(20);
+                player.removeCoins(REVIVE_COST);
 
                 CoreUtilities.getTaskManager().runAsync(() -> PlayerManager.savePlayer(player));
             } else {

@@ -23,12 +23,12 @@ public class Player extends LivingEntity {
     private final List<Achievement> achievements;
 
     public Player(long id) {
-        this(id, "Rename Me!", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        this(id, "Rename Me!", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, false);
     }
 
 
-    public Player(long id, String name, int level, double health, double defence, double strength, double speed, int tasks, int coins, int gems, double experience, double intelligence) {
-        super(name, level, health, defence, strength, speed);
+    public Player(long id, String name, int level, double health, double defence, double strength, double speed, int tasks, int coins, int gems, double experience, double intelligence, boolean dead) {
+        super(name, level, health, defence, strength, speed, dead);
         this.id = id;
         this.tasks = tasks;
         this.coins = coins;

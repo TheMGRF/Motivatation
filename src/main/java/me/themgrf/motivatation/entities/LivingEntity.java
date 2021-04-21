@@ -12,9 +12,10 @@ public abstract class LivingEntity {
     private String name;
     private int level;
     private double health, defence, strength, speed;
+    private boolean dead;
     private Inventory inventory;
 
-    public LivingEntity(String name, int level, double health, double defence, double strength, double speed, Inventory inventory) {
+    public LivingEntity(String name, int level, double health, double defence, double strength, double speed, boolean dead, Inventory inventory) {
         this.uuid = UUID.randomUUID();
         this.name = name;
         this.level = level;
@@ -22,15 +23,16 @@ public abstract class LivingEntity {
         this.defence = defence;
         this.strength = strength;
         this.speed = speed;
+        this.dead = dead;
         this.inventory = inventory;
     }
 
-    public LivingEntity(String name, int level, double health, double defence, double strength, double speed) {
-        this(name, level, health, defence, strength, speed, InventoryCreator.create(name + "'s Inventory"));
+    public LivingEntity(String name, int level, double health, double defence, double strength, double speed, boolean dead) {
+        this(name, level, health, defence, strength, speed, dead, InventoryCreator.create(name + "'s Inventory"));
     }
 
     public LivingEntity(String name) {
-        this(name, 1, 20, 1, 1, 1);
+        this(name, 1, 20, 1, 1, 1, false);
     }
 
     public LivingEntity() {
@@ -95,6 +97,14 @@ public abstract class LivingEntity {
 
     public void setSpeed(double speed) {
         this.speed = speed;
+    }
+
+    public boolean isDead() {
+        return dead;
+    }
+
+    public void setDead(boolean dead) {
+        this.dead = dead;
     }
 
     public Inventory getInventory() {

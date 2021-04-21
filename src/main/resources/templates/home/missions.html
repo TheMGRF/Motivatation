@@ -47,7 +47,7 @@
 
         <br>
 
-        <div class="mission-container">
+        <div th:if="${missions}" class="mission-container">
             <tr class="missions" th:each="mission: ${missions}">
                 <div class="mission">
                     <h3 th:text="${mission.getName()}"></h3>
@@ -75,6 +75,16 @@
             <br>
 
             <a class="reset-missions" href="/home/resetmissions">Reset Missions (100 <i class="far fa-coins"></i>)</a>
+            <p th:if="${resetError != null}" style="color: red;" th:text="${resetError}"></p>
+        </div>
+
+        <div th:if="${hideMissions}" class="mission-container">
+            <h2>💀 You are dead! 💀</h2>
+            <h4>You cannot complete missions when you are dead!</h4>
+
+            <br>
+
+            <a class="reset-missions" href="/home/revive">Revive (500 <i class="far fa-coins"></i>)</a>
             <p th:if="${resetError != null}" style="color: red;" th:text="${resetError}"></p>
         </div>
 

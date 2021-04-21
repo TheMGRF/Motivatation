@@ -44,7 +44,7 @@ public class Actions {
     public static void playerHeal(long id, String item, int amount) {
         ActionRecorder.addEvent(
                 id,
-                TUtil.getMessage(Icons.POTION + "️ You healed yourself with a %item% for +%amount%!",
+                TUtil.getMessage(Icons.POTION + "️ You healed yourself with a %item% for +%amount%" + Icons.HEART + "!",
                         "item", item,
                         "amount", String.valueOf(amount))
         );

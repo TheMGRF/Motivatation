@@ -55,6 +55,11 @@ public class ItemBuilder {
         return this;
     }
 
+    public ItemBuilder consumable() {
+        item.setConsumable(true);
+        return this;
+    }
+
     public Item get() {
         return item;
     }

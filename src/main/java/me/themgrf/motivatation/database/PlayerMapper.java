@@ -21,7 +21,8 @@ public class PlayerMapper implements RowMapper<Player> {
         int coins = rs.getInt("coins");
         int gems = rs.getInt("gems");
         double experience = rs.getInt("experience");
+        boolean dead = rs.getBoolean("dead");
 
-        return new Player(id, "", level, health, defence, strength, speed, tasks, coins, gems, experience, intelligence);
+        return new Player(id, "", level, health, defence, strength, speed, tasks, coins, gems, experience, intelligence, dead);
     }
 }

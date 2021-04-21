@@ -53,6 +53,7 @@ public class PlayerManager {
         int coins = 0;
         int gems = 0;
         double experience = 0;
+        boolean dead = false;
 
         try (Connection con = DBUtil.getConnection()) {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -71,6 +72,7 @@ public class PlayerManager {
                 coins = rs.getInt("coins");
                 gems = rs.getInt("gems");
                 experience = rs.getDouble("experience");
+                dead = rs.getBoolean("dead");
             }
 
             rs.close();
@@ -80,7 +82,7 @@ public class PlayerManager {
             e.printStackTrace();
         }
 
-        return makePlayer(id, name, health, defence, strength, speed, intelligence, level, tasks, coins, gems, experience);
+        return makePlayer(id, name, health, defence, strength, speed, intelligence, level, tasks, coins, gems, experience, dead);
     }
 
     /**
@@ -89,9 +91,9 @@ public class PlayerManager {
      * @param player The player to add
      */
     public static void addPlayer(Player player) {
-        String sql = "INSERT INTO players (player_id, health, defence, strength, speed, intelligence, level, tasks, coins, gems, experience) " +
+        String sql = "INSERT INTO players (player_id, health, defence, strength, speed, intelligence, level, tasks, coins, gems, experience, dead) " +
                 "VALUES" +
-                "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)" +
+                "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)" +
                 ";";
 
         try (Connection con = DBUtil.getConnection()) {
@@ -107,6 +109,7 @@ public class PlayerManager {
             ps.setInt(9, player.getCoins());
             ps.setInt(10, player.getGems());
             ps.setDouble(11, player.getExperience());
+            ps.setBoolean(12, player.isDead());
 
             ps.execute();
 
@@ -119,7 +122,7 @@ public class PlayerManager {
 
     public static void savePlayer(Player player) {
         try (Connection con = DBUtil.getConnection()) {
-            String sql = "UPDATE players SET health = ?, defence = ?, strength = ?, speed = ?, intelligence = ?, level = ?, tasks = ?, coins = ?, gems = ?, experience = ? " +
+            String sql = "UPDATE players SET health = ?, defence = ?, strength = ?, speed = ?, intelligence = ?, level = ?, tasks = ?, coins = ?, gems = ?, experience = ?, dead = ? " +
                     "WHERE player_id = ?" +
                     ";";
 
@@ -134,7 +137,8 @@ public class PlayerManager {
             ps.setInt(8, player.getCoins());
             ps.setInt(9, player.getGems());
             ps.setDouble(10, player.getExperience());
-            ps.setLong(11, player.getId());
+            ps.setBoolean(11, player.isDead());
+            ps.setLong(12, player.getId());
 
             ps.execute();
 
@@ -160,8 +164,8 @@ public class PlayerManager {
     }
 
     public static Player makePlayer(long id, String name, double health, double defence, double strength, double speed,
-                                    double intelligence, int level, int tasks, int coins, int gems, double experience) {
-        return new Player(id, name, level, health, defence, strength, speed, tasks, coins, gems, experience, intelligence);
+                                    double intelligence, int level, int tasks, int coins, int gems, double experience, boolean dead) {
+        return new Player(id, name, level, health, defence, strength, speed, tasks, coins, gems, experience, intelligence, dead);
     }
 
     public static Player getDefaultPlayer(long id) {
