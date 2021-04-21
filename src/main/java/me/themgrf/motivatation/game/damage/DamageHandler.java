@@ -20,15 +20,19 @@ public class DamageHandler {
         double sourceStrength = source.getStrength();
         double targetDefence = target.getDefence();
 
-        //double damage = source.getStrength();
         double damage = ThreadLocalRandom.current().nextDouble(sourceStrength / 2, sourceStrength);
-        final double originalDamage = damage;
+        if (targetDefence <= 0) {
+            return (int) damage;
+        }
+
         // TODO: Add damage from weapon?
 
         // Target defence lower impact
-        damage = damage * (100 / (100 + targetDefence));
+        double calc = (100 / (100 + targetDefence));
+        double defence = damage - calc;
+        damage = damage * calc;
         if (target instanceof Player) {
-            Actions.defenceKickedIn(((Player) target).getId(), (int) (originalDamage - damage));
+            Actions.defenceKickedIn(((Player) target).getId(), (int) defence);
         }
 
         return MathUtil.round(damage);

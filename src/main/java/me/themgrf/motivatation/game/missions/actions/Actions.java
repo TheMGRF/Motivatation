@@ -76,7 +76,7 @@ public class Actions {
         ActionRecorder.addEvent(
                 id,
                 TUtil.getMessage(
-                        Icons.SHIELD + "Your armour protected you for %amount%" +  Icons.SHIELD,
+                        Icons.SHIELD + "Your armour protected you for %amount%" +  Icons.HEART,
                         "amount", String.valueOf(amount)
                 )
         );
