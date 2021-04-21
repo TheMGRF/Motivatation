@@ -17,5 +17,6 @@ public class Icons {
     public static final String TROPHY = "\uD83C\uDFC6";
     public static final String MONEY_BAG = "\uD83D\uDCB0";
     public static final String SPARKLE = "✨";
+    public static final String POTION = "\uD83E\uDDEA";
 
 }

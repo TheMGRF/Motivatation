@@ -41,6 +41,15 @@ public class Actions {
         );
     }
 
+    public static void playerHeal(long id, String item, int amount) {
+        ActionRecorder.addEvent(
+                id,
+                TUtil.getMessage(Icons.POTION + "️ You healed yourself with a %item% for +%amount%!",
+                        "item", item,
+                        "amount", "" + amount)
+        );
+    }
+
     public static void entityDamagePlayer(long id, LivingEntity entity, double damage) {
         ActionRecorder.addEvent(
                 id,

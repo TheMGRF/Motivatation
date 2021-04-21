@@ -2,6 +2,9 @@ package me.themgrf.motivatation.game.damage;
 
 import me.themgrf.motivatation.entities.LivingEntity;
 import me.themgrf.motivatation.entities.Player;
+import me.themgrf.motivatation.game.inventories.items.Item;
+import me.themgrf.motivatation.game.inventories.items.attributes.HealthAttribute;
+import me.themgrf.motivatation.game.inventories.items.attributes.ItemAttribute;
 import me.themgrf.motivatation.game.missions.actions.Actions;
 
 import java.util.concurrent.ThreadLocalRandom;
@@ -15,13 +18,31 @@ public class FightUtil {
         while (player.getHealth() > 0 || entity.getHealth() > 0) {
             if (player.getHealth() <= 0) {
                 Actions.playerDeath(id, entity);
+                System.out.println("Player died!");
                 return false;
             }
 
             if (entity.getHealth() <= 0) {
                 Actions.playerKill(id, entity);
-                //break;
-                return false;
+                System.out.println("Entity died!");
+                return true;
+            }
+
+            // Let player heal if they can and are on low health
+            if (player.getHealth() <= 5) {
+                itemLoop: for (Item item : player.getInventory().getItems()) {
+                    if (item.getItemAttributes().isEmpty()) continue;
+
+                    for (ItemAttribute attribute : item.getItemAttributes()) {
+                        if (attribute.isPositive()) {
+                            if (attribute instanceof HealthAttribute) {
+                                attribute.applyEffect(player);
+                                Actions.playerHeal(id, item.getName(), attribute.getAmount());
+                                break itemLoop;
+                            }
+                        }
+                    }
+                }
             }
 
             // If player speed is low zombie attacks first

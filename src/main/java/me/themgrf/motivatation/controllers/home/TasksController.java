@@ -70,6 +70,8 @@ public class TasksController extends ControllerBase {
                 if (task.getUUID().toString().equals(uuid)) {
                     task.setDone(true);
 
+                    player.giveReward(task.getReward());
+
                     // save tasks to db
                     CoreUtilities.getTaskManager().runAsync(() -> TaskManager.saveTasks(player));
 

@@ -16,6 +16,6 @@ public class HealthAttribute extends ItemAttribute {
 
     @Override
     public void applyEffect(Player player) {
-
+        player.setHealth(player.getHealth() + getAmount());
     }
 }
