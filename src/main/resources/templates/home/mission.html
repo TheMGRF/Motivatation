@@ -91,6 +91,10 @@
                                 <h2>Mission Report</h2>
                             </div>
                             <div class="modal-body">
+                                <div>
+                                    <h3 th:text="'Health: ❤️' + ${player.getHealth()} + ' | Defence: 🛡️' + ${player.getDefence()}"></h3>
+                                </div>
+
                                 <div th:each="action: ${missionActions}">
                                     <p class="summary-action" th:text="${action}"></p>
                                 </div>

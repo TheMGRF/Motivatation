@@ -46,7 +46,7 @@ public class Actions {
                 id,
                 TUtil.getMessage(Icons.POTION + "️ You healed yourself with a %item% for +%amount%!",
                         "item", item,
-                        "amount", "" + amount)
+                        "amount", String.valueOf(amount))
         );
     }
 
@@ -68,6 +68,16 @@ public class Actions {
                         Icons.BANG + "You dealt %damage%" +  Icons.HEART + " to %entity%",
                         "damage", String.valueOf(damage),
                         "entity", entity.getName()
+                )
+        );
+    }
+
+    public static void defenceKickedIn(long id, int amount) {
+        ActionRecorder.addEvent(
+                id,
+                TUtil.getMessage(
+                        Icons.SHIELD + "Your armour protected you for %amount%" +  Icons.SHIELD,
+                        "amount", String.valueOf(amount)
                 )
         );
     }
