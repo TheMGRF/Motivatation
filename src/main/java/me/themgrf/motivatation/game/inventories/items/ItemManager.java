@@ -1,8 +1,11 @@
 package me.themgrf.motivatation.game.inventories.items;
 
+import org.springframework.lang.Nullable;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.UUID;
 
 public class ItemManager {
 
@@ -16,8 +19,14 @@ public class ItemManager {
         ITEMS.remove(item.getId());
     }
 
+    @Nullable
     public static Item getItem(String id) {
-        return ITEMS.get(id);
+        Item item = ITEMS.get(id);
+        if (item == null) return null;
+
+        // make sure items have a UUID
+        item.setInternalID(UUID.randomUUID());
+        return item;
     }
 
     public static List<Item> itemsFromString(String itemsString) {

@@ -9,9 +9,9 @@ import java.util.UUID;
 
 public class Item {
 
-    private final UUID internalID;
     private final String id;
 
+    private UUID internalID;
     private String name;
     private Texture texture;
     private List<String> description;
@@ -42,6 +42,10 @@ public class Item {
 
     public UUID getInternalID() {
         return internalID;
+    }
+
+    public void setInternalID(UUID internalID) {
+        this.internalID = internalID;
     }
 
     public String getId() {
@@ -110,5 +114,20 @@ public class Item {
 
     public void setConsumable(boolean consumable) {
         this.consumable = consumable;
+    }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "id='" + id + '\'' +
+                ", internalID=" + internalID +
+                ", name='" + name + '\'' +
+                ", texture=" + texture +
+                ", description=" + description +
+                ", rarity=" + rarity +
+                ", itemAttributes=" + itemAttributes +
+                ", value=" + value +
+                ", consumable=" + consumable +
+                '}';
     }
 }

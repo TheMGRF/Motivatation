@@ -2,10 +2,10 @@ package me.themgrf.motivatation.util;
 
 import me.themgrf.motivatation.entities.User;
 import me.themgrf.motivatation.users.details.DefaultUserDetails;
+import org.springframework.lang.Nullable;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 
 public class Auth {
 
@@ -26,6 +26,7 @@ public class Auth {
      *
      * @return The User object of the logged in user
      */
+    @Nullable
     public static User getUser() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         Object principal = auth.getPrincipal();

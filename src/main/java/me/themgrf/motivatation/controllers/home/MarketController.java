@@ -51,9 +51,10 @@ public class MarketController extends ControllerBase {
 
             // Get the item from param and give it to the player whilst subtracting the cost from their balance
             Item realItem = ItemManager.getItem(item);
-            if (Economy.canAfford(player, realItem)) {
+            if (realItem != null && Economy.canAfford(player, realItem)) {
                 Economy.purchase(player, realItem);
                 player.getInventory().addItem(realItem);
+                System.out.println(player.getUuid().toString() + " purchased item: " + realItem.toString());
 
                 CoreUtilities.getTaskManager().runAsync(() -> PlayerManager.savePlayer(player));
 

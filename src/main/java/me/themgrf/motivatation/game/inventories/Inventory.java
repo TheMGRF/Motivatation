@@ -60,10 +60,8 @@ public class Inventory {
 
         for (Item item : items) {
             String id = item.getId();
-            Integer oldValue = itemMap.putIfAbsent(id, 1);
-            if (oldValue != null && oldValue > 1) {
-                itemMap.put(id, oldValue + 1);
-            }
+
+            itemMap.merge(id, 1, Integer::sum);
         }
 
         int loop = 0;

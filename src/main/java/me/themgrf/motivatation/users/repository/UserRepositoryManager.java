@@ -1,6 +1,7 @@
 package me.themgrf.motivatation.users.repository;
 
 import me.themgrf.motivatation.database.UserInfoMapper;
+import org.springframework.lang.Nullable;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
@@ -30,6 +31,7 @@ public class UserRepositoryManager {
         }
     }*/
 
+    @Nullable
     @Deprecated
     public UserDetails findByEmail(String email) {
         String sql = "SELECT email, password from users where email = ?";
