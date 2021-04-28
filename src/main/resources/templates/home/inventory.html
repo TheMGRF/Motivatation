@@ -20,6 +20,7 @@
     <link rel="stylesheet" type="text/css" th:href="@{css/styles.css}">
     <link rel="stylesheet" type="text/css" th:href="@{css/home.css}">
     <link rel="stylesheet" type="text/css" th:href="@{css/inventory.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{css/notification.css}">
 
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
 
@@ -51,16 +52,32 @@
             <h3>Your Inventory</h3>
             <tr class="inventory" th:each="item: ${player.getInventory().getItems()}">
                 <div th:replace="fragments/item :: item" th:with="item=${item}"></div>
+                <ul class="list" th:id="${item.getInternalID().toString()} + '-list'" th:fragment="menu">
+                    <li><a href="#" th:href="'/home/inventory/use/' + ${item.getId()}">Use</a></li>
+                    <li><a href="#" th:href="'/home/inventory/backpack/add/' + ${item.getId()}">Move</a></li>
+                    <li><a href="#" th:href="'/home/inventory/drop/' + ${item.getId()}">Drop</a></li>
+                </ul>
             </tr>
         </div>
 
-        <ul class="list" id="list">
-            <li><a href="">Use</a></li>
-            <li><a href="">Trade</a></li>
-            <li><a href="">Drop</a></li>
-        </ul>
+        <div class="inventory-container">
+            <h3>Your Backpack</h3>
+            <tr class="inventory" th:each="item: ${backpack.getItems()}">
+                <div th:replace="fragments/item :: item" th:with="item=${item}"></div>
+                <ul class="list" th:id="${item.getInternalID().toString()} + '-list'" th:fragment="menu">
+                    <li><a href="#" th:href="'/home/inventory/use/' + ${item.getId()}">Use</a></li>
+                    <li><a href="#" th:href="'/home/inventory/backpack/remove/' + ${item.getId()}">Move</a></li>
+                    <li><a href="#" th:href="'/home/inventory/drop/' + ${item.getId()}">Drop</a></li>
+                </ul>
+            </tr>
+        </div>
     </div>
 
     <script th:src="@{js/right-click.js}"></script>
+
+    <div th:replace="fragments/notification :: notification"></div>
+    <script th:if="${backpackFull}" th:inline="javascript">
+        notification("Backpack Full!", "error", "You do not have enough Backpack space for this!");
+    </script>
 </body>
 </html>

@@ -2,6 +2,7 @@ package me.themgrf.motivatation.entities;
 
 import me.themgrf.motivatation.game.achievement.Achievement;
 import me.themgrf.motivatation.game.achievement.AchievementManager;
+import me.themgrf.motivatation.game.inventories.Backpack;
 import me.themgrf.motivatation.game.inventories.Inventory;
 import me.themgrf.motivatation.game.inventories.items.ItemManager;
 import me.themgrf.motivatation.game.rewards.Reward;
@@ -18,9 +19,10 @@ import java.util.List;
 public class Player extends LivingEntity {
 
     private final long id;
+    private final List<Achievement> achievements;
+
     private int tasks, coins, gems;
     private double experience, intelligence;
-    private final List<Achievement> achievements;
 
     public Player(long id) {
         this(id, "Rename Me!", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, false);

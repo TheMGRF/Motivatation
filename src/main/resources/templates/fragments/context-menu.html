@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    ...
+</head>
+<body>
+
+<ul class="list" th:id="${item.getInternalID().toString()} + '-list'" th:fragment="menu">
+    <li><a href="#" th:href="'/home/inventory/use/' + ${item.getId()}">Use</a></li>
+    <li th:if="${keep}"><a href="#" th:href="'/home/inventory/backpack/add/' + ${item.getId()}">Move</a></li>
+    <li th:if="${remove}"><a href="#" th:href="'/home/inventory/backpack/remove/' + ${item.getId()}">Move</a></li>
+    <li><a href="#" th:href="'/home/inventory/drop/' + ${item.getId()}">Drop</a></li>
+</ul>
+
+</body>
+</html>

@@ -1,29 +1,32 @@
 const elements = document.getElementsByClassName("item");
 
-const listElement = document.getElementById("list");
+const lists = document.getElementsByClassName("list");
 
-const onClickOutside = (event) => {
-    listElement.style.display = "none";
-    document.removeEventListener("click", onClickOutside);
-};
+for (let i = 0; i < lists.length; i++) {
+    //const listElement = document.getElementById(list[i].id);
+    const listElement = lists[i];
 
-listElement.addEventListener("contextmenu", (event) => {
-    event.stopPropagation();
-});
+    const onClickOutside = (event) => {
+        listElement.style.display = "none";
+        document.removeEventListener("click", onClickOutside);
+    };
 
-listElement.addEventListener("mouseup", (event) => {
-    event.stopPropagation();
-});
+    listElement.addEventListener("contextmenu", (event) => {
+        event.stopPropagation();
+    });
 
-document.addEventListener("contextmenu", (event) => {
-    listElement.style.display = "none";
-});
+    listElement.addEventListener("mouseup", (event) => {
+        event.stopPropagation();
+    });
 
-listElement.addEventListener("click", (event) => {
-    event.stopPropagation();
-});
+    document.addEventListener("contextmenu", (event) => {
+        listElement.style.display = "none";
+    });
 
-for (let i = 0; i < elements.length; i++) {
+    listElement.addEventListener("click", (event) => {
+        event.stopPropagation();
+    });
+
     elements[i].addEventListener("mouseup", (event) => {
         event.stopPropagation();
         if (event.button === 2) {

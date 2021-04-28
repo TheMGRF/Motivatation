@@ -20,6 +20,8 @@
     border-radius: 2px;
     width: 100px;
     padding: 0;
+
+    z-index: 100;
 }
 
 .list li {

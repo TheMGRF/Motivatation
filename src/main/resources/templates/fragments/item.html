@@ -5,7 +5,7 @@
 </head>
 <body>
 
-<div class="item" th:fragment="item">
+<div th:id="${item.getInternalID().toString()}" class="item" th:fragment="item">
     <img class="item-img" style="background-color: rgba(38, 38, 38, 0.8);" th:src="${item.getTexture().getPath()}">
     <div class="tooltip">
         <p th:style="'color: ' + ${item.getRarity().getColour()}" th:text="${item.getName()}"></p>

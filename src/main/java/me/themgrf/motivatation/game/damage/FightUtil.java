@@ -6,6 +6,7 @@ import me.themgrf.motivatation.game.inventories.items.Item;
 import me.themgrf.motivatation.game.inventories.items.attributes.HealthAttribute;
 import me.themgrf.motivatation.game.inventories.items.attributes.ItemAttribute;
 import me.themgrf.motivatation.game.missions.actions.Actions;
+import me.themgrf.motivatation.util.BackpackManager;
 
 import java.util.Iterator;
 import java.util.concurrent.ThreadLocalRandom;
@@ -39,7 +40,7 @@ public class FightUtil {
 
             // Let player heal if they can and are on low health
             if (player.getHealth() <= 5) {
-                Iterator<Item> iterator = player.getInventory().getItems().iterator();
+                Iterator<Item> iterator = BackpackManager.get(player.getId()).getItems().iterator();
                 itemLoop:
                 while (iterator.hasNext()) {
                     Item item = iterator.next();
@@ -53,7 +54,7 @@ public class FightUtil {
                                 Actions.playerHeal(id, item.getName(), attribute.getAmount());
 
                                 if (item.isConsumable()) {
-                                    iterator.remove(); // Remove the item from the users inventory as it has been used
+                                    iterator.remove(); // Remove the item from the users backpack as it has been used
                                 }
                                 break itemLoop;
                             }
