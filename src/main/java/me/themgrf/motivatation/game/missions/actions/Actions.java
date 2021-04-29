@@ -1,6 +1,7 @@
 package me.themgrf.motivatation.game.missions.actions;
 
 import me.themgrf.motivatation.entities.LivingEntity;
+import me.themgrf.motivatation.game.inventories.items.Item;
 import me.themgrf.motivatation.game.rewards.Reward;
 import me.themgrf.motivatation.util.Icons;
 import me.themgrf.motivatation.util.TUtil;
@@ -61,13 +62,14 @@ public class Actions {
         );
     }
 
-    public static void playerDamageEntity(long id, LivingEntity entity, double damage) {
+    public static void playerDamageEntity(long id, LivingEntity entity, double damage, Item item) {
         ActionRecorder.addEvent(
                 id,
                 TUtil.getMessage(
-                        Icons.BANG + "You dealt %damage%" +  Icons.HEART + " to %entity%",
+                        Icons.BANG + "You dealt %damage%" +  Icons.HEART + " to %entity%%weapon%",
                         "damage", String.valueOf(damage),
-                        "entity", entity.getName()
+                        "entity", entity.getName(),
+                        "weapon", item == null ? "" : " with your ⚔️" + item.getName()
                 )
         );
     }

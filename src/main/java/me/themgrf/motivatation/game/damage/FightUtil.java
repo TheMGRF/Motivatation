@@ -3,10 +3,12 @@ package me.themgrf.motivatation.game.damage;
 import me.themgrf.motivatation.entities.LivingEntity;
 import me.themgrf.motivatation.entities.Player;
 import me.themgrf.motivatation.game.inventories.items.Item;
+import me.themgrf.motivatation.game.inventories.items.ItemType;
 import me.themgrf.motivatation.game.inventories.items.attributes.HealthAttribute;
 import me.themgrf.motivatation.game.inventories.items.attributes.ItemAttribute;
 import me.themgrf.motivatation.game.missions.actions.Actions;
 import me.themgrf.motivatation.util.BackpackManager;
+import org.springframework.lang.Nullable;
 
 import java.util.Iterator;
 import java.util.concurrent.ThreadLocalRandom;
@@ -76,11 +78,28 @@ public class FightUtil {
                 int damage = DamageHandler.calculateDamage(player, entity);
                 entity.damage(damage);
 
-                Actions.playerDamageEntity(id, entity, damage);
+                Actions.playerDamageEntity(id, entity, damage, FightUtil.getFightingWeapon(player));
             }
         }
 
         return true;
+    }
+
+    /**
+     * Get the weapon a player is fighting with
+     *
+     * @param player The player to get the weapon of
+     * @return The weapon the player is fighting with
+     */
+    @Nullable
+    public static Item getFightingWeapon(Player player) {
+        for (Item item : BackpackManager.get(player.getId()).getItems()) {
+            if (item.getType() == ItemType.WEAPON) {
+                return item;
+            }
+        }
+
+        return null;
     }
 
 }

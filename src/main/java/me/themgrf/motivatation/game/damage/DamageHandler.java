@@ -2,6 +2,9 @@ package me.themgrf.motivatation.game.damage;
 
 import me.themgrf.motivatation.entities.LivingEntity;
 import me.themgrf.motivatation.entities.Player;
+import me.themgrf.motivatation.game.inventories.items.Item;
+import me.themgrf.motivatation.game.inventories.items.attributes.HealthAttribute;
+import me.themgrf.motivatation.game.inventories.items.attributes.ItemAttribute;
 import me.themgrf.motivatation.game.missions.actions.Actions;
 import me.themgrf.motivatation.util.MathUtil;
 
@@ -25,7 +28,18 @@ public class DamageHandler {
             return (int) damage;
         }
 
-        // TODO: Add damage from weapon?
+        // If the source is a player check their current weapon for extra damage
+        if (source instanceof Player) {
+            Item weapon = FightUtil.getFightingWeapon((Player) source);
+            if (weapon != null) {
+                for (ItemAttribute attribute : weapon.getItemAttributes()) {
+                    if (attribute instanceof HealthAttribute) {
+                        damage += attribute.getAmount();
+                        break;
+                    }
+                }
+            }
+        }
 
         // Target defence lower impact
         double calc = (100 / (100 + targetDefence));

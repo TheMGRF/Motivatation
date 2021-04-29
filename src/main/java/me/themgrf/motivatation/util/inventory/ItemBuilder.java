@@ -2,6 +2,7 @@ package me.themgrf.motivatation.util.inventory;
 
 import me.themgrf.motivatation.game.inventories.items.Item;
 import me.themgrf.motivatation.game.inventories.items.ItemRarity;
+import me.themgrf.motivatation.game.inventories.items.ItemType;
 import me.themgrf.motivatation.game.inventories.items.Texture;
 import me.themgrf.motivatation.game.inventories.items.attributes.ItemAttribute;
 
@@ -47,6 +48,11 @@ public class ItemBuilder {
 
     public ItemBuilder rarity(ItemRarity rarity) {
         item.setRarity(rarity);
+        return this;
+    }
+
+    public ItemBuilder type(ItemType type) {
+        item.setType(type);
         return this;
     }
 

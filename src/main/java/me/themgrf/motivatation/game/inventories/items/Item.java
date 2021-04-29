@@ -16,19 +16,20 @@ public class Item {
     private Texture texture;
     private List<String> description;
     private ItemRarity rarity;
+    private ItemType type;
     private List<ItemAttribute> itemAttributes;
     private int value;
     private boolean consumable;
 
     public Item(String id) {
-        this(id, "", Texture.SLIM_IRON_SWORD, new ArrayList<>(), new ArrayList<>(), ItemRarity.COMMON, 10);
+        this(id, "", Texture.SLIM_IRON_SWORD, new ArrayList<>(), new ArrayList<>(), ItemRarity.COMMON, ItemType.MISC, 10);
     }
 
-    public Item(String id, String name, Texture texture, List<String> description, List<ItemAttribute> itemAttributes, ItemRarity rarity) {
-        this(id, name, texture, description, itemAttributes, rarity, 10);
+    public Item(String id, String name, Texture texture, List<String> description, List<ItemAttribute> itemAttributes, ItemRarity rarity, ItemType type) {
+        this(id, name, texture, description, itemAttributes, rarity, type, 10);
     }
 
-    public Item(String id, String name, Texture texture, List<String> description, List<ItemAttribute> itemAttributes, ItemRarity rarity, int value) {
+    public Item(String id, String name, Texture texture, List<String> description, List<ItemAttribute> itemAttributes, ItemRarity rarity, ItemType type, int value) {
         this.internalID = UUID.randomUUID();
         this.id = id;
         this.name = name;
@@ -36,6 +37,7 @@ public class Item {
         this.description = description;
         this.itemAttributes = itemAttributes;
         this.rarity = rarity;
+        this.type = type;
         this.value = value;
         this.consumable = false;
     }
@@ -98,6 +100,14 @@ public class Item {
 
     public void setRarity(ItemRarity rarity) {
         this.rarity = rarity;
+    }
+
+    public ItemType getType() {
+        return type;
+    }
+
+    public void setType(ItemType type) {
+        this.type = type;
     }
 
     public int getValue() {

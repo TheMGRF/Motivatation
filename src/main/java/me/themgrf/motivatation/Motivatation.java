@@ -2,10 +2,10 @@ package me.themgrf.motivatation;
 
 import me.themgrf.motivatation.entities.EntityType;
 import me.themgrf.motivatation.entities.LivingEntity;
-import me.themgrf.motivatation.entities.Player;
 import me.themgrf.motivatation.entities.Zombie;
 import me.themgrf.motivatation.game.inventories.items.ItemManager;
 import me.themgrf.motivatation.game.inventories.items.ItemRarity;
+import me.themgrf.motivatation.game.inventories.items.ItemType;
 import me.themgrf.motivatation.game.inventories.items.Texture;
 import me.themgrf.motivatation.game.inventories.items.attributes.DefenceAttribute;
 import me.themgrf.motivatation.game.inventories.items.attributes.HealthAttribute;
@@ -57,6 +57,7 @@ public class Motivatation {
                         .description(Collections.singletonList("Used for simple and efficient training!"))
                         .texture(Texture.SLIM_IRON_SWORD)
                         .rarity(ItemRarity.COMMON)
+                        .type(ItemType.WEAPON)
                         .value(5)
                         .get()
         );
@@ -67,6 +68,7 @@ public class Motivatation {
                         .texture(Texture.JEWELED_IRON_SWORD)
                         .addItemAttribute(new HealthAttribute(5))
                         .rarity(ItemRarity.UNCOMMON)
+                        .type(ItemType.WEAPON)
                         .value(50)
                         .get()
         );
@@ -77,6 +79,7 @@ public class Motivatation {
                         .texture(Texture.GREAT_IRON_SWORD)
                         .addItemAttributes(new HealthAttribute(6), new DefenceAttribute(3))
                         .rarity(ItemRarity.RARE)
+                        .type(ItemType.WEAPON)
                         .value(100)
                         .get()
         );
@@ -87,6 +90,7 @@ public class Motivatation {
                         .texture(Texture.GREATER_IRON_SWORD)
                         .addItemAttributes(new HealthAttribute(8), new DefenceAttribute(4), new SpeedAttribute(12))
                         .rarity(ItemRarity.EPIC)
+                        .type(ItemType.WEAPON)
                         .value(500)
                         .get()
         );
@@ -96,6 +100,7 @@ public class Motivatation {
                         .description(Collections.singletonList("A basic oak bow!"))
                         .texture(Texture.OAK_BOW)
                         .rarity(ItemRarity.COMMON)
+                        .type(ItemType.WEAPON)
                         .value(10)
                         .get()
         );
@@ -106,6 +111,7 @@ public class Motivatation {
                         .texture(Texture.CURVED_BOW)
                         .addItemAttributes(new HealthAttribute(4), new SpeedAttribute(2))
                         .rarity(ItemRarity.RARE)
+                        .type(ItemType.WEAPON)
                         .value(50)
                         .get()
         );
@@ -116,6 +122,7 @@ public class Motivatation {
                         .texture(Texture.APPLE)
                         .addItemAttributes(new HealthAttribute(2))
                         .rarity(ItemRarity.COMMON)
+                        .type(ItemType.FOOD)
                         .value(5)
                         .consumable()
                         .get()
@@ -127,6 +134,7 @@ public class Motivatation {
                         .texture(Texture.CHEESE_WHEEL)
                         .addItemAttributes(new HealthAttribute(3))
                         .rarity(ItemRarity.UNCOMMON)
+                        .type(ItemType.FOOD)
                         .value(8)
                         .consumable()
                         .get()
@@ -138,6 +146,7 @@ public class Motivatation {
                         .texture(Texture.PIE)
                         .addItemAttributes(new HealthAttribute(4))
                         .rarity(ItemRarity.RARE)
+                        .type(ItemType.FOOD)
                         .value(6)
                         .consumable()
                         .get()
@@ -149,6 +158,7 @@ public class Motivatation {
                         .texture(Texture.HEALTH_POTION)
                         .addItemAttributes(new HealthAttribute(5))
                         .rarity(ItemRarity.UNCOMMON)
+                        .type(ItemType.POTION)
                         .consumable()
                         .get()
         );
@@ -159,6 +169,7 @@ public class Motivatation {
                         .texture(Texture.HEALTH_POTION)
                         .addItemAttributes(new HealthAttribute(6))
                         .rarity(ItemRarity.UNCOMMON)
+                        .type(ItemType.POTION)
                         .value(15)
                         .consumable()
                         .get()
@@ -170,6 +181,7 @@ public class Motivatation {
                         .texture(Texture.HEALTH_POTION)
                         .addItemAttributes(new HealthAttribute(7))
                         .rarity(ItemRarity.UNCOMMON)
+                        .type(ItemType.POTION)
                         .value(30)
                         .consumable()
                         .get()
@@ -181,6 +193,7 @@ public class Motivatation {
                         .texture(Texture.PLENTIFUL_HEALTH_POTION)
                         .addItemAttributes(new HealthAttribute(8))
                         .rarity(ItemRarity.RARE)
+                        .type(ItemType.POTION)
                         .value(50)
                         .consumable()
                         .get()
@@ -192,6 +205,7 @@ public class Motivatation {
                         .texture(Texture.PLENTIFUL_HEALTH_POTION)
                         .addItemAttributes(new HealthAttribute(10))
                         .rarity(ItemRarity.EPIC)
+                        .type(ItemType.POTION)
                         .value(65)
                         .consumable()
                         .get()
@@ -203,6 +217,7 @@ public class Motivatation {
                         .texture(Texture.STAMINA_POTION)
                         .addItemAttributes(new SpeedAttribute(2))
                         .rarity(ItemRarity.UNCOMMON)
+                        .type(ItemType.POTION)
                         .consumable()
                         .get()
         );
@@ -213,6 +228,7 @@ public class Motivatation {
                         .texture(Texture.STAMINA_POTION)
                         .addItemAttributes(new SpeedAttribute(4))
                         .rarity(ItemRarity.UNCOMMON)
+                        .type(ItemType.POTION)
                         .value(20)
                         .consumable()
                         .get()
@@ -224,6 +240,7 @@ public class Motivatation {
                         .texture(Texture.PLENTIFUL_STAMINA_POTION)
                         .addItemAttributes(new SpeedAttribute(6))
                         .rarity(ItemRarity.UNCOMMON)
+                        .type(ItemType.POTION)
                         .value(35)
                         .consumable()
                         .get()
@@ -235,6 +252,7 @@ public class Motivatation {
                         .texture(Texture.STAR_AMULET)
                         .addItemAttributes(new DefenceAttribute(5))
                         .rarity(ItemRarity.EPIC)
+                        .type(ItemType.JEWELRY)
                         .value(120)
                         .consumable()
                         .get()
@@ -245,6 +263,7 @@ public class Motivatation {
                         .description(Collections.singletonList("A decorative and luxurious amulet."))
                         .texture(Texture.GEM_AMULET)
                         .rarity(ItemRarity.COMMON)
+                        .type(ItemType.JEWELRY)
                         .value(80)
                         .get()
         );
@@ -254,6 +273,7 @@ public class Motivatation {
                         .description(Collections.singletonList("An old and rustic amulet formed from bone."))
                         .texture(Texture.BONE_AMULET)
                         .rarity(ItemRarity.COMMON)
+                        .type(ItemType.JEWELRY)
                         .value(12)
                         .get()
         );
