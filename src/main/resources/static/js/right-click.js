@@ -44,6 +44,10 @@ for (let i = 0; i < lists.length; i++) {
             tooltips[i].style.display = "hidden";
         }
 
+        for (let j = 0; j < lists.length; j++) {
+            lists[j].style.display = "none";
+        }
+
         const x = event.pageX;
         const y = event.pageY;
         listElement.style.display = "block";
