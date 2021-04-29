@@ -22,6 +22,7 @@
     <link rel="stylesheet" type="text/css" th:href="@{css/inventory.css}">
     <link rel="stylesheet" type="text/css" th:href="@{css/modal.css}">
     <link rel="stylesheet" type="text/css" th:href="@{css/summary.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{css/notification.css}">
 
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
 
@@ -111,6 +112,14 @@
             </div>
         </div>
     </div>
+
+    <div th:replace="fragments/notification :: notification"></div>
+    <script th:if="${firstMission}" th:inline="javascript">
+        notification("Achievement Get!", "/items/weapons/swords/jeweled_iron_sword.png", "You completed your first adventure!");
+    </script>
+    <script th:if="${firstFiveMission}" th:inline="javascript">
+        notification("Achievement Get!", "/items/armour/helmets/decorative_iron_helmet.png", "You completed your first 5 missions !");
+    </script>
 
     <script th:src="@{js/missionComplete.js}"></script>
     <script th:src="@{js/modals/summaryModal.js}"></script>

@@ -4,10 +4,12 @@ import me.themgrf.motivatation.controllers.ControllerBase;
 import me.themgrf.motivatation.database.PlayerManager;
 import me.themgrf.motivatation.entities.Player;
 import me.themgrf.motivatation.entities.User;
-import me.themgrf.motivatation.game.missions.actions.ActionRecorder;
+import me.themgrf.motivatation.game.achievement.Achievement;
+import me.themgrf.motivatation.game.achievement.AchievementManager;
 import me.themgrf.motivatation.game.missions.Mission;
 import me.themgrf.motivatation.game.missions.MissionManager;
 import me.themgrf.motivatation.game.missions.Missions;
+import me.themgrf.motivatation.game.missions.actions.ActionRecorder;
 import me.themgrf.motivatation.game.missions.events.RandomEvent;
 import me.themgrf.motivatation.game.missions.events.impl.PeacefulJourneyEvent;
 import me.themgrf.motivatation.util.Auth;
@@ -88,6 +90,18 @@ public class MissionsController extends ControllerBase {
                     break;
             }
 
+            Achievement firstMission = Achievement.FIRST_ADVENTURE;
+            if (!player.hasAchievement(firstMission)) {
+                CoreUtilities.getTaskManager().runAsync(() -> AchievementManager.updateAchievement(player, firstMission, 1));
+                model.addAttribute("firstMission", firstMission);
+            }
+
+            Achievement firstFiveMissions = Achievement.SEASONED_ADVENTURER;
+            if (!player.hasAchievement(firstFiveMissions)) {
+                CoreUtilities.getTaskManager().runAsync(() -> AchievementManager.updateAchievement(player, firstFiveMissions, 5));
+                model.addAttribute("firstFiveMission", firstFiveMissions);
+            }
+
             if (runRandomEvent) {
                 List<RandomEvent> randomEvents = mission.getRandomEvents();
                 randomEvent = randomEvents.get(ThreadLocalRandom.current().nextInt(randomEvents.size()));
@@ -130,6 +144,12 @@ public class MissionsController extends ControllerBase {
             if (player.getCoins() >= RESET_COST) {
                 attributes.addFlashAttribute("missions", MissionManager.reset(player));
                 player.removeCoins(RESET_COST);
+
+                Achievement prestigious = Achievement.PRESTIGIOUS;
+                if (!player.hasAchievement(prestigious)) {
+                    CoreUtilities.getTaskManager().runAsync(() -> AchievementManager.updateAchievement(player, prestigious, 1));
+                    attributes.addFlashAttribute("prestigious", prestigious);
+                }
 
                 CoreUtilities.getTaskManager().runAsync(() -> PlayerManager.savePlayer(player));
             } else {

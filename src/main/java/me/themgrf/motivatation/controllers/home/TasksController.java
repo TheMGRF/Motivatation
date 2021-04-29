@@ -4,6 +4,8 @@ import me.themgrf.motivatation.controllers.ControllerBase;
 import me.themgrf.motivatation.database.PlayerManager;
 import me.themgrf.motivatation.entities.Player;
 import me.themgrf.motivatation.entities.User;
+import me.themgrf.motivatation.game.achievement.Achievement;
+import me.themgrf.motivatation.game.achievement.AchievementManager;
 import me.themgrf.motivatation.game.rewards.Reward;
 import me.themgrf.motivatation.game.tasks.Task;
 import me.themgrf.motivatation.game.tasks.TaskManager;
@@ -52,6 +54,21 @@ public class TasksController extends ControllerBase {
             attributes.addFlashAttribute("username", user.getUsername());
             Player player = PlayerManager.getPlayer(user);
             TaskManager.addTask(player, task);
+
+            Achievement firstTask = Achievement.FIRST_TASK;
+            if (!player.hasAchievement(firstTask)) {
+                CoreUtilities.getTaskManager().runAsync(() -> AchievementManager.updateAchievement(player, firstTask, 1));
+            }
+
+            Achievement fiveTasks = Achievement.FIVE_TASKS;
+            if (!player.hasAchievement(fiveTasks) && TaskManager.getTasks(player).size() > 5) {
+                CoreUtilities.getTaskManager().runAsync(() -> AchievementManager.updateAchievement(player, fiveTasks, 5));
+            }
+
+            Achievement tenTasks = Achievement.TEN_TASKS;
+            if (!player.hasAchievement(tenTasks) && TaskManager.getTasks(player).size() > 10) {
+                CoreUtilities.getTaskManager().runAsync(() -> AchievementManager.updateAchievement(player, tenTasks, 10));
+            }
 
             CoreUtilities.getTaskManager().runAsync(() -> PlayerManager.savePlayer(player));
         }
