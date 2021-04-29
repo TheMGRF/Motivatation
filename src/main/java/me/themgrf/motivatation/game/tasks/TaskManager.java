@@ -24,6 +24,7 @@ public class TaskManager {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setLong(1, id);
 
+            //Task.TaskStatus.IN_PROGRESS, // Task.TaskStatus.valueOf(rs.getString("status"))
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 tasks.add(new Task(
@@ -31,7 +32,6 @@ public class TaskManager {
                         rs.getString("task"),
                         rs.getString("description"),
                         rs.getString("due"),
-                        Task.TaskStatus.valueOf(rs.getString("status")),
                         Task.TaskPriority.valueOf(rs.getString("priority")),
                         Reward.fromString(rs.getString("reward")),
                         rs.getInt("done") == 1,

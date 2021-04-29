@@ -10,7 +10,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class TravellingMerchantEvent extends RandomEvent {
 
-    private static final int COIN_GAIN = ThreadLocalRandom.current().nextInt(30);
+    private static final int COIN_GAIN = ThreadLocalRandom.current().nextInt(1, 30);
 
     public TravellingMerchantEvent() {
         super(

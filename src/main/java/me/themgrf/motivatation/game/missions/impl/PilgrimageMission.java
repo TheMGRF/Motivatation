@@ -66,7 +66,7 @@ public class PilgrimageMission extends Mission {
         Actions.deliveryMade(id, "the Monks");
 
         // give the player an extra tip if they were smart enough
-        rand = ThreadLocalRandom.current().nextDouble(intelligence);
+        rand = ThreadLocalRandom.current().nextDouble(Math.max(1, intelligence));
         if (rand < (intelligence / 2)) {
             Reward tip = new Reward(RewardType.COINS, ThreadLocalRandom.current().nextInt(MAX_TIP));
             Actions.tip(id, tip);

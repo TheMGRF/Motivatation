@@ -115,10 +115,10 @@
 
     <div th:replace="fragments/notification :: notification"></div>
     <script th:if="${firstMission}" th:inline="javascript">
-        notification("Achievement Get!", "/items/weapons/swords/jeweled_iron_sword.png", "You completed your first adventure!");
+        notification("Achievement Get!", "/img/items/weapons/swords/jeweled_iron_sword.png", "You completed your first adventure!");
     </script>
     <script th:if="${firstFiveMission}" th:inline="javascript">
-        notification("Achievement Get!", "/items/armour/helmets/decorative_iron_helmet.png", "You completed your first 5 missions !");
+        notification("Achievement Get!", "/img/items/armour/helmets/decorative_iron_helmet.png", "You completed your first 5 missions !");
     </script>
 
     <script th:src="@{js/missionComplete.js}"></script>

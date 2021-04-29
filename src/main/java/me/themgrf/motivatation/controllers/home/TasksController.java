@@ -90,7 +90,7 @@ public class TasksController extends ControllerBase {
                     player.giveReward(task.getReward());
 
                     // save tasks to db
-                    CoreUtilities.getTaskManager().runAsync(() -> TaskManager.saveTasks(player));
+                    CoreUtilities.getTaskManager().runAsync(() -> PlayerManager.savePlayer(player));
 
                     attributes.addFlashAttribute("taskCompleted", task.getReward().toString());
                     System.out.println("User " + user.getUsername() + " has completed task: " + task.getName());

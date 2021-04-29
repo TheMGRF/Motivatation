@@ -46,15 +46,13 @@ public class AchievementManager {
     }
 
     public static void updateAchievement(Player player, Achievement achievement, int current) {
-        String sql = "UPDATE achievements SET player_id = ?, achievement_id = ?, current = ? WHERE player_id = ? AND achievement_id = ?;";
+        String sql = "REPLACE INTO achievements (player_id, achievement_id, current) VALUES(?, ?, ?);";
 
         try (Connection con = DatabaseConnector.getInstance().getConnection("motivatation")) {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setLong(1, player.getId());
             ps.setString(2, achievement.getId());
             ps.setInt(3, current);
-            ps.setLong(4, player.getId());
-            ps.setString(5, achievement.getId());
 
             ps.execute();
 

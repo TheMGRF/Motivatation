@@ -20,19 +20,19 @@ public class Task {
     private int formRewardAmount;
 
     public Task() {
-        this.uuid = UUID.randomUUID();
+        this(UUID.randomUUID(), "", "", "", TaskPriority.LOW, new Reward(RewardType.COINS, 0), false, 0);
     }
 
-    public Task(String name, String description, String due, TaskStatus status, TaskPriority priority, Reward reward, boolean done, long repeat) {
-        this(UUID.randomUUID(), name, description, due, status, priority, reward, done, repeat);
+    public Task(String name, String description, String due, TaskPriority priority, Reward reward, boolean done, long repeat) {
+        this(UUID.randomUUID(), name, description, due, priority, reward, done, repeat);
     }
 
-    public Task(UUID uuid, String name, String description, String due, TaskStatus status, TaskPriority priority, Reward reward, boolean done, long repeat) {
+    public Task(UUID uuid, String name, String description, String due, TaskPriority priority, Reward reward, boolean done, long repeat) {
         this.uuid = uuid;
         this.name = name;
         this.description = description;
         this.due = due;
-        this.status = status;
+        this.status = Task.TaskStatus.IN_PROGRESS;
         this.priority = priority;
         this.reward = reward;
         this.done = done;
