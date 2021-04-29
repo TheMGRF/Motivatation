@@ -2,11 +2,8 @@ package me.themgrf.motivatation.game.tasks;
 
 import me.themgrf.motivatation.game.rewards.Reward;
 import me.themgrf.motivatation.game.rewards.RewardType;
-import me.themgrf.motivatation.util.Pair;
 import org.apache.commons.text.WordUtils;
-import org.springframework.util.StringUtils;
 
-import java.util.Optional;
 import java.util.UUID;
 
 public class Task {
@@ -158,6 +155,10 @@ public class Task {
         FINISHED,
         OVERDUE;
 
+        public String toLowerString() {
+            return name().toLowerCase().replace("_", " ");
+        }
+
         @Override
         public String toString() {
             return WordUtils.capitalize(name().toLowerCase().replace("_", " "));
@@ -170,9 +171,13 @@ public class Task {
         MEDIUM,
         HIGH;
 
+        public String toLowerString() {
+            return name().toLowerCase();
+        }
+
         @Override
         public String toString() {
-            return WordUtils.capitalize(name().toLowerCase().replace("_", " "));
+            return WordUtils.capitalize(name().toLowerCase());
         }
 
     }
