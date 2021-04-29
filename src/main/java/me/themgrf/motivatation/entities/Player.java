@@ -2,10 +2,10 @@ package me.themgrf.motivatation.entities;
 
 import me.themgrf.motivatation.game.achievement.Achievement;
 import me.themgrf.motivatation.game.achievement.AchievementManager;
-import me.themgrf.motivatation.game.inventories.Backpack;
 import me.themgrf.motivatation.game.inventories.Inventory;
 import me.themgrf.motivatation.game.inventories.items.ItemManager;
 import me.themgrf.motivatation.game.rewards.Reward;
+import me.themgrf.motivatation.util.LevelCalculator;
 import me.themgrf.motivatation.util.inventory.InventoryCreator;
 import xyz.minecrossing.databaseconnector.DatabaseConnector;
 
@@ -96,6 +96,10 @@ public class Player extends LivingEntity {
 
     public void giveExperience(double experience) {
         this.experience += experience;
+    }
+
+    public int getLevel() {
+        return LevelCalculator.getLevel(this);
     }
 
     public double getIntelligence() {

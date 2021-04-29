@@ -33,7 +33,7 @@ public class PilgrimageMission extends Mission {
 
     @Override
     public int getLevel() {
-        return 4;
+        return 6;
     }
 
     @Override

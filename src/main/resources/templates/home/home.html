@@ -49,7 +49,7 @@
             <!--<img class="character" th:src="@{img/character/idle.gif}" alt="Player Character">-->
             <img class="character" th:src="@{img/character.png}" alt="Player Character">
 
-            <h2 th:text="${player.getName()}"></h2>
+            <h2 th:text="${player.getName() + ' [Lv' + player.getLevel() + ']'}"></h2>
             <h3 th:text="'Health: ❤️' + ${player.getHealth()}"></h3>
             <h3 th:text="'Defence: 🛡️' + ${player.getDefence()}"></h3>
             <h3 th:text="'Stength: ⚔️' + ${player.getStrength()}"></h3>

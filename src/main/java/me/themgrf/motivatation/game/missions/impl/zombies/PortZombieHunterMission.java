@@ -39,7 +39,7 @@ public class PortZombieHunterMission extends Mission {
 
     @Override
     public int getLevel() {
-        return 2;
+        return 5;
     }
 
     @Override

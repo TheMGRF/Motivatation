@@ -18,12 +18,12 @@
                 <li th:if="${loggedIn}" id="continue" class="nav-action"><a class="nav-link" href="/home">Continue</a></li>
                 <li th:if="${not loggedIn}" id="login" class="nav-action"><a class="nav-link" href="/login">Login</a></li>
             </span>
-            <span th:if="${pageName} == 'Motivatation | Home'">
+            <!--<span th:if="${pageName} == 'Motivatation | Home'">
                 <div id="profile-container">
                     <li id="profile-info">
                         <span>
                             <b th:text="${username}">User</b>
-                            <!--<p>Test 1: <span th:text="${player.health}"></span></p>-->
+                            &lt;!&ndash;<p>Test 1: <span th:text="${player.health}"></span></p>&ndash;&gt;
                             <small id="levels-tasks">
                                 Level: <span th:text="${player.getLevel()}"></span>
                                 <br>
@@ -32,7 +32,7 @@
                         </span>
                     </li>
                 </div>
-            </span>
+            </span>-->
         </ul>
 
         <script th:src="@{js/utils.js}"></script>

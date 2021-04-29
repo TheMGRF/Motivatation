@@ -32,7 +32,7 @@ public class CityZombieHunterMission extends Mission {
 
     @Override
     public int getLevel() {
-        return 5;
+        return 15;
     }
 
     @Override
