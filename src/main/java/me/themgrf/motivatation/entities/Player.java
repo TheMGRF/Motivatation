@@ -118,6 +118,7 @@ public class Player extends LivingEntity {
         achievements.add(achievement);
     }
 
+    @Deprecated
     public boolean hasAchievement(Achievement achievement) {
         return achievements.contains(achievement);
     }

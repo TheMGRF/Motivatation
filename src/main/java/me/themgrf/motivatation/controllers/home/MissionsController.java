@@ -146,7 +146,7 @@ public class MissionsController extends ControllerBase {
                 player.removeCoins(RESET_COST);
 
                 Achievement prestigious = Achievement.PRESTIGIOUS;
-                if (!player.hasAchievement(prestigious)) {
+                if (!AchievementManager.hasCompleted(player, prestigious)) {
                     CoreUtilities.getTaskManager().runAsync(() -> AchievementManager.updateAchievement(player, prestigious, 1));
                     attributes.addFlashAttribute("prestigious", prestigious);
                 }
