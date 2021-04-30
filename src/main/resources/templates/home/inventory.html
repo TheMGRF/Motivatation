@@ -48,8 +48,14 @@
 
         <br>
 
+        <div class="header-container">
+            <h3>Your Inventories</h3>
+            <h4 class="header-sub">Here you can manage both of your inventories and select items to take with you on missions!</h4>
+            <h5 class="header-sub">⚠️ Tip! Right-Click items to use, move and drop them!</h5>
+        </div>
+
         <div class="inventory-container">
-            <h3>Your Inventory</h3>
+            <h3>Inventory</h3>
             <tr class="inventory" th:each="item: ${player.getInventory().getItems()}">
                 <div th:replace="fragments/item :: item" th:with="item=${item}"></div>
                 <ul class="list" th:id="${item.getInternalID().toString()} + '-list'" th:fragment="menu">
@@ -61,7 +67,7 @@
         </div>
 
         <div class="inventory-container">
-            <h3>Your Backpack</h3>
+            <h3>Backpack</h3>
             <tr class="inventory" th:each="item: ${backpack.getItems()}">
                 <div th:replace="fragments/item :: item" th:with="item=${item}"></div>
                 <ul class="list" th:id="${item.getInternalID().toString()} + '-list'" th:fragment="menu">

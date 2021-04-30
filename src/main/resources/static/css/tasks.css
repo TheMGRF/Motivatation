@@ -7,15 +7,8 @@
     border-radius: 5px;
 }
 
-h3 {
-    color: #ffffff;
-    background-color: #707070;
-
-    padding: 1%;
-}
-
 .tasks {
-    padding: 2%;
+    padding-left: 1%;
 }
 
 .task {

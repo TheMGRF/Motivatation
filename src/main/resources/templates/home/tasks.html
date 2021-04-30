@@ -51,6 +51,11 @@
 
         <a id="add-task"><i class="fas fa-edit"></i> Add Task</a>
 
+        <div class="header-container">
+            <h3>Your Tasks</h3>
+            <h4 class="header-sub">This is you can create and complete your tasks and earn rewards in the process!</h4>
+        </div>
+
         <div class="tasks">
             <tr th:each="task: ${tasks}">
                 <div th:if="${task.getReward().getRewardType().name() == ''}" th:replace="fragments/task :: task"></div>
