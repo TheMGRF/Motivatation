@@ -217,3 +217,7 @@
     border: none;
     border-radius: 3px;
 }
+
+#task-add:disabled {
+    background-color: #ff4d4d;
+}

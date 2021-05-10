@@ -4,14 +4,8 @@ import me.themgrf.motivatation.entities.Player;
 import me.themgrf.motivatation.entities.User;
 import me.themgrf.motivatation.game.tasks.TaskManager;
 import me.themgrf.motivatation.util.DBUtil;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import xyz.minecrossing.coreutilities.CoreUtilities;
-import xyz.minecrossing.databaseconnector.DatabaseConnector;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -143,11 +137,14 @@ public class PlayerManager {
             ps.execute();
 
             // Update inventories
-            sql = "UPDATE inventories SET items = ? WHERE player_id = ?;";
+            //sql = "UPDATE inventories SET items = ? WHERE player_id = ?;";
+            sql = "INSERT INTO inventories (player_id, items) VALUES(?, ?) ON DUPLICATE KEY UPDATE items = ?;";
 
             ps = con.prepareStatement(sql);
-            ps.setString(1, player.getInventory().toString());
-            ps.setLong(2, player.getId());
+            ps.setLong(1, player.getId());
+            ps.setString(2, player.getInventory().toString());
+            ps.setString(3, player.getInventory().toString());
+
 
             ps.execute();
 

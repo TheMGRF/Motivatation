@@ -12,8 +12,40 @@ btn.onclick = function() {
 span.onclick = function() {
     taskModal.style.display = "none";
 }
+
+document.onkeydown = function () {
+    shouldButton();
+}
+
 continueBtn.onclick = function () {
-    taskModal.style.display = "none";
+    if (shouldButton()) {
+        taskModal.style.display = "none";
+    }
+}
+
+function shouldButton() {
+    if (document.getElementById("name").value === "") {
+        continueBtn.disabled = true;
+        return false;
+    } else if (document.getElementById("desc").value === "") {
+        continueBtn.disabled = true;
+        return false;
+    } else if (document.getElementById("date").value === "") {
+        continueBtn.disabled = true;
+        return false;
+    } else if (document.getElementById("priority").value === "") {
+        continueBtn.disabled = true;
+        return false;
+    } else if (document.getElementById("reward-type").value === "") {
+        continueBtn.disabled = true;
+        return false;
+    } else if (document.getElementById("formRewardAmount").value === "") {
+        continueBtn.disabled = true;
+        return false;
+    }
+
+    continueBtn.disabled = false;
+    return true;
 }
 
 // When the user clicks anywhere outside of the taskModal, close it

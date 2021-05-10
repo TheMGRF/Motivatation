@@ -3,10 +3,8 @@ package me.themgrf.motivatation.controllers;
 import me.themgrf.motivatation.database.PlayerManager;
 import me.themgrf.motivatation.entities.Player;
 import me.themgrf.motivatation.entities.User;
-import me.themgrf.motivatation.users.service.UserService;
 import me.themgrf.motivatation.users.UserValidator;
-import me.themgrf.motivatation.util.AppInfo;
-import me.themgrf.motivatation.util.Auth;
+import me.themgrf.motivatation.users.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -47,6 +45,9 @@ public class SignupController extends ControllerBase {
             bindingResult.getModel().forEach((s, o) -> {
                 System.out.println(s + ": " + o);
             });
+
+            model.addAttribute("error", true);
+
             return "signup";
         }
 

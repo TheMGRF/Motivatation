@@ -44,6 +44,10 @@
         <hr>
         <br>
 
+        <div th:if="${error}">
+            <p class="error">Error occurred! Invalid username or email.</p>
+        </div>
+
         <form action="#" th:action="@{/signup}" th:object="${signup}" method="post">
             <div>
                 <label for="username">User Name</label>

@@ -22,6 +22,7 @@ public class MissionManager {
 
         missions = getNewMissions(player);
 
+        // Adding to map
         PLAYER_MISSIONS.put(player.getId(), missions);
         return missions;
     }
@@ -48,7 +49,7 @@ public class MissionManager {
 
         for (int i = 1; i < TOTAL_MISSIONS + 1;) {
             Mission mission = Missions.VALUES[ThreadLocalRandom.current().nextInt(Missions.VALUES.length)].getMission();
-            if (mission.getLevel() <= player.getLevel()) {
+            if (mission.getLevel() <= (player.getLevel() + 1)) { // +1 to account for level 0 + more difficulty
                 safe = true;
             }
             if (safe) {

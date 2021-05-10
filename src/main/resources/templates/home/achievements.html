@@ -51,6 +51,7 @@
         <div class="achievement-container">
             <h3>Your Achievements</h3>
             <h4>This is a list of all of your achievements on Motivitation! Complete achievements to earn extra rewards!</h4>
+            <h5 class="header-sub">⚠️ Tip! Completed achievements will appear in a light-grey colour!</h5>
 
             <tr class="achievements" th:each="achievement: ${achievements}">
                 <div th:replace="fragments/achievement :: achievement" th:with="achievement=${achievement},playerAchievements=${playerAchievements}"></div>
