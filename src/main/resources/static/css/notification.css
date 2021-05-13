@@ -3,7 +3,7 @@
 }
 
 .notification-text {
-    font-family: Minecraft, Roboto, serif;
+    font-family: Minecraft, Roboto, Arial, sans-serif;
 
     display: inline-block;
 }

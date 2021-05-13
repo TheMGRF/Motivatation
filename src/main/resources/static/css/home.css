@@ -70,7 +70,7 @@
 }
 
 .currency span {
-    font-family: Minecraft, Roboto, serif;
+    font-family: Minecraft, Roboto, Arial, sans-serif;
 
     display: inline-block;
 }
@@ -134,7 +134,7 @@
     color: #ffffff;
     text-decoration: none;
     padding: 0 10px 0 10px;
-    font-family: Minecraft;
+    font-family: Minecraft, Arial, sans-serif;
 
     /* Position the tooltip */
     position: absolute;
